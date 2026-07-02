@@ -12,7 +12,7 @@ description: >-
 
 1. Read `CONTEXT.md` and `docs/style-guide.md`
 2. Source: `web/data/sources/{series}/{volume}/ch{NN}.zh.md`
-3. Glossary: `glossary/terms.yaml`, `glossary/{series}.yaml`
+3. Glossary: `web/data/glossary/terms.yaml`, `web/data/glossary/{series}.yaml`
 4. Optional base: `web/data/translations/{series}/{volume}/ch{NN}.hv.md` (terminology anchor)
 
 ## Output

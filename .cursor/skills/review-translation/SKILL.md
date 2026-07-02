@@ -12,7 +12,7 @@ description: >-
 
 - Source: `web/data/sources/.../*.zh.md` (body only for line count)
 - Draft: `web/data/translations/.../*.vi.md` and/or `*.hv.md`
-- `glossary/terms.yaml`, `docs/style-guide.md`
+- `web/data/glossary/terms.yaml`, `docs/style-guide.md`
 
 ## Checklist
 

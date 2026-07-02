@@ -32,7 +32,7 @@ glossary-curator → sino-vietnamese-translator → translator → reviewer
 ## Inputs (read order)
 
 1. Source body: `web/data/sources/{series}/{volume}/ch{NN}.zh.md`
-2. Glossary: `glossary/terms.yaml`, `glossary/{series}.yaml`
+2. Glossary: `web/data/glossary/terms.yaml`, `web/data/glossary/{series}.yaml`
 3. Optional: `notes/{series}-glossary-ch{NN}.md`, `CONTEXT.md`
 
 ## Output

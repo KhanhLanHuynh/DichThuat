@@ -8,7 +8,7 @@
 | Thuần Việt | Từ thông dụng, liên kết câu | 說 → nói / giảng / khai (tùy ngữ cảnh) |
 | Âm dịch | Danh từ riêng, chú | 阿彌陀 → A-di-đà |
 
-Khi Hán-Việt và thuần Việt tranh nhau, theo `glossary/terms.yaml`.
+Khi Hán-Việt và thuần Việt tranh nhau, theo `web/data/glossary/terms.yaml`.
 
 ## 2. Kính xưng và danh hiệu
 

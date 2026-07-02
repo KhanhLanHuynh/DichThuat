@@ -28,7 +28,7 @@ Produce **plain-text thuần Việt** drafts faithful to source, glossary-consis
 ## Inputs (read order)
 
 1. Source body: `web/data/sources/{series}/{volume}/ch{NN}.zh.md`
-2. Glossary: `glossary/terms.yaml`, `glossary/{series}.yaml`
+2. Glossary: `web/data/glossary/terms.yaml`, `web/data/glossary/{series}.yaml`
 3. Guides: `CONTEXT.md`, `docs/style-guide.md`
 4. Optional: `web/data/translations/.../ch{NN}.hv.md` (terminology anchor — preferred)
 

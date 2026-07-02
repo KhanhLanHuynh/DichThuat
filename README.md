@@ -5,7 +5,7 @@ Không gian làm việc dịch tài liệu Phật giáo với hỗ trợ AI, thu
 ## Bắt đầu nhanh
 
 1. Tải lên hoặc đặt bản gốc Hán vào `web/data/sources/{series}/{volume}/` (hoặc dùng **Upload** trong web app)
-2. Đăng ký thuật ngữ trong `glossary/terms.yaml` (hoặc dùng skill glossary)
+2. Đăng ký thuật ngữ trong `web/data/glossary/terms.yaml` (hoặc dùng skill glossary)
 3. Yêu cầu Cursor dịch một chương — rules và skills tự nạp
 4. Duyệt kết quả trong `web/data/translations/`; dùng subagent reviewer để QA
 
@@ -29,10 +29,11 @@ DichThuat/
 │   ├── data/
 │   │   ├── sources/        # Văn bản gốc Hán (.zh.md)
 │   │   ├── translations/   # Đầu ra Hán-Việt (.hv.md) và thuần Việt (.vi.md)
+│   │   ├── glossary/       # Thuật ngữ (terms.yaml, {series}.yaml)
 │   │   └── projects/       # Manifest dự án (web app)
 │   └── ...                 # Next.js translation workbench
 ├── parallel/               # Đối chiếu song song để duyệt
-├── glossary/               # Thuật ngữ dùng chung (terms.yaml)
+├── glossary/               # Redirect → web/data/glossary/
 ├── references/             # Kinh tạng, từ điển, bản dịch trước
 └── notes/                  # Ghi chú dịch giả, câu hỏi mở
 ```
@@ -51,7 +52,7 @@ DichThuat/
 
 - **translate-sino-vietnamese** — Lớp Hán-Việt sau glossary (`.hv.md`)
 - **translate-buddhist-text** — Quy trình dịch cả chương (`.vi.md`)
-- **build-glossary** — Trích thuật ngữ từ nguồn vào `glossary/`
+- **build-glossary** — Trích thuật ngữ từ nguồn vào `web/data/glossary/`
 - **review-translation** — Kiểm tra nháp theo glossary và style guide
 - **segment-source** — Chia văn bản dài thành file chương
 

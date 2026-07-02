@@ -20,7 +20,7 @@ Read `CONTEXT.md` at project start for terminology and workflow.
 
 ## Terminology
 
-- Check `glossary/terms.yaml` before translating; add new terms before first use
+- Check `web/data/glossary/terms.yaml` before translating; add new terms before first use
 - One Chinese term → one Vietnamese equivalent per series
 - Sanskrit/Pali & transliterated names: no hyphens; write each syllable as a separate Title Case word (e.g. Niết Bàn, Bồ Tát, Bát Nhã Ba La Mật, A Nan)
 

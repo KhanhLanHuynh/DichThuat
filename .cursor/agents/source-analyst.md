@@ -27,7 +27,7 @@ Your job is to produce **structured, quantitative reports** that downstream agen
 
 1. Source file(s): `web/data/sources/{series}/{volume}/ch{NN}.zh.md` (or raw paste)
 2. YAML frontmatter (`series`, `source_edition`, `script`)
-3. Existing `glossary/terms.yaml` and `glossary/{series}.yaml` (for overlap check)
+3. Existing `web/data/glossary/terms.yaml` and `web/data/glossary/{series}.yaml` (for overlap check)
 4. Optional: `CONTEXT.md`, `docs/style-guide.md`
 
 ## Analysis dimensions
@@ -100,7 +100,7 @@ Compute and report:
 - **Doctrinal density** = doctrinal term tokens / total tokens (rough estimate)
 - **Named entities**: 菩薩, 佛, 國, 天, 王, place names
 - **Sanskrit transliterations** (音譯): 阿…, 陀…, 羅… patterns
-- **Overlap with glossary**: terms already in `glossary/terms.yaml` vs new
+- **Overlap with glossary**: terms already in `web/data/glossary/terms.yaml` vs new
 - **Collision risk**: terms with multiple senses (e.g. 法, 心, 無) — flag for glossary notes
 
 Reference: word boundaries in classical Chinese are implicit; treat multi-char Buddhist compounds as single units (aligned with CBETA/DILA segmentation research).
@@ -268,7 +268,7 @@ After writing the file, return a **brief** summary (≤15 lines) with:
 
 ## Constraints
 
-- **Read-only** — do not edit `web/data/sources/`, `glossary/`, or `web/data/translations/` unless user explicitly overrides
+- **Read-only** — do not edit `web/data/sources/`, `web/data/glossary/`, or `web/data/translations/` unless user explicitly overrides
 - Do not translate — defer to `/translator`
 - Do not invent doctrine — flag ambiguity
 - Mark uncertain OCR/encoding issues in report, not silent fixes

@@ -8,7 +8,7 @@ description: Extracts Chinese Buddhist terms from source files and updates gloss
 ## Input
 
 - Source file(s) under `web/data/sources/`
-- Existing `glossary/terms.yaml` and optional `glossary/{series}.yaml`
+- Existing `web/data/glossary/terms.yaml` and optional `web/data/glossary/{series}.yaml`
 
 ## Workflow
 
@@ -51,8 +51,8 @@ description: Extracts Chinese Buddhist terms from source files and updates gloss
 
 ## Output
 
-- Update `glossary/{series}.yaml` for series-specific terms
-- Update `glossary/terms.yaml` for cross-series defaults
+- Update `web/data/glossary/{series}.yaml` for series-specific terms
+- Update `web/data/glossary/terms.yaml` for cross-series defaults
 - Report: new terms added, conflicts needing human decision
 
 ## Conflicts

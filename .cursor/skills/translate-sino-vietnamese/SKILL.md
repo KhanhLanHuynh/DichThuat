@@ -12,7 +12,7 @@ description: >-
 
 1. Glossary-curator has run — zero `pending` terms in relevant YAML
 2. Source: `web/data/sources/{series}/{volume}/ch{NN}.zh.md`
-3. Glossary: `glossary/terms.yaml`, `glossary/{series}.yaml`
+3. Glossary: `web/data/glossary/terms.yaml`, `web/data/glossary/{series}.yaml`
 
 If prerequisites fail: stop and run **build-glossary** / glossary-curator first.
 

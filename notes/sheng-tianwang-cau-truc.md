@@ -181,7 +181,7 @@ Ghi log sửa chưa chắc vào `notes/sheng-tianwang-ocr.md`.
 | 阿耨多羅三藐三菩提 | Trung | Đã quen kinh điển |
 | 陀羅尼 | Trung | Xuất hiện sớm trong hội tràng |
 
-Cần file **`glossary/sheng-tianwang.yaml`** cho tên riêng Bồ Tát/Thiên vương và mười Ba La Mật.
+Cần file **`web/data/glossary/sheng-tianwang.yaml`** cho tên riêng Bồ Tát/Thiên vương và mười Ba La Mật.
 
 ---
 

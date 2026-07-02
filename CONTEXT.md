@@ -13,7 +13,7 @@ DichThuat là không gian làm việc để dịch kinh điển Phật giáo t�
 
 1. **Trung thành hơn trôi chảy** — Giữ nguyên nghĩa giáo lý; không diễn giải làm mất các phân biệt kỹ thuật.
 2. **Từ vựng Phật giáo Việt Nam đã có** — Ưu tiên thuật ngữ trong kinh tạng Việt Nam (thường là Hán-Việt hoặc Sanskrit/Pali qua tiếng Việt).
-3. **Nhất quán** — Một thuật ngữ Hán → một bản tiếng Việt tương đương cho mỗi bộ kinh (xem `glossary/`).
+3. **Nhất quán** — Một thuật ngữ Hán → một bản tiếng Việt tương đương cho mỗi bộ kinh (xem `web/data/glossary/`).
 4. **Minh bạch** — Ghi chú đọc bản mơ hồ, dị thể (異體字) và lựa chọn dịch giả trong chú thích cuối trang hoặc `notes/`.
 5. **Giữ cấu trúc** — Giữ số chương, ngắt câu kệ và dấu hiệu đối thoại khớp với bản gốc.
 
@@ -44,7 +44,7 @@ DichThuat là không gian làm việc để dịch kinh điển Phật giáo t�
 | Chân như | chân như | — |
 | Duyên khởi | duyên khởi | — |
 
-Glossary đầy đủ: `glossary/terms.yaml`. Cập nhật trước khi dịch bộ kinh mới.
+Glossary đầy đủ: `web/data/glossary/terms.yaml`. Cập nhật trước khi dịch bộ kinh mới.
 
 ## Đặt tên file
 
@@ -54,11 +54,13 @@ Corpus (nguồn và dịch) nằm trong `web/data/`; đường dẫn logic:
 web/data/sources/{series}/{volume}/ch{NN}.zh.md      # YAML frontmatter + plain-text body
 web/data/translations/{series}/{volume}/ch{NN}.hv.md   # Hán-Việt — plain text, line-aligned
 web/data/translations/{series}/{volume}/ch{NN}.vi.md   # Thuần Việt — plain text, line-aligned
+web/data/glossary/terms.yaml                         # Thuật ngữ mặc định
+web/data/glossary/{series}.yaml                      # Ghi đè theo bộ kinh
 parallel/{series}/{volume}/ch{NN}.parallel.md
 notes/{series}-*-ch{NN}.md                    # metadata, status, logs
 ```
 
-Manifest dự án web: `web/data/projects/{id}.yaml` (đường dẫn `source:`/`hv:`/`vi:` dùng dạng logic `sources/...`, `translations/...`).
+Manifest dự án web: `web/data/projects/{id}.yaml` (đường dẫn `source:`/`hv:`/`vi:`/`glossary:` dùng dạng logic `sources/...`, `translations/...`, `glossary/...`).
 
 Ví dụ: `web/data/sources/avatamsaka/vol01/ch01.zh.md` → `web/data/translations/avatamsaka/vol01/ch01.vi.md` (cùng số dòng thân bài)
 

@@ -1,12 +1,12 @@
 ---
 description: Glossary and terminology file conventions
-globs: glossary/**/*
+globs: web/data/glossary/**/*
 alwaysApply: false
 ---
 
 # Glossary Rules
 
-## File: `glossary/terms.yaml`
+## File: `web/data/glossary/terms.yaml`
 
 ```yaml
 series: default  # or series name
@@ -28,4 +28,4 @@ terms:
 ## Updates
 
 - New term: add before first use in translation
-- Conflict between series: use `series:` scoped files (`glossary/avatamsaka.yaml`)
+- Conflict between series: use `series:` scoped files (`web/data/glossary/avatamsaka.yaml`)
