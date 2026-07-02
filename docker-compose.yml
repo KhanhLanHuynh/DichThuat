@@ -1,0 +1,16 @@
+services:
+  app:
+    build: ./web
+    ports:
+      - "3000:3000"
+    volumes:
+      - ..:/data
+      - ./web/data:/app/data
+    environment:
+      - REPO_ROOT=/data
+      - CONTENT_ROOT=/app/data
+      - AUTH_SECRET=${AUTH_SECRET:-change-me}
+      - AUTH_PASSWORD=${AUTH_PASSWORD:-dichthuat}
+      - AUTH_USERS=${AUTH_USERS:-admin:admin}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    restart: unless-stopped

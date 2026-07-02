@@ -1,0 +1,9 @@
+# Web app has its own git repo
+web/
+
+# Runtime locks
+.locks/
+
+# OS / editor
+.DS_Store
+Thumbs.db

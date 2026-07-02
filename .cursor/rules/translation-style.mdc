@@ -1,0 +1,37 @@
+---
+description: Vietnamese translation style for Buddhist texts
+globs: web/data/translations/**/*.vi.md
+alwaysApply: false
+---
+
+# Vietnamese Translation Style
+
+## Output shape
+
+- Plain text only; **mirror source line-for-line**
+- No consecutive duplicate empty lines — blank-line runs must match source
+- No Markdown headings or editorial subsections in output
+- Skill: `.cursor/skills/translate-buddhist-text/SKILL.md`
+
+## Register
+
+- Scripture (經): dignified, concise; preserve parallelism
+- Commentary (疏/註): clearer syntax OK; keep glossary terms
+- Dialogue: keep `「…」` nesting; do not add **Hỏi:** / **Đáp:** labels unless the source has 問/答 markers
+
+## Grammar
+
+- Prefer subject-verb-object; avoid excessive passive unless source requires
+- Honorifics: 佛 → Phật; 世尊 → Thế Tôn
+
+## Numbers and Names
+
+- Follow glossary and series convention
+- Transliterate proper names consistently (e.g. 文殊 → Văn Thù, 普賢 → Phổ Hiền)
+
+## Punctuation
+
+- Vietnamese punctuation; no full-width Chinese punctuation
+- Quotation of Dharma phrases: use « » or " " consistently within a series
+
+See `docs/style-guide.md` for extended examples.

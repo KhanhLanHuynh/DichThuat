@@ -1,0 +1,31 @@
+---
+description: Glossary and terminology file conventions
+globs: glossary/**/*
+alwaysApply: false
+---
+
+# Glossary Rules
+
+## File: `glossary/terms.yaml`
+
+```yaml
+series: default  # or series name
+terms:
+  - zh: "般若"
+    vi: "Bát Nhã"
+    notes: "Prajna; not 'trí tuệ' alone when technical"
+    sanskrit: "prajñā"
+```
+
+## Principles
+
+- `zh` key is the primary lookup (include full phrase if compound is fixed)
+- `vi` is the mandatory rendering for that series
+- No hyphens in `vi`: write transliterations as separate Title Case words (e.g. `Bát Nhã Ba La Mật`, `A Nan`); hyphens stay only in `sanskrit` and Sanskrit/Pāli citations in `notes`
+- Add `alt_vi` only for deprecated forms to avoid
+- Tag `doctrine: true` for terms requiring reviewer sign-off
+
+## Updates
+
+- New term: add before first use in translation
+- Conflict between series: use `series:` scoped files (`glossary/avatamsaka.yaml`)

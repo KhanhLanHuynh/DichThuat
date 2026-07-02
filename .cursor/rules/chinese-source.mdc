@@ -1,0 +1,42 @@
+---
+description: Handling Chinese Buddhist source files
+globs: web/data/sources/**/*.zh.md
+alwaysApply: false
+---
+
+# Chinese Source Rules
+
+## Encoding and Script
+
+- UTF-8; prefer Traditional (繁體)
+- If source uses Simplified, add YAML frontmatter: `script: simplified`
+- Note variant characters: `（異體：X）` in translator notes, not inline in source unless correcting
+
+## Structure
+
+- One file per chapter or logical section
+- YAML frontmatter for metadata only (title, series, volume, chapter, edition)
+- **Body = plain text** — one paragraph per line where possible for line-aligned translation
+
+Frontmatter template:
+
+```yaml
+---
+title: "Chapter title in Chinese"
+series: avatamsaka
+volume: "01"
+chapter: "01"
+source_edition: "CBETA T09"
+---
+```
+
+## Segmentation
+
+- Do not merge paragraphs across 段落 breaks
+- Preserve `<!-- verse -->` markers if added during segmentation
+- Keep 科判 / section titles as **plain-text lines** in the body (same line as in the edition), not as Markdown `#` headings
+- Do not translate inside `.zh.md` files
+
+## Editing Source
+
+- OCR fixes only; document in `notes/` or file footer

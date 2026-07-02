@@ -1,0 +1,50 @@
+---
+description: Core standards for Buddhist Chinese-to-Vietnamese translation project
+alwaysApply: true
+---
+
+# DichThuat Core Rules
+
+Read `CONTEXT.md` at project start for terminology and workflow.
+
+## Language Pair
+
+- Source: Chinese (Traditional preferred; note if Simplified)
+- Target: Vietnamese (formal Buddhist register)
+
+## Output Location
+
+- Write translations only under `web/data/translations/`, mirroring `web/data/sources/` paths (logical paths: `translations/...`, `sources/...`)
+- Sources may be added via web **Upload** or agent segmentation into `web/data/sources/`
+- Never overwrite sources except when fixing OCR or segmentation errors (note in commit/message)
+
+## Terminology
+
+- Check `glossary/terms.yaml` before translating; add new terms before first use
+- One Chinese term → one Vietnamese equivalent per series
+- Sanskrit/Pali & transliterated names: no hyphens; write each syllable as a separate Title Case word (e.g. Niết Bàn, Bồ Tát, Bát Nhã Ba La Mật, A Nan)
+
+## Translation Output Format (plain text)
+
+Translation files (`.hv.md`, `.vi.md`) are **plain text bodies** — not structured Markdown.
+
+- **One source line → one translation line** (same line count as source body)
+- **One source paragraph → one translation paragraph** on the matching line
+- **Do not add** `#` / `##` headings, editorial subsections, or intro blocks not in the source
+- **Do not split** one source paragraph into multiple output paragraphs
+- **Do not merge** multiple source paragraphs into one output line
+- Preserve blank lines exactly where the source has them
+- **No duplicate blank lines**: collapse consecutive empty lines to match the source (agents sometimes insert an extra blank line — remove it before save)
+- Preserve verse line breaks and enumeration order (一、二、三…)
+- Uncertain readings: inline `[?]`; full notes go in `notes/`, not in the translation file
+- Metadata (`status`, `revision`, glossary refs): log in `notes/`, not in translation files
+
+## Quality Bar
+
+- Mark uncertain readings: `[?]`; explain in `notes/`
+- Do not add commentary in translation files unless user requests 註解
+- Flag doctrinal ambiguity rather than guessing
+
+## Session Start
+
+When user names a chapter, read: source file → relevant glossary entries → `docs/style-guide.md` if needed.

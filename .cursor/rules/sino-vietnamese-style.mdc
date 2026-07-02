@@ -1,0 +1,29 @@
+---
+description: Hán-Việt (Sino-Vietnamese) translation style for .hv.md files
+globs: web/data/translations/**/*.hv.md
+alwaysApply: false
+---
+
+# Hán-Việt Translation Style
+
+## Layer
+
+`.hv.md` = Hán-Việt layer — after glossary-curator, before `.vi.md`.
+
+## Output shape
+
+- Plain text only; **mirror source line-for-line**
+- No consecutive duplicate empty lines — blank-line runs must match source
+- No Markdown headings or editorial subsections in output
+- Skill: `.cursor/skills/translate-sino-vietnamese/SKILL.md`
+
+## Lexical rules
+
+- Use glossary `vi` entries as mandatory Hán-Việt forms
+- Âm dịch (character-by-character), not nghĩa dịch
+- Numbers: Hán-Việt numerals in source order (七萬二千 → thất vạn nhị thiên)
+- Proper names: transliterate every character in source order
+- Function words: Hán-Việt particles (bất, dĩ, tắc, cố, giả, sở) when not glossary-bound
+- Mantras: transliterate only
+
+See `docs/style-guide.md` §1.
