@@ -1,0 +1,1631 @@
+# Glossary — 勝天王般若波羅蜜經 (Kinh Thắng Thiên Vương Bát Nhã Ba La Mật)
+# Scope: series-specific terms for sheng-tianwang
+# Source scanned: sources/sheng-tianwang/vol01/ch01.zh.md (通達品第一)
+# Naming: no hyphens in vi values; transliterations use Title Case (e.g. A Nan, Bát Nhã Ba La Mật)
+
+series: sheng-tianwang
+source: "T09n0651 (CBETA)"
+chapter: "vol01/ch01"
+
+terms:
+  # --- Titles & chapter ---
+  - zh: "勝天王般若波羅蜜經"
+    vi: "Kinh Thắng Thiên Vương Bát Nhã Ba La Mật"
+    notes: "Sanskrit: Pravara-deva-rāja-paripṛcchā; CBETA T09n0651"
+    sanskrit: "Pravara-deva-rāja-paripṛcchā"
+
+  - zh: "通達品第一"
+    vi: "Phẩm Thông Đạt thứ nhất"
+    notes: "Chapter 1 of 16 品"
+
+  - zh: "勝天王"
+    vi: "Thắng Thiên Vương"
+    notes: "Main interlocutor; Buddha addresses him as 大王; Sanskrit Pravara-deva-rāja"
+
+  - zh: "鉢婆羅"
+    vi: "Bát Bà La"
+    notes: "Heavenly king's name in assembly (Pravara); same as 勝天王"
+
+  # --- Ten pāramitās (distinct naming in this sutra) ---
+  - zh: "般若波羅蜜"
+    vi: "Bát Nhã Ba La Mật"
+    sanskrit: "prajñā-pāramitā"
+    doctrine: true
+    notes: "Central practice; 修學一法通達一切法"
+
+  - zh: "摩訶般若波羅蜜"
+    vi: "Ma Ha Bát Nhã Ba La Mật"
+    sanskrit: "mahā-prajñā-pāramitā"
+    doctrine: true
+
+  - zh: "檀那波羅蜜"
+    vi: "bố thí Ba La Mật"
+    sanskrit: "dāna-pāramitā"
+    doctrine: true
+    notes: "Also abbreviated 檀波羅蜜 in text"
+
+  - zh: "尸羅波羅蜜"
+    vi: "trì giới Ba La Mật"
+    sanskrit: "śīla-pāramitā"
+    doctrine: true
+
+  - zh: "羼提波羅蜜"
+    vi: "nhẫn nhục Ba La Mật"
+    sanskrit: "kṣānti-pāramitā"
+    doctrine: true
+
+  - zh: "毘梨耶波羅蜜"
+    vi: "tinh tấn Ba La Mật"
+    sanskrit: "vīrya-pāramitā"
+    doctrine: true
+
+  - zh: "禪波羅蜜"
+    vi: "thiền Ba La Mật"
+    sanskrit: "dhyāna-pāramitā"
+    doctrine: true
+    notes: "Text also uses 禪那波羅蜜"
+
+  - zh: "優波憍舍羅波羅蜜"
+    vi: "phương tiện Ba La Mật"
+    sanskrit: "upāya-pāramitā"
+    doctrine: true
+    notes: "Also 方便波羅蜜; upāya-kauśalya"
+
+  - zh: "尼坻波羅蜜"
+    vi: "nguyện Ba La Mật"
+    sanskrit: "praṇidhāna-pāramitā"
+    doctrine: true
+    notes: "Also 願波羅蜜; pranidhi"
+
+  - zh: "婆羅波羅蜜"
+    vi: "lực Ba La Mật"
+    sanskrit: "bala-pāramitā"
+    doctrine: true
+    notes: "Also 力波羅蜜"
+
+  - zh: "闍那波羅蜜"
+    vi: "trí Ba La Mật"
+    sanskrit: "jñāna-pāramitā"
+    doctrine: true
+    notes: "Also 智波羅蜜; jñāna — NOT synonymous with 般若 prajñā in this sutra's scheme"
+
+  - zh: "闍那"
+    vi: "trí"
+    sanskrit: "jñāna"
+    doctrine: true
+    notes: "Distinct from 般若 (prajñā); used for 智波羅蜜"
+
+  - zh: "尼坻"
+    vi: "nguyện"
+    sanskrit: "praṇidhāna"
+    notes: "Vow; 尼坻波羅蜜"
+
+  - zh: "婆羅"
+    vi: "lực"
+    sanskrit: "bala"
+    notes: "Spiritual power; 婆羅波羅蜜"
+
+  - zh: "方便"
+    vi: "phương tiện"
+    sanskrit: "upāya"
+    notes: "In context of 優波憍舍羅波羅蜜"
+
+  # --- Recurring doctrinal formula ---
+  - zh: "無二無別，自性離故"
+    vi: "vô nhị vô biệt, tự tính ly cố"
+    doctrine: true
+    notes: "Fixed refrain closing each pāramitā section; keep word order"
+
+  - zh: "無二無別"
+    vi: "vô nhị vô biệt"
+    doctrine: true
+
+  - zh: "修學一法，通達一切法"
+    vi: "tu học một pháp, thông đạt vạn pháp"
+    notes: "Central question of 通達品"
+
+  # --- Nine dāna subtypes (檀波羅蜜) ---
+  - zh: "法檀波羅蜜"
+    vi: "pháp bố thí Ba La Mật"
+    notes: "Teaching Dharma without expectation"
+
+  - zh: "無畏檀波羅蜜"
+    vi: "vô úy bố thí Ba La Mật"
+    notes: "Giving fearlessness"
+
+  - zh: "資生檀波羅蜜"
+    vi: "tư sinh bố thí Ba La Mật"
+    notes: "Material support"
+
+  - zh: "不望報檀波羅蜜"
+    vi: "bất vọng báo bố thí Ba La Mật"
+    notes: "Giving without expecting reward"
+
+  - zh: "大悲檀波羅蜜"
+    vi: "đại bi bố thí Ba La Mật"
+
+  - zh: "恭敬檀波羅蜜"
+    vi: "cung kính bố thí Ba La Mật"
+
+  - zh: "尊重檀波羅蜜"
+    vi: "tôn trọng bố thí Ba La Mật"
+
+  - zh: "供養檀波羅蜜"
+    vi: "cúng dưỡng bố thí Ba La Mật"
+
+  - zh: "無依止檀波羅蜜"
+    vi: "vô y cứ bố thí Ba La Mật"
+    notes: "Giving without attachment to any support or goal"
+
+  # --- Key figures in narrative ---
+  - zh: "普光如來"
+    vi: "Phổ Quang Như Lai"
+    notes: "Buddha of 莊嚴 world in the east"
+
+  - zh: "離障菩薩"
+    vi: "Bồ Tát Ly Chướng"
+    notes: "Interlocutor from 普光如來's assembly"
+
+  - zh: "釋迦牟尼如來"
+    vi: "Thích Ca Mâu Ni Như Lai"
+    sanskrit: "Śākyamuni"
+
+  - zh: "釋迦如來"
+    vi: "Thích Ca Như Lai"
+
+  # --- Places ---
+  - zh: "王舍大城耆闍崛山"
+    vi: "Đại thành Vương Xá, núi Kỳ Xà Quật"
+    notes: "Assembly site; also 耆闍崛山 alone"
+
+  - zh: "耆闍崛山"
+    vi: "núi Kỳ Xà Quật"
+    sanskrit: "Gṛdhrakūṭa"
+
+  - zh: "娑婆世界"
+    vi: "Thế giới Ta Bà"
+    sanskrit: "sahā-lokadhātu"
+
+  - zh: "優禪尼國"
+    vi: "nước U Diên Ni"
+    notes: "Udyāna; homeland of translator 月婆首那"
+
+  - zh: "月婆首那"
+    vi: "Nguyệt Bà Thủ Na"
+    notes: "Translator; 陳優禪尼國王子"
+
+  # --- Variant in this text ---
+  - zh: "五陰"
+    vi: "ngũ uẩn"
+    notes: "Variant of 五蘊; used in 闍那波羅蜜 section"
+
+  # --- Notable assembly terms ---
+  - zh: "一生補處"
+    vi: "nhất sinh bổ xứ"
+    notes: "One birth away from Buddhahood"
+
+  - zh: "不退法輪"
+    vi: "bất thoái pháp luân"
+
+  - zh: "無礙陀羅尼"
+    vi: "vô ngại Đà La Ni"
+
+  - zh: "十善"
+    vi: "Thập thiện"
+    notes: "Ten wholesome deeds; 令受十善"
+
+  - zh: "四事供養"
+    vi: "Tứ sự cúng dưỡng"
+    notes: "Food, clothing, bedding, medicine"
+
+  - zh: "三十七品"
+    vi: "Tam thập thất phẩm"
+    notes: "Thirty-seven limbs of enlightenment"
+
+  - zh: "八正道"
+    vi: "Bát chánh đạo"
+    notes: "正見…正定; eightfold path items listed in 禪波羅蜜 section"
+
+  - zh: "僧伽藍"
+    vi: "Tăng Già lam"
+    sanskrit: "saṃghārāma"
+
+  - zh: "閻浮提"
+    vi: "Diêm Phù Đề"
+    sanskrit: "Jambudvīpa"
+
+  # =====================================================================
+  # Assembly proper names (hội tràng) — ch01 通達品第一
+  # Hán-Việt forms locked to translations/sheng-tianwang/vol01/ch01.hv.md
+  # =====================================================================
+
+  # --- Great disciples (大比丘眾 / 其名曰) ---
+  - zh: "阿難"
+    vi: "A Nan"
+    sanskrit: "Ānanda"
+    notes: "Only one still 在學地 (Tu-đà-hoàn)"
+
+  - zh: "阿若憍陳如"
+    vi: "A Nhã Kiều Trần Như"
+    sanskrit: "Ājñāta-Kauṇḍinya"
+    notes: "Text: 淨命阿若憍陳如 (Tịnh Mạng A Nhã Kiều Trần Như)"
+
+  - zh: "摩訶迦葉"
+    vi: "Ma Ha Ca Diếp"
+    sanskrit: "Mahākāśyapa"
+
+  - zh: "憍梵波提"
+    vi: "Kiều Phạm Ba Đề"
+    sanskrit: "Gavāṃpati"
+
+  - zh: "薄拘羅"
+    vi: "Bạc Câu La"
+    sanskrit: "Vakkula"
+
+  - zh: "離波多"
+    vi: "Ly Bà Đa"
+    sanskrit: "Revata"
+
+  - zh: "畢陵伽婆蹉"
+    vi: "Tất Lăng Già Bà Tha"
+    sanskrit: "Pilindavatsa"
+
+  - zh: "舍利弗"
+    vi: "Xá Lợi Phất"
+    sanskrit: "Śāriputra"
+    notes: "Text: 大智舍利弗 (Đại Trí Xá Lợi Phất)"
+
+  - zh: "摩訶目乾連"
+    vi: "Ma Ha Mục Kiền Liên"
+    sanskrit: "Mahāmaudgalyāyana"
+
+  - zh: "須菩提"
+    vi: "Tu Bồ Đề"
+    sanskrit: "Subhūti"
+
+  - zh: "富樓那彌多羅尼子"
+    vi: "Phú Lâu Na Di Đa La Ni tử"
+    sanskrit: "Pūrṇa-maitrāyaṇīputra"
+
+  - zh: "阿尼樓陀"
+    vi: "A Ni Lâu Đà"
+    sanskrit: "Aniruddha"
+
+  - zh: "摩訶迦栴延"
+    vi: "Ma Ha Ca Chiên Diên"
+    sanskrit: "Mahākātyāyana"
+
+  - zh: "優波離"
+    vi: "Ưu Ba Ly"
+    sanskrit: "Upāli"
+
+  - zh: "羅睺羅"
+    vi: "La Hầu La"
+    sanskrit: "Rāhula"
+
+  # --- 72,000 Bodhisattvas (菩薩摩訶薩 / 其名曰) — 46 named ---
+  - zh: "寶相菩薩"
+    vi: "Bồ Tát Bảo Tướng"
+
+  - zh: "寶掌菩薩"
+    vi: "Bồ Tát Bảo Chưởng"
+
+  - zh: "寶印菩薩"
+    vi: "Bồ Tát Bảo Ấn"
+
+  - zh: "寶冠菩薩"
+    vi: "Bồ Tát Bảo Quan"
+
+  - zh: "寶髻菩薩"
+    vi: "Bồ Tát Bảo Kế"
+
+  - zh: "寶積菩薩"
+    vi: "Bồ Tát Bảo Tích"
+
+  - zh: "寶海菩薩"
+    vi: "Bồ Tát Bảo Hải"
+
+  - zh: "寶焰菩薩"
+    vi: "Bồ Tát Bảo Diễm"
+
+  - zh: "寶幢菩薩"
+    vi: "Bồ Tát Bảo Tràng"
+    notes: "Same name 寶幢 also a bodhisattva of the upper direction (上方) later in chapter"
+
+  - zh: "金剛藏菩薩"
+    vi: "Bồ Tát Kim Cang Tạng"
+    sanskrit: "Vajragarbha"
+
+  - zh: "金藏菩薩"
+    vi: "Bồ Tát Kim Tạng"
+
+  - zh: "寶藏菩薩"
+    vi: "Bồ Tát Bảo Tạng"
+
+  - zh: "德藏菩薩"
+    vi: "Bồ Tát Đức Tạng"
+
+  - zh: "淨藏菩薩"
+    vi: "Bồ Tát Tịnh Tạng"
+
+  - zh: "如來藏菩薩"
+    vi: "Bồ Tát Như Lai Tạng"
+
+  - zh: "智藏菩薩"
+    vi: "Bồ Tát Trí Tạng"
+
+  - zh: "日藏菩薩"
+    vi: "Bồ Tát Nhật Tạng"
+    notes: "Also the 菩薩 of 清淨華 world (south); same Hán-Việt"
+
+  - zh: "定藏菩薩"
+    vi: "Bồ Tát Định Tạng"
+
+  - zh: "蓮華藏菩薩"
+    vi: "Bồ Tát Liên Hoa Tạng"
+
+  - zh: "解脫月菩薩"
+    vi: "Bồ Tát Giải Thoát Nguyệt"
+
+  - zh: "普賢菩薩"
+    vi: "Bồ Tát Phổ Hiền"
+    sanskrit: "Samantabhadra"
+
+  - zh: "觀世音菩薩"
+    vi: "Bồ Tát Quán Thế Âm"
+    sanskrit: "Avalokiteśvara"
+
+  - zh: "觀月菩薩"
+    vi: "Bồ Tát Quán Nguyệt"
+
+  - zh: "普音菩薩"
+    vi: "Bồ Tát Phổ Âm"
+
+  - zh: "普眼菩薩"
+    vi: "Bồ Tát Phổ Nhãn"
+
+  - zh: "蓮華眼菩薩"
+    vi: "Bồ Tát Liên Hoa Nhãn"
+
+  - zh: "廣眼菩薩"
+    vi: "Bồ Tát Quảng Nhãn"
+
+  - zh: "普行菩薩"
+    vi: "Bồ Tát Phổ Hành"
+
+  - zh: "普戒菩薩"
+    vi: "Bồ Tát Phổ Giới"
+
+  - zh: "智意菩薩"
+    vi: "Bồ Tát Trí Ý"
+
+  - zh: "蓮花意菩薩"
+    vi: "Bồ Tát Liên Hoa Ý"
+    notes: "Source uses 花 (not 華) here; rendered Liên Hoa for consistency"
+
+  - zh: "勝意菩薩"
+    vi: "Bồ Tát Thắng Ý"
+
+  - zh: "上意菩薩"
+    vi: "Bồ Tát Thượng Ý"
+
+  - zh: "金剛意菩薩"
+    vi: "Bồ Tát Kim Cang Ý"
+
+  - zh: "師子遊戲菩薩"
+    vi: "Bồ Tát Sư Tử Du Hý"
+
+  - zh: "師子吼菩薩"
+    vi: "Bồ Tát Sư Tử Hống"
+    sanskrit: "Siṃhanāda"
+
+  - zh: "大音王菩薩"
+    vi: "Bồ Tát Đại Âm Vương"
+
+  - zh: "妙音菩薩"
+    vi: "Bồ Tát Diệu Âm"
+
+  - zh: "無染菩薩"
+    vi: "Bồ Tát Vô Nhiễm"
+
+  - zh: "月光菩薩"
+    vi: "Bồ Tát Nguyệt Quang"
+
+  - zh: "日光菩薩"
+    vi: "Bồ Tát Nhật Quang"
+    notes: "Also 佛名日光 (Buddha of 清淨華 world); here a bodhisattva"
+
+  - zh: "智光菩薩"
+    vi: "Bồ Tát Trí Quang"
+
+  - zh: "智德菩薩"
+    vi: "Bồ Tát Trí Đức"
+
+  - zh: "賢德菩薩"
+    vi: "Bồ Tát Hiền Đức"
+
+  - zh: "華德菩薩"
+    vi: "Bồ Tát Hoa Đức"
+
+  - zh: "文殊師利菩薩"
+    vi: "Bồ Tát Văn Thù Sư Lợi"
+    sanskrit: "Mañjuśrī"
+
+  # --- Bodhisattva leaders / groups (上首) ---
+  - zh: "十六賢士"
+    vi: "Thập lục hiền sĩ"
+    notes: "Sixteen worthy ones; 跋陀婆羅 leads"
+
+  - zh: "跋陀婆羅菩薩"
+    vi: "Bồ Tát Bạt Đà Bà La"
+    sanskrit: "Bhadrapāla"
+    notes: "上首 of 十六賢士"
+
+  - zh: "賢劫"
+    vi: "Hiền Kiếp"
+    sanskrit: "bhadrakalpa"
+    notes: "Text: 賢劫菩薩 (chư Bồ Tát Hiền Kiếp); 彌勒 leads"
+
+  - zh: "彌勒菩薩"
+    vi: "Bồ Tát Di Lặc"
+    sanskrit: "Maitreya"
+    notes: "上首 of 賢劫菩薩"
+
+  # --- Heaven groups & their leader-kings (天 / 上首) ---
+  - zh: "四天王天"
+    vi: "trời Tứ Thiên Vương"
+    sanskrit: "Cāturmahārājika"
+
+  - zh: "四王"
+    vi: "bốn vua"
+    notes: "上首 of 四天王天 (the Four Heavenly Kings)"
+
+  - zh: "三十三天"
+    vi: "trời Tam thập tam"
+    sanskrit: "Trāyastriṃśa"
+
+  - zh: "帝釋"
+    vi: "Đế Thích"
+    sanskrit: "Śakra"
+    notes: "上首 of 三十三天; Indra"
+
+  - zh: "夜摩諸天"
+    vi: "chư thiên Dạ Ma"
+    sanskrit: "Yāma"
+
+  - zh: "須夜摩王"
+    vi: "Tu Dạ Ma vương"
+    sanskrit: "Suyāma"
+    notes: "上首 of 夜摩諸天"
+
+  - zh: "兜率陀天"
+    vi: "trời Đâu Suất Đà"
+    sanskrit: "Tuṣita"
+
+  - zh: "化兜率陀王"
+    vi: "Hóa Đâu Suất Đà vương"
+    notes: "上首 of 兜率陀天. Source OCR 𦙽兜率陀王 corrected to 化兜率陀王 (see ch01.hv.md [^1])"
+
+  - zh: "化樂天"
+    vi: "trời Hóa Lạc"
+    sanskrit: "Nirmāṇarati"
+
+  - zh: "善化王"
+    vi: "Thiện Hóa vương"
+    sanskrit: "Sunirmita"
+    notes: "上首 of 化樂天"
+
+  - zh: "他化自在天"
+    vi: "trời Tha Hóa Tự Tại"
+    sanskrit: "Paranirmita-vaśavartin"
+
+  - zh: "自在王"
+    vi: "Tự Tại vương"
+    notes: "上首 of 他化自在天"
+
+  - zh: "梵天"
+    vi: "Phạm thiên"
+    sanskrit: "Brahmā"
+    notes: "Text: 諸梵天 (chư Phạm thiên)"
+
+  - zh: "大梵王"
+    vi: "Đại Phạm vương"
+    sanskrit: "Mahābrahmā"
+    notes: "上首 of 諸梵天"
+
+  - zh: "首陀婆娑天"
+    vi: "trời Thủ Đà Bà Sa"
+    sanskrit: "Śuddhāvāsa"
+    notes: "Pure Abodes (Tịnh Cư thiên)"
+
+  - zh: "摩醯首羅"
+    vi: "Ma Hê Thủ La"
+    sanskrit: "Maheśvara"
+    notes: "上首 of 首陀婆娑天"
+
+  # --- Asura kings (阿修羅王) ---
+  - zh: "娑利阿修羅王"
+    vi: "Sa Lợi A Tu La vương"
+
+  - zh: "羅睺阿修羅王"
+    vi: "La Hầu A Tu La vương"
+    sanskrit: "Rāhu-asura"
+
+  # --- Dragon kings (龍王) ---
+  - zh: "阿耨大池龍王"
+    vi: "A Nậu Đại Trì long vương"
+    sanskrit: "Anavatapta"
+
+  - zh: "摩那斯龍王"
+    vi: "Ma Na Tư long vương"
+    sanskrit: "Manasvin"
+
+  - zh: "娑伽羅龍王"
+    vi: "Sa Già La long vương"
+    sanskrit: "Sāgara"
+
+  - zh: "婆修吉龍王"
+    vi: "Bà Tu Cát long vương"
+    sanskrit: "Vāsuki"
+
+  - zh: "德叉迦龍王"
+    vi: "Đức Xoa Ca long vương"
+    sanskrit: "Takṣaka"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "如是我聞"
+    vi: "Như thị ngã văn"
+    doctrine: true
+    status: "draft"
+    notes: "Khai kinh điển hình"
+  - zh: "王舍大城"
+    vi: "Đại thành Vương Xá"
+    sanskrit: "Rājagṛha"
+    status: "draft"
+    notes: "Rajagaha"
+  - zh: "諸漏永盡"
+    vi: "chư lậu vĩnh tận"
+    doctrine: true
+    status: "draft"
+    notes: "Đức A-la-hán"
+  - zh: "所作已辦"
+    vi: "sở tác dĩ biện"
+    doctrine: true
+    status: "draft"
+    notes: "Đức A-la-hán"
+  - zh: "捨諸重擔"
+    vi: "xá chư trọng đán"
+    doctrine: true
+    status: "draft"
+    notes: "Đức A-la-hán"
+  - zh: "逮得己利"
+    vi: "đạt đắc kỷ lợi"
+    doctrine: true
+    status: "draft"
+    notes: "Đức A-la-hán"
+  - zh: "盡諸有結"
+    vi: "tận chư hữu kiết"
+    doctrine: true
+    status: "draft"
+    notes: "Đức A-la-hán"
+  - zh: "心善解脫"
+    vi: "tâm thiện giải thoát"
+    doctrine: true
+    status: "draft"
+    notes: "Đức A-la-hán"
+  - zh: "善得自在"
+    vi: "thiện đắc tự tại"
+    doctrine: true
+    status: "draft"
+    notes: "Đức A-la-hán"
+  - zh: "學地"
+    vi: "học địa"
+    doctrine: true
+    status: "draft"
+    notes: "Vị trí chưa đoạn kiến"
+  - zh: "須陀洹果"
+    vi: "Tu Đà Hoàn quả"
+    sanskrit: "srotāpanna-phala"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "淨命"
+    vi: "Tịnh mệnh"
+    status: "draft"
+    notes: "Hào A Nhã Kiều Trần Như"
+  - zh: "甚深法性"
+    vi: "thậm thâm pháp tính"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "真善知識"
+    vi: "chân thiện tri thức"
+    sanskrit: "kalyāṇamitra"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "護持法藏"
+    vi: "hộ trì pháp tạng"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "三寶種"
+    vi: "Tam bảo chủng"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "法王真子"
+    vi: "pháp vương chân tử"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "紹佛轉法輪"
+    vi: "chiêu Phật chuyển pháp luân"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "甚深境界"
+    vi: "thậm thâm cảnh giới"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "世法不染"
+    vi: "thế pháp bất nhiễm"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "由旬"
+    vi: "do tuần"
+    sanskrit: "yojana"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "面門"
+    vi: "diện môn"
+    doctrine: true
+    status: "draft"
+    notes: "Cửa quang trên mặt Phật"
+  - zh: "恒河沙"
+    vi: "Hằng Hà Sa"
+    sanskrit: "gaṅgānadī"
+    doctrine: true
+    status: "draft"
+    notes: "Ẩn dụ số lượng vô lượng"
+  - zh: "莊嚴"
+    vi: "Trang Nghiêm"
+    status: "draft"
+    notes: "Danh xưng Phật quốc"
+  - zh: "一乘正法"
+    vi: "nhất thừa chánh pháp"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "不退轉"
+    vi: "bất thoái chuyển"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "偏袒右肩"
+    vi: "phiên đàn hữu kiên"
+    doctrine: true
+    status: "draft"
+    notes: "Tư thế lễ Phật"
+  - zh: "右膝著地"
+    vi: "hữu tỳ trước địa"
+    doctrine: true
+    status: "draft"
+    notes: "Tư thế lễ Phật"
+  - zh: "頭面作禮"
+    vi: "đầu diện tác lễ"
+    doctrine: true
+    status: "draft"
+    notes: "Hình thức lễ bái"
+  - zh: "娑婆"
+    vi: "Sa Bà"
+    sanskrit: "sahā"
+    status: "draft"
+    notes: "Tên viết tắt Sa-bà thế giới"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "一時"
+    vi: "nhất thời"
+    status: "draft"
+    notes: "Sutra opening time formula"
+  - zh: "大比丘眾"
+    vi: "đại Tỳ Kheo chúng"
+    doctrine: true
+    status: "draft"
+    notes: "Great assembly of bhikkhus"
+  - zh: "猶如大龍"
+    vi: "do như đại long"
+    doctrine: true
+    status: "draft"
+    notes: "Simile for fully liberated arahants"
+  - zh: "大智"
+    vi: "đại trí"
+    doctrine: true
+    status: "draft"
+    notes: "Honorific epithet; here with Śāriputra"
+  - zh: "調順易化"
+    vi: "điều thuận dị hóa"
+    doctrine: true
+    status: "draft"
+    notes: "Easily guided and taught"
+  - zh: "善行平等"
+    vi: "thiện hành bình đẳng"
+    doctrine: true
+    status: "draft"
+    notes: "Practices equality"
+  - zh: "佛土"
+    vi: "Phật thổ"
+    sanskrit: "buddhakṣetra"
+    doctrine: true
+    status: "draft"
+    notes: "Buddha-field; buddhakṣetra"
+  - zh: "為法來集"
+    vi: "vi pháp lai tập"
+    doctrine: true
+    status: "draft"
+    notes: "Assemble for the Dharma"
+  - zh: "上首"
+    vi: "thượng thủ"
+    status: "draft"
+    notes: "Chief; head of an assembly"
+  - zh: "眷屬"
+    vi: "quyển thuộc"
+    status: "draft"
+    notes: "Retinue; followers"
+  - zh: "縱廣"
+    vi: "tung quảng"
+    status: "draft"
+    notes: "Length and breadth"
+  - zh: "虛空"
+    vi: "hư không"
+    sanskrit: "ākāśa"
+    doctrine: true
+    status: "draft"
+    notes: "Empty space; ākāśa"
+  - zh: "一心合掌"
+    vi: "nhất tâm hợp chưởng"
+    doctrine: true
+    status: "draft"
+    notes: "Single-mindedly joining palms"
+  - zh: "大眾"
+    vi: "đại chúng"
+    doctrine: true
+    status: "draft"
+    notes: "Great assembly"
+  - zh: "供養恭敬"
+    vi: "cung dưỡng cung kính"
+    doctrine: true
+    status: "draft"
+    notes: "Offerings with reverence"
+  - zh: "尊重讚歎"
+    vi: "tôn trọng tán thán"
+    doctrine: true
+    status: "draft"
+    notes: "Respect and praise"
+  - zh: "放大光明"
+    vi: "phóng đại quang minh"
+    doctrine: true
+    status: "draft"
+    notes: "Emits great radiance"
+  - zh: "遍照十方"
+    vi: "biến chiếu thập phương"
+    doctrine: true
+    status: "draft"
+    notes: "Universally illuminates the ten directions"
+  - zh: "右遶三匝"
+    vi: "hữu nhiêu tam vòng"
+    doctrine: true
+    status: "draft"
+    notes: "Circumambulates three times to the right"
+  - zh: "佛國土"
+    vi: "Phật quốc thổ"
+    doctrine: true
+    status: "draft"
+    notes: "Buddha-land; buddha country"
+  - zh: "佛號"
+    vi: "Phật hiệu"
+    doctrine: true
+    status: "draft"
+    notes: "Buddha title or epithet"
+  - zh: "今現在世"
+    vi: "kim hiện tại thế"
+    doctrine: true
+    status: "draft"
+    notes: "Now present in the world"
+  - zh: "彼佛國土"
+    vi: "bỉ Phật quốc thổ"
+    doctrine: true
+    status: "draft"
+    notes: "That buddha-land"
+  - zh: "修其法"
+    vi: "tu kỳ pháp"
+    doctrine: true
+    status: "draft"
+    notes: "Practice that Dharma"
+  - zh: "資禪定"
+    vi: "tư thiền định"
+    doctrine: true
+    status: "draft"
+    notes: "Sustain themselves by dhyāna"
+  - zh: "地平如掌"
+    vi: "địa bình như chưởng"
+    doctrine: true
+    status: "draft"
+    notes: "Land flat as the palm"
+  - zh: "合掌向佛"
+    vi: "hợp chưởng hướng Phật"
+    doctrine: true
+    status: "draft"
+    notes: "Join palms toward the Buddha"
+  - zh: "白佛言"
+    vi: "bá Phật ngôn"
+    doctrine: true
+    status: "draft"
+    notes: "Addressed the Buddha, saying"
+  - zh: "以何因緣"
+    vi: "dĩ hà nhân duyên"
+    doctrine: true
+    status: "draft"
+    notes: "For what cause and condition"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "陳"
+    vi: "Trần"
+    status: "draft"
+    notes: "Nhà Trần, triều dịch kinh"
+  - zh: "王子"
+    vi: "vương tử"
+    status: "draft"
+    notes: "Tước vị hoàng tử"
+  - zh: "爾時"
+    vi: "nhi thời"
+    status: "draft"
+    notes: "Công thức mở đoạn trong kinh"
+  - zh: "前後圍遶"
+    vi: "tiền hậu vi viễn"
+    status: "draft"
+    notes: "Vây quanh trước sau"
+  - zh: "還至"
+    vi: "hoàn chí"
+    status: "draft"
+    notes: "Trở về đến"
+  - zh: "佛所"
+    vi: "Phật sở"
+    doctrine: true
+    status: "draft"
+    notes: "Chỗ hiện diện của Phật"
+  - zh: "從面門入"
+    vi: "tòng diện môn nhập"
+    status: "draft"
+    notes: "Quang minh nhập từ diện môn"
+  - zh: "十方"
+    vi: "thập phương"
+    sanskrit: "daśadiś"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "無量世界"
+    vi: "vô lượng thế giới"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "東方"
+    vi: "Đông phương"
+    doctrine: true
+    status: "draft"
+    notes: "Phương vị trong cosmology Phật giáo"
+  - zh: "西方"
+    vi: "Tây phương"
+    doctrine: true
+    status: "draft"
+    notes: "Phương vị trong cosmology Phật giáo"
+  - zh: "去此"
+    vi: "khứ thử"
+    status: "draft"
+    notes: "Cách xa nơi này"
+  - zh: "十恒河沙"
+    vi: "thập Hằng Hà Sa"
+    doctrine: true
+    status: "draft"
+    notes: "Đơn vị đo khoảng cách cosmological"
+  - zh: "佛世界"
+    vi: "Phật thế giới"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "他佛土"
+    vi: "tha Phật thổ"
+    doctrine: true
+    status: "draft"
+    notes: "Quốc thổ của Phật khác"
+  - zh: "諸梵天"
+    vi: "chư Phạm thiên"
+    doctrine: true
+    status: "draft"
+    notes: "Chúng thiên giới Phạm Thiên"
+  - zh: "諸阿修羅王"
+    vi: "chư A Tu La vương"
+    status: "draft"
+    notes: "Chúng vua A Tu La"
+  - zh: "諸龍王"
+    vi: "chư long vương"
+    status: "draft"
+    notes: "Chúng long vương"
+  - zh: "龍王"
+    vi: "long vương"
+    sanskrit: "nāgarāja"
+    status: "draft"
+    notes: "Danh xưng chúng long thần"
+  - zh: "各將眷屬"
+    vi: "cá tương quyển thuộc"
+    status: "draft"
+    notes: "Mỗi vị dẫn theo quyển thuộc"
+  - zh: "不因飲食"
+    vi: "bất nhân ẩm thực"
+    doctrine: true
+    status: "draft"
+    notes: "Chúng sanh không dựa vào ăn uống"
+  - zh: "日月星光"
+    vi: "nhật nguyệt tinh quang"
+    status: "draft"
+    notes: "Ánh sáng nhật nguyệt tinh tú"
+  - zh: "山陵"
+    vi: "sơn lăng"
+    status: "draft"
+    notes: "Núi đồi"
+  - zh: "照曜"
+    vi: "chiếu diệu"
+    status: "draft"
+    notes: "Chiếu sáng rực rỡ"
+  - zh: "至其佛所"
+    vi: "chí kỳ Phật sở"
+    status: "draft"
+    notes: "Đến chỗ Phật ấy"
+  - zh: "斯光明"
+    vi: "tư quang minh"
+    status: "draft"
+    notes: "Quang minh này"
+  - zh: "以是因緣"
+    vi: "dĩ thị nhân duyên"
+    doctrine: true
+    status: "draft"
+    notes: "Vì nhân duyên như vậy"
+  - zh: "今欲"
+    vi: "kim dụ"
+    status: "draft"
+    notes: "Nay muốn, sắp"
+  - zh: "圍遶"
+    vi: "vi viễn"
+    status: "draft"
+    notes: "Quay quanh, tụ hội vây quanh"
+  - zh: "賢劫菩薩"
+    vi: "Hiền Kiếp Bồ Tát"
+    status: "draft"
+    notes: "Bồ tát của kiếp hiền"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "卷"
+    vi: "quyển"
+    status: "draft"
+    notes: "fascicle/volume marker in sutra titles"
+  - zh: "譯"
+    vi: "dịch"
+    status: "draft"
+    notes: "translated by"
+  - zh: "俱"
+    vi: "câu"
+    status: "draft"
+    notes: "together with; assembly formula suffix"
+  - zh: "其名曰"
+    vi: "kỳ danh vi"
+    status: "draft"
+    notes: "fixed enumeration formula: their names are"
+  - zh: "通達"
+    vi: "thông đạt"
+    doctrine: true
+    status: "draft"
+    notes: "penetrating comprehension of Dharma"
+  - zh: "能轉"
+    vi: "năng chuyển"
+    doctrine: true
+    status: "draft"
+    notes: "able to turn/set in motion"
+  - zh: "已曾"
+    vi: "dĩ tằng"
+    status: "draft"
+    notes: "already formerly; past accomplishment formula"
+  - zh: "不斷"
+    vi: "bất đoạn"
+    doctrine: true
+    status: "draft"
+    notes: "unceasing; without interruption"
+  - zh: "紹佛"
+    vi: "chiêu Phật"
+    doctrine: true
+    status: "draft"
+    notes: "to succeed the Buddha; carry on Buddha's work"
+  - zh: "轉法輪"
+    vi: "chuyển pháp luân"
+    doctrine: true
+    status: "draft"
+    notes: "turning the Dharma wheel"
+  - zh: "雖現世間"
+    vi: "tuy hiện thế gian"
+    doctrine: true
+    status: "draft"
+    notes: "although manifesting in the world"
+  - zh: "復有"
+    vi: "phục hữu"
+    status: "draft"
+    notes: "furthermore there were"
+  - zh: "諸大阿修羅王"
+    vi: "chư đại A Tu La vương"
+    status: "draft"
+    notes: "great asura kings (plural formula)"
+  - zh: "地及"
+    vi: "địa cập"
+    status: "draft"
+    notes: "earth and; paired with 虛空"
+  - zh: "靡有間隙"
+    vi: "ma hữu khoảng tích"
+    status: "draft"
+    notes: "without any gap or interval"
+  - zh: "恭敬如來"
+    vi: "cung kính Như Lai"
+    doctrine: true
+    status: "draft"
+    notes: "reverently honoring the Tathāgata"
+  - zh: "讚歎"
+    vi: "tán thán"
+    doctrine: true
+    status: "draft"
+    notes: "praise and extol"
+  - zh: "過"
+    vi: "quá"
+    status: "draft"
+    notes: "passing beyond; exceeding (distance formula)"
+  - zh: "況復"
+    vi: "huống phụ"
+    status: "draft"
+    notes: "how much more; a fortiori"
+  - zh: "尚無"
+    vi: "thượng vô"
+    status: "draft"
+    notes: "not even; still without"
+  - zh: "其土"
+    vi: "kỳ thổ"
+    doctrine: true
+    status: "draft"
+    notes: "that Buddha-land"
+  - zh: "但資"
+    vi: "đan tư"
+    doctrine: true
+    status: "draft"
+    notes: "only relying on; sustained solely by"
+  - zh: "皆悉"
+    vi: "giai tất"
+    status: "draft"
+    notes: "all entirely; completely"
+  - zh: "不現"
+    vi: "bất hiện"
+    doctrine: true
+    status: "draft"
+    notes: "do not appear; not manifest"
+  - zh: "佛光明"
+    vi: "Phật quang minh"
+    doctrine: true
+    status: "draft"
+    notes: "Buddha's radiance/light"
+  - zh: "無諸"
+    vi: "vô chư"
+    status: "draft"
+    notes: "without any (plural); none of the various"
+  - zh: "告"
+    vi: "cáo"
+    status: "draft"
+    notes: "addressed; announced (before direct speech)"
+  - zh: "放此光明"
+    vi: "phóng thử quang minh"
+    doctrine: true
+    status: "draft"
+    notes: "emit this radiance"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "經"
+    vi: "kinh"
+    doctrine: true
+    status: "draft"
+    notes: "Sutra, scripture"
+  - zh: "品"
+    vi: "phẩm"
+    doctrine: true
+    status: "draft"
+    notes: "Chapter section of a sutra"
+  - zh: "摩訶"
+    vi: "Ma Ha"
+    sanskrit: "mahā"
+    status: "draft"
+    notes: "Great; honorific prefix"
+  - zh: "正法"
+    vi: "chánh pháp"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "一乘"
+    vi: "nhất thừa"
+    doctrine: true
+    status: "draft"
+    notes: "One Vehicle teaching"
+  - zh: "國土"
+    vi: "quốc thổ"
+    doctrine: true
+    status: "draft"
+    notes: "Buddha land, realm"
+  - zh: "世界"
+    vi: "thế giới"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "無量"
+    vi: "vô lượng"
+    doctrine: true
+    status: "draft"
+    notes: "Immeasurable, innumerable"
+  - zh: "諸佛"
+    vi: "chư Phật"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "無量諸佛"
+    vi: "vô lượng chư Phật"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "諸菩薩"
+    vi: "chư Bồ Tát"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "菩薩眾"
+    vi: "Bồ Tát chúng"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "百千菩薩"
+    vi: "bách thiên Bồ Tát"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "解脫"
+    vi: "giải thoát"
+    sanskrit: "mokṣa"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "法輪"
+    vi: "pháp luân"
+    sanskrit: "dharmacakra"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "自在"
+    vi: "tự tại"
+    doctrine: true
+    status: "draft"
+    notes: "Spiritual sovereign ease"
+  - zh: "光明"
+    vi: "quang minh"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "供養"
+    vi: "cung dưỡng"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "恭敬"
+    vi: "cung kính"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "合掌"
+    vi: "hợp chưởng"
+    status: "draft"
+    notes: "Palms joined in reverence"
+  - zh: "飲食"
+    vi: "ẩm thực"
+    status: "draft"
+    notes: "Food and drink"
+  - zh: "此國土"
+    vi: "thử quốc thổ"
+    status: "draft"
+    notes: "This buddha land"
+  - zh: "有斯光明"
+    vi: "hữu tư quang minh"
+    status: "draft"
+    notes: "There is this radiance"
+  - zh: "照此國土"
+    vi: "chiếu thử quốc thổ"
+    status: "draft"
+    notes: "Illuminates this land"
+  - zh: "無量百千"
+    vi: "vô lượng bách thiên"
+    status: "draft"
+    notes: "Innumerable hundreds of thousands"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "法性"
+    vi: "pháp tính"
+    sanskrit: "dharmatā"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "法藏"
+    vi: "pháp tạng"
+    sanskrit: "dharma-garbha"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "法王"
+    vi: "pháp vương"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "境界"
+    vi: "cảnh giới"
+    sanskrit: "viṣaya"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "果"
+    vi: "quả"
+    sanskrit: "phala"
+    doctrine: true
+    status: "draft"
+    notes: "Path fruition, e.g. stream-entry result"
+  - zh: "世法"
+    vi: "thế pháp"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "不染"
+    vi: "bất nhiễm"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "護持"
+    vi: "hộ trì"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "世間"
+    vi: "thế gian"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "因緣"
+    vi: "nhân duyên"
+    sanskrit: "hetu-pratyaya"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "天"
+    vi: "thiên"
+    doctrine: true
+    status: "draft"
+    notes: "Deva class in the eightfold assembly"
+  - zh: "龍"
+    vi: "long"
+    doctrine: true
+    status: "draft"
+    notes: "Nāga class in the eightfold assembly"
+  - zh: "真子"
+    vi: "chân tử"
+    doctrine: true
+    status: "draft"
+    notes: "True son of the Dharma King"
+  - zh: "大龍"
+    vi: "đại long"
+    doctrine: true
+    status: "draft"
+    notes: "Simile for accomplished arahants"
+  - zh: "百千"
+    vi: "bách thiên"
+    status: "draft"
+    notes: "Numeral: hundreds of thousands"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "金剛"
+    vi: "kim cang"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "師子"
+    vi: "sư tử"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "蓮華"
+    vi: "liên hoa"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "賢士"
+    vi: "hiền sĩ"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "他化自在"
+    vi: "Tha Hóa Tự Tại"
+    doctrine: true
+    status: "draft"
+    notes: "Heaven realm"
+  - zh: "首陀婆娑"
+    vi: "Thủ Đà Bà Sa"
+    doctrine: true
+    status: "draft"
+    notes: "Heaven realm"
+  - zh: "兜率陀"
+    vi: "Đâu Suất Đà"
+    doctrine: true
+    status: "draft"
+    notes: "Heaven realm"
+  - zh: "夜摩"
+    vi: "Dạ Ma"
+    doctrine: true
+    status: "draft"
+    notes: "Heaven realm"
+  - zh: "化樂"
+    vi: "Hóa Lạc"
+    doctrine: true
+    status: "draft"
+    notes: "Heaven realm"
+  - zh: "須夜摩"
+    vi: "Tu Dạ Ma"
+    status: "draft"
+    notes: "Deva king of Yama heaven"
+  - zh: "善化"
+    vi: "Thiện Hóa"
+    status: "draft"
+    notes: "Deva king title"
+  - zh: "大梵"
+    vi: "Đại Phạm"
+    doctrine: true
+    status: "draft"
+    notes: "Brahma heaven"
+  - zh: "四天王"
+    vi: "Tứ Thiên Vương"
+    doctrine: true
+    status: "draft"
+    notes: "Heaven of the four guardian kings"
+  - zh: "釋迦牟尼"
+    vi: "Thích Ca Mâu Ni"
+    status: "draft"
+    notes: "Buddha name"
+  - zh: "普光"
+    vi: "Phổ Quang"
+    status: "draft"
+    notes: "Buddha name element"
+  - zh: "離障"
+    vi: "Ly Chướng"
+    status: "draft"
+    notes: "Bodhisattva name"
+  - zh: "妙音"
+    vi: "Diệu Âm"
+    status: "draft"
+    notes: "Bodhisattva epithet"
+  - zh: "無染"
+    vi: "Vô Nhiễm"
+    doctrine: true
+    status: "draft"
+    notes: "Bodhisattva epithet"
+  - zh: "智光"
+    vi: "Trí Quang"
+    status: "draft"
+    notes: "Bodhisattva epithet"
+  - zh: "月光"
+    vi: "Nguyệt Quang"
+    status: "draft"
+    notes: "Bodhisattva epithet"
+  - zh: "日光"
+    vi: "Nhật Quang"
+    status: "draft"
+    notes: "Bodhisattva epithet"
+  - zh: "智德"
+    vi: "Trí Đức"
+    status: "draft"
+    notes: "Bodhisattva epithet"
+  - zh: "賢德"
+    vi: "Hiền Đức"
+    status: "draft"
+    notes: "Bodhisattva epithet"
+  - zh: "華德"
+    vi: "Hoa Đức"
+    status: "draft"
+    notes: "Bodhisattva epithet"
+  - zh: "大音"
+    vi: "Đại Âm"
+    status: "draft"
+    notes: "Bodhisattva epithet"
+  - zh: "日月"
+    vi: "nhật nguyệt"
+    status: "draft"
+    notes: "Sun and moon"
+  - zh: "星光"
+    vi: "tinh quang"
+    status: "draft"
+    notes: "Starlight"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "甚深"
+    vi: "thậm thâm"
+    doctrine: true
+    status: "draft"
+    notes: "Tính từ cố định trong 'thậm thâm pháp tính', 'thậm thâm cảnh giới'"
+  - zh: "平等"
+    vi: "bình đẳng"
+    doctrine: true
+    status: "draft"
+    notes: "Thuộc 'thiện hành bình đẳng'"
+  - zh: "皆是"
+    vi: "giai thị"
+    status: "draft"
+    notes: "Công thức 'giai thị…' trong mô tả chúng Tỳ kheo"
+  - zh: "如是等"
+    vi: "như thị đẳng"
+    status: "draft"
+    notes: "Kết thúc danh sách tên"
+  - zh: "比丘眾"
+    vi: "Tỳ Kheo chúng"
+    status: "draft"
+    notes: "Chúng Tỳ kheo"
+  - zh: "有佛國土"
+    vi: "hữu Phật quốc thổ"
+    status: "draft"
+    notes: "Công thức giới thiệu Phật thổ"
+  - zh: "前後"
+    vi: "tiền hậu"
+    status: "draft"
+    notes: "Trước sau bao vây"
+  - zh: "遍照"
+    vi: "biến chiếu"
+    status: "draft"
+    notes: "Chiếu khắp"
+  - zh: "三匝"
+    vi: "tam vòng"
+    status: "draft"
+    notes: "Ba vòng nhiêu (lễ)"
+  - zh: "而白"
+    vi: "nhi bá"
+    status: "draft"
+    notes: "Mạch lược của 'nhi bá Phật ngôn'"
+  - zh: "名曰"
+    vi: "danh vi"
+    status: "draft"
+    notes: "Mạch lược của 'kỳ danh vi'"
+  - zh: "言"
+    vi: "ngôn"
+    status: "draft"
+    notes: "Công thức 'cáo… ngôn'"
+  - zh: "時"
+    vi: "Thời"
+    status: "draft"
+    notes: "Mạo đầu đoạn 'Thời, …'"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "通達品"
+    vi: "Phẩm Thông Đạt"
+    doctrine: true
+    status: "draft"
+    notes: "Chapter title of this sutra"
+  - zh: "地及虛空"
+    vi: "địa cập hư không"
+    doctrine: true
+    status: "draft"
+    notes: "Earth and empty space; scope of the filled assembly"
+  - zh: "如來面門"
+    vi: "Như Lai diện môn"
+    doctrine: true
+    status: "draft"
+    notes: "Tathagata's face-gate; locus of emitted light"
+  - zh: "還至佛所"
+    vi: "hoàn chí Phật sở"
+    doctrine: true
+    status: "draft"
+    notes: "Returned to the Buddha's place"
+  - zh: "尚無聲聞"
+    vi: "thượng vô Thanh văn"
+    doctrine: true
+    status: "draft"
+    notes: "Not even śrāvakas exist yet; pure-land characteristic"
+  - zh: "皆悉不現"
+    vi: "giai tất bất hiện"
+    doctrine: true
+    status: "draft"
+    notes: "All completely non-manifest; sun, moon, and stars absent"
+  - zh: "其國"
+    vi: "kỳ quốc"
+    doctrine: true
+    status: "draft"
+    notes: "That buddha-land or country"
+
+  # Auto-added from HV translation 2026-07-03
+  - zh: "陳優禪尼國"
+    vi: "Trần nước U Diên Ni"
+    status: "draft"
+    notes: "Translator's home country"
+  - zh: "四萬二千"
+    vi: "tứ vạn nhị thiên"
+    status: "draft"
+    notes: "Assembly count 42,000"
+  - zh: "七萬二千"
+    vi: "thất vạn nhị thiên"
+    status: "draft"
+    notes: "Assembly count 72,000"
+  - zh: "悉已通達"
+    vi: "tất dĩ thông đạt"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "四十由旬"
+    vi: "tứ thập do tuần"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "百千大眾"
+    vi: "bách thiên đại chúng"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "東方去此"
+    vi: "đông phương khứ thử"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "西方去此"
+    vi: "tây phương khứ thử"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "過十恒河沙佛世界"
+    vi: "quá thập Hằng Hà Sa Phật thế giới"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "十恒河沙世界"
+    vi: "thập Hằng Hà Sa thế giới"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "有佛國土名曰"
+    vi: "hữu Phật quốc thổ danh vi"
+    status: "draft"
+    notes: "Formula naming a buddha-land"
+  - zh: "辟支佛名"
+    vi: "bích chi Phật danh"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "修其法者"
+    vi: "tu kỳ pháp giả"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "其土眾生"
+    vi: "kỳ thổ chúng sanh"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "唯佛光明"
+    vi: "duy Phật quang minh"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "照曜其國"
+    vi: "chiếu diệu kỳ quốc"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "今欲為諸菩薩說"
+    vi: "kim dụ vi chư Bồ Tát thuyết"
+    status: "draft"
+    notes: "auto-extracted from HV translation"
+  - zh: "為諸菩薩說摩訶般若波羅蜜"
+    vi: "vi chư Bồ Tát thuyết Ma Ha Bát Nhã Ba La Mật"
+    doctrine: true
+    status: "draft"
+    notes: "auto-extracted from HV translation"

@@ -1,9 +1,40 @@
-# Web app has its own git repo
-web/
-
 # Runtime locks
 .locks/
 
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# ---- web (Next.js app) ----
+# dependencies
+web/node_modules/
+web/.pnp
+web/.pnp.*
+
+# next.js / build output
+web/.next/
+web/out/
+web/build/
+
+# testing
+web/coverage/
+
+# env files (keep the example)
+web/.env*
+!web/.env.example
+
+# vercel
+web/.vercel
+
+# typescript build info
+web/*.tsbuildinfo
+web/next-env.d.ts
+
+# debug logs
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+web/.pnpm-debug.log*
+
+# misc
+web/*.pem

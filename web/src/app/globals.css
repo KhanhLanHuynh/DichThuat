@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f5f7;
+  --foreground: #1a1d21;
+  --panel: #ffffff;
+  --border: #e2e5ea;
+  --accent: #2563eb;
+  --accent-light: #eff6ff;
+  --muted: #6b7280;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-panel: var(--panel);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-han: "Noto Serif TC", "Songti SC", serif;
+  --font-vi: "Noto Serif", "Times New Roman", serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-han {
+  font-family: var(--font-han);
+}
+
+.font-vi {
+  font-family: var(--font-vi);
+}
+
+.cm-editor {
+  height: 100%;
+  font-size: 15px;
+}
+
+.cm-editor.cm-focused {
+  outline: none;
+}
+
+.cm-scroller {
+  font-family: inherit;
+}

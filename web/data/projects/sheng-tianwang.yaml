@@ -1,0 +1,13 @@
+id: sheng-tianwang
+title: "勝天王般若波羅蜜經卷第一"
+series: sheng-tianwang
+volume: vol01
+chapter: "01"
+source: sources/sheng-tianwang/vol01/ch01.zh.md
+hv: translations/sheng-tianwang/vol01/ch01.hv.md
+vi: translations/sheng-tianwang/vol01/ch01.vi.md
+glossary:
+  - glossary/terms.yaml
+  - glossary/sheng-tianwang.yaml
+status: draft
+source_edition: "T09n0651 (CBETA)"

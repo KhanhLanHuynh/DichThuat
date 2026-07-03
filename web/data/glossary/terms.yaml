@@ -1,0 +1,326 @@
+# Default glossary — DichThuat
+# Scope: cross-series Buddhist terms (Chinese → Vietnamese)
+
+series: default
+
+terms:
+  - zh: "佛"
+    vi: "Phật"
+    notes: "Buddha; not Đức Phật unless honorific context"
+
+  - zh: "菩薩"
+    vi: "Bồ Tát"
+    sanskrit: "bodhisattva"
+
+  - zh: "羅漢"
+    vi: "A La Hán"
+    sanskrit: "arhat"
+
+  - zh: "涅槃"
+    vi: "Niết Bàn"
+    sanskrit: "nirvāṇa"
+    doctrine: true
+
+  - zh: "般若"
+    vi: "Bát Nhã"
+    sanskrit: "prajñā"
+    doctrine: true
+
+  - zh: "菩提"
+    vi: "Bồ Đề"
+    sanskrit: "bodhi"
+
+  - zh: "法"
+    vi: "pháp"
+    notes: "Dharma / phenomena; disambiguate by context"
+    doctrine: true
+
+  - zh: "眾生"
+    vi: "chúng sanh"
+    sanskrit: "sattva"
+
+  - zh: "空"
+    vi: "không"
+    notes: "Śūnyatā; not 'không có'"
+    doctrine: true
+
+  - zh: "心"
+    vi: "tâm"
+    notes: "Mind/heart; in technical contexts prefer tâm over lòng"
+
+  - zh: "世尊"
+    vi: "Thế Tôn"
+
+  - zh: "如來"
+    vi: "Như Lai"
+    sanskrit: "tathāgata"
+
+  - zh: "五蘊"
+    vi: "ngũ uẩn"
+    sanskrit: "skandha"
+    doctrine: true
+
+  - zh: "六度"
+    vi: "lục độ"
+    notes: "Six perfections"
+
+  - zh: "布施"
+    vi: "bố thí"
+    sanskrit: "dāna"
+
+  - zh: "持戒"
+    vi: "trì giới"
+    sanskrit: "śīla"
+
+  - zh: "忍辱"
+    vi: "nhẫn nhục"
+    sanskrit: "kṣānti"
+
+  - zh: "精進"
+    vi: "tinh tiến"
+    sanskrit: "vīrya"
+
+  - zh: "禪定"
+    vi: "thiền định"
+    sanskrit: "dhyāna"
+
+  - zh: "智慧"
+    vi: "trí tuệ"
+  # Note: use Bát Nhã when 般若 appears as technical Prajna
+
+  - zh: "波羅蜜"
+    vi: "Ba La Mật"
+    sanskrit: "pāramitā"
+    doctrine: true
+    notes: "Perfection/transcendence; độ when in 六度 context"
+
+  - zh: "阿耨多羅三藐三菩提"
+    vi: "A Nậu Đa La tam miêu tam Bồ Đề"
+    sanskrit: "anuttarā-samyak-saṃbodhi"
+    doctrine: true
+
+  - zh: "陀羅尼"
+    vi: "Đà La Ni"
+    sanskrit: "dhāraṇī"
+
+  - zh: "三寶"
+    vi: "Tam bảo"
+    notes: "佛、法、僧"
+
+  - zh: "聲聞"
+    vi: "Thanh văn"
+    sanskrit: "śrāvaka"
+
+  - zh: "辟支佛"
+    vi: "Bích chi Phật"
+    sanskrit: "pratyekabuddha"
+
+  - zh: "大乘"
+    vi: "Đại thừa"
+    sanskrit: "mahāyāna"
+
+  - zh: "二乘"
+    vi: "Nhị thừa"
+    notes: "聲聞、辟支佛乘"
+
+  - zh: "菩薩摩訶薩"
+    vi: "Bồ Tát Ma Ha Tát"
+    sanskrit: "bodhisattva-mahāsattva"
+
+  - zh: "比丘"
+    vi: "Tỳ Kheo"
+    sanskrit: "bhikṣu"
+
+  - zh: "阿羅漢"
+    vi: "A La Hán"
+    sanskrit: "arhat"
+    notes: "Full form; 羅漢 is abbreviated"
+
+  - zh: "無二無別"
+    vi: "vô nhị vô biệt"
+    doctrine: true
+
+  - zh: "自性離"
+    vi: "tự tính ly"
+    doctrine: true
+    notes: "Often paired: 無二無別，自性離故"
+
+  - zh: "第一義諦"
+    vi: "đệ nhất nghĩa đế"
+    sanskrit: "paramārtha-satya"
+    doctrine: true
+
+  - zh: "世諦"
+    vi: "thế đế"
+    sanskrit: "saṃvṛti-satya"
+
+  - zh: "正遍知"
+    vi: "Chánh Biến Tri"
+    notes: "One of ten epithets of Buddha"
+
+  - zh: "調御丈夫"
+    vi: "Điều Ngự Trượng Phu"
+
+  - zh: "天人師"
+    vi: "Thiên Nhân Sư"
+
+  - zh: "善逝"
+    vi: "Thiện Thệ"
+    sanskrit: "sugata"
+
+  - zh: "應供"
+    vi: "Ứng Cung"
+    sanskrit: "arhat (epithet)"
+
+  - zh: "明行足"
+    vi: "Minh Hạnh Túc"
+
+  - zh: "世間解"
+    vi: "Thế Gian Giải"
+
+  - zh: "無上士"
+    vi: "Vô Thượng Sĩ"
+
+  - zh: "漏"
+    vi: "lậu"
+    sanskrit: "āsrava"
+    notes: "諸漏永盡"
+
+  - zh: "有結"
+    vi: "hữu kiết"
+    notes: "盡諸有結; fetters of existence"
+
+  - zh: "須陀洹"
+    vi: "Tu Đà Hoàn"
+    sanskrit: "srotāpanna"
+
+  - zh: "六時"
+    vi: "lục thời"
+    notes: "Six periods of day/night"
+
+  - zh: "六道"
+    vi: "lục đạo"
+    notes: "Six destinies of rebirth"
+
+  - zh: "魔"
+    vi: "Ma"
+    sanskrit: "māra"
+    notes: "Māra; 惡魔 when demonic"
+
+  - zh: "神通"
+    vi: "thần thông"
+    sanskrit: "abhijñā"
+
+  - zh: "三昧"
+    vi: "Tam Muội"
+    sanskrit: "samādhi"
+
+  - zh: "迴向"
+    vi: "hồi hướng"
+    sanskrit: "pariṇāmanā"
+
+  - zh: "正覺"
+    vi: "Chánh Giác"
+    sanskrit: "samyak-saṃbodhi"
+
+  # --- Added from sheng-tianwang ch01 (通達品第一) — cross-series doctrinal ---
+  - zh: "婆伽婆"
+    vi: "Bà Già Bà"
+    sanskrit: "bhagavān"
+    doctrine: true
+    notes: "Epithet of the Buddha (Blessed One); cf. 世尊 Thế Tôn (same referent, different rendering)"
+
+  - zh: "波羅提木叉"
+    vi: "Ba La Đề Mộc Xoa"
+    sanskrit: "prātimokṣa"
+    doctrine: true
+    notes: "Giới bổn; code of monastic precepts"
+
+  - zh: "毘尼"
+    vi: "Tỳ Ni"
+    sanskrit: "vinaya"
+    doctrine: true
+    notes: "Vinaya; monastic discipline"
+
+  - zh: "修多羅"
+    vi: "Tu Đa La"
+    sanskrit: "sūtra"
+    doctrine: true
+    notes: "Sūtra (transliterated form); discourse"
+
+  - zh: "阿含"
+    vi: "A Hàm"
+    sanskrit: "āgama"
+    doctrine: true
+    notes: "Āgama; scriptural tradition. Text: 佛阿含教"
+
+  - zh: "阿鼻獄"
+    vi: "ngục A Tỳ"
+    sanskrit: "avīci"
+    doctrine: true
+    notes: "Avīci hell; 阿鼻地獄"
+
+  - zh: "三有"
+    vi: "tam hữu"
+    doctrine: true
+    notes: "Three forms of existence (欲有、色有、無色有)"
+
+  - zh: "五逆"
+    vi: "ngũ nghịch"
+    doctrine: true
+    notes: "Five heinous crimes (pañcānantarya)"
+
+  - zh: "乾闥婆城"
+    vi: "thành Càn Thát Bà"
+    sanskrit: "gandharva-nagara"
+    doctrine: true
+    notes: "Illusory gandharva-city; simile for unreality"
+
+  - zh: "不淨觀"
+    vi: "bất tịnh quán"
+    doctrine: true
+    notes: "Contemplation of impurity; antidote to greed (貪欲)"
+
+  - zh: "慈悲觀"
+    vi: "từ bi quán"
+    doctrine: true
+    notes: "Contemplation of loving-kindness/compassion; antidote to anger (瞋恚)"
+
+  - zh: "因緣觀"
+    vi: "nhân duyên quán"
+    doctrine: true
+    notes: "Contemplation of dependent origination; antidote to delusion (愚癡)"
+
+  - zh: "善男子"
+    vi: "thiện nam tử"
+    notes: "Form of address: 'good son / virtuous man'"
+
+  # --- Eight classes of beings (天龍八部) ---
+  - zh: "夜叉"
+    vi: "Dạ Xoa"
+    sanskrit: "yakṣa"
+
+  - zh: "乾闥婆"
+    vi: "Càn Thát Bà"
+    sanskrit: "gandharva"
+    notes: "Distinct from 乾闥婆城 (illusory city)"
+
+  - zh: "阿修羅"
+    vi: "A Tu La"
+    sanskrit: "asura"
+
+  - zh: "迦樓羅"
+    vi: "Ca Lâu La"
+    sanskrit: "garuḍa"
+
+  - zh: "緊那羅"
+    vi: "Khẩn Na La"
+    sanskrit: "kiṃnara"
+
+  - zh: "摩睺羅伽"
+    vi: "Ma Hầu La Già"
+    sanskrit: "mahoraga"
+
+  - zh: "人非人"
+    vi: "nhân phi nhân"
+    notes: "Humans and non-humans"
