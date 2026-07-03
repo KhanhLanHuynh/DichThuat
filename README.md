@@ -33,7 +33,6 @@ DichThuat/
 │   │   └── projects/       # Manifest dự án (web app)
 │   └── ...                 # Next.js translation workbench
 ├── parallel/               # Đối chiếu song song để duyệt
-├── glossary/               # Redirect → web/data/glossary/
 ├── references/             # Kinh tạng, từ điển, bản dịch trước
 └── notes/                  # Ghi chú dịch giả, câu hỏi mở
 ```
