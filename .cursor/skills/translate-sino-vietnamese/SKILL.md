@@ -37,17 +37,20 @@ If prerequisites fail: stop and run **build-glossary** / glossary-curator first.
 
 ## Lexical rules
 
-**Âm dịch, not nghĩa dịch** — map each character/compound to established Hán-Việt reading in source order.
+**Word-by-word (逐字逐詞)** — translate **each Chinese character or bound compound** to its Hán-Việt reading **in strict source order**. Âm dịch, not nghĩa dịch.
 
-| Type | Rule |
-|------|------|
+| Principle | Rule |
+|-----------|------|
+| One-to-one mapping | Every source character (or glossary-bound compound) → one Hán-Việt unit; do not skip, merge, or reorder |
+| No paraphrase | Do not replace with thuần Việt meaning (e.g. 第一 → *phần thứ nhất* is wrong; use **đệ nhất**) |
+| No added words | No classifiers, connectives, or filler absent from the source |
 | Glossary term | Exact `vi` from YAML |
-| Number | Hán-Việt per character (ngũ bách, thất vạn nhị thiên) — no Arabic, no thuần Việt numbers |
+| Number / ordinal | Hán-Việt per character in order (一 → nhất, 七萬二千 → thất vạn nhị thiên) — no Arabic, no thuần Việt numbers |
 | Proper name | Full transliteration, source order (耆闍崛山 → Kỳ Xà Quật Sơn) |
 | Function word | Standard Hán-Việt (之 chi, 而 nhi, 以 dĩ, 故 cố, …) |
 | Mantra | Transliterate only |
 
-Minimize thuần Việt. Do not add classifiers or connectives absent from the source.
+Minimize thuần Việt. When unsure between a meaning-based phrase and a character reading, **always choose the character reading**.
 
 ## Blank-line dedupe (before save)
 
@@ -61,18 +64,34 @@ Agents sometimes insert an extra empty line between paragraphs. Before writing `
 
 ```
 - [ ] Load glossary + source
-- [ ] Translate line by line from source
-- [ ] Self-check: glossary compliance + line count parity
+- [ ] Translate line by line, **word-by-word** (one Hán-Việt unit per source character/compound)
+- [ ] Self-check: glossary compliance + line count parity + no paraphrase
 - [ ] Dedupe blank lines: collapse any run of 2+ consecutive empty lines to match source at that position
 - [ ] Write plain-text .hv.md
 - [ ] Write log to notes/
 ```
 
-## Example
+## Examples (word-by-word)
 
-**Source line:** 色不異空，空不異色；色即是空，空即是色。
+### Section / chapter title
 
-**Output line:** Sắc bất dị không, không bất dị sắc; sắc tức thị không, không tức thị sắc.
+| Source | Output | Character map |
+|--------|--------|-----------------|
+| 通達品第一 | Thông Đạt Phẩm đệ nhất | 通→Thông, 達→Đạt, 品→Phẩm, 第→đệ, 一→nhất |
+
+Do not render titles as thuần Việt paraphrases (e.g. *Phẩm Thông Đạt, phần một*).
+
+### Prose line
+
+**Source:** 色不異空，空不異色；色即是空，空即是色。
+
+**Output:** Sắc bất dị không, không bất dị sắc; sắc tức thị không, không tức thị sắc.
+
+| Source | Output | Notes |
+|--------|--------|-------|
+| 爾時 | Nhĩ thì | 爾→nhĩ, 時→thì — not *Thời ấy* |
+| 七萬二千 | thất vạn nhị thiên | one reading per character |
+| 觀自在菩薩 | Quán Tự Tại Bồ Tát | glossary order + word-by-word |
 
 ## Next step
 

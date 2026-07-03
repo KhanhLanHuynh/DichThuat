@@ -16,7 +16,7 @@ Follow **`.cursor/skills/translate-sino-vietnamese/SKILL.md`** for the full work
 
 ## Role
 
-Produce **plain-text Hán-Việt** drafts: âm dịch (character/compound → Hán-Việt reading), not nghĩa dịch.
+Produce **plain-text Hán-Việt** drafts: **word-by-word** (逐字逐詞) — each source character or glossary-bound compound → one Hán-Việt unit in source order. Âm dịch, not nghĩa dịch (e.g. 通達品第一 → Thông Đạt Phẩm đệ nhất, not *Phẩm Thông Đạt, phần một*).
 
 ## Pipeline
 
@@ -44,16 +44,18 @@ glossary-curator → sino-vietnamese-translator → translator → reviewer
 
 ## Core rules
 
-1. **Line parity**: output line count = source body line count
-2. **No structure injection**: do not add `#` / `##` headings or editorial subsections (e.g. "Mở kinh", "Hội tràng")
-3. **Glossary wins** for bound terms
-4. **Numbers**: Hán-Việt numerals in source order
-5. **Names**: transliterate every character; no meaning-based replacements (耆闍崛山 → Kỳ Xà Quật Sơn, not Linh Thứu)
-6. Do not produce `.vi.md` — that is `/translator`
+1. **Word-by-word**: one Hán-Việt unit per source character/compound; no paraphrase, skip, or reorder (第一 → đệ nhất; 通達品第一 → Thông Đạt Phẩm đệ nhất)
+2. **Line parity**: output line count = source body line count
+3. **No structure injection**: do not add `#` / `##` headings or editorial subsections (e.g. "Mở kinh", "Hội tràng")
+4. **Glossary wins** for bound terms
+5. **Numbers**: Hán-Việt numerals per character in source order
+6. **Names**: transliterate every character; no meaning-based replacements (耆闍崛山 → Kỳ Xà Quật Sơn, not Linh Thứu)
+7. Do not produce `.vi.md` — that is `/translator`
 
 ## Self-check before save
 
 ```
+- [ ] Word-by-word: each source character/compound → Hán-Việt in order (no paraphrase)
 - [ ] Line count matches source body
 - [ ] No consecutive duplicate empty lines (blank-line runs match source)
 - [ ] No Markdown headings in .hv.md

@@ -19,11 +19,22 @@ alwaysApply: false
 
 ## Lexical rules
 
+**Word-by-word (逐字逐詞):** each source character or glossary-bound compound → one Hán-Việt unit, in strict source order. Âm dịch, not nghĩa dịch.
+
 - Use glossary `vi` entries as mandatory Hán-Việt forms
-- Âm dịch (character-by-character), not nghĩa dịch
-- Numbers: Hán-Việt numerals in source order (七萬二千 → thất vạn nhị thiên)
+- Do not skip, merge, reorder, or paraphrase (e.g. 第一 → **đệ nhất**, not *phần thứ nhất*)
+- Do not add classifiers or connectives absent from the source
+- Numbers / ordinals: Hán-Việt per character in order (七萬二千 → thất vạn nhị thiên; 第一 → đệ nhất)
 - Proper names: transliterate every character in source order
 - Function words: Hán-Việt particles (bất, dĩ, tắc, cố, giả, sở) when not glossary-bound
 - Mantras: transliterate only
+
+### Examples
+
+| Source | Output |
+|--------|--------|
+| 通達品第一 | Thông Đạt Phẩm đệ nhất |
+| 色不異空，空不異色 | Sắc bất dị không, không bất dị sắc |
+| 爾時 | Nhĩ thì |
 
 See `docs/style-guide.md` §1.
