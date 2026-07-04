@@ -21,8 +21,11 @@ export interface GlossaryData {
   terms: GlossaryTerm[];
 }
 
+/** Normalized term with both hv and vi guaranteed. */
+export type NormalizedGlossaryTerm = GlossaryTerm & { hv: string; vi: string };
+
 /** Normalize legacy entries that only had `vi` (formerly Hán-Việt). */
-export function normalizeGlossaryTerm(term: GlossaryTerm): GlossaryTerm {
+export function normalizeGlossaryTerm(term: GlossaryTerm): NormalizedGlossaryTerm {
   const hv = term.hv?.trim() || term.vi?.trim() || "";
   const vi = term.vi?.trim() || term.hv?.trim() || "";
   return { ...term, hv, vi };

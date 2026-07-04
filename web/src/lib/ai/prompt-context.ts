@@ -43,7 +43,7 @@ const HV_MODE = `MODE: Hán-Việt (âm dịch) — WORD-BY-WORD (逐字逐詞).
 - Ordinals/numbers stay Hán-Việt per character: 第 → đệ, 一 → nhất, 二 → nhị (never "thứ nhất", "thứ hai", "phần một").
 - Example: 通達品第一 → "Thông Đạt Phẩm đệ nhất" (NOT "Phẩm Thông Đạt thứ nhất", NOT "Phẩm Thông Đạt phần một").
 - Example: 色不異空 → "Sắc bất dị không". Example: 爾時 → "Nhĩ thì".
-- Glossary-bound terms: use `hv` column only.`;
+- Glossary-bound terms: use \`hv\` column only.`;
 
 const contextCache = new Map<string, string>();
 

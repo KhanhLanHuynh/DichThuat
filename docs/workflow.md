@@ -27,6 +27,8 @@
 2. Đầu ra: `web/data/translations/{series}/{volume}/ch{NN}.vi.md` — **plain text, cùng số dòng với thân nguồn**
 3. Metadata (`status`, `revision`): ghi trong `notes/`, không trong file dịch
 
+**Web editor:** Nút **Thuần Việt** sau khi dịch xong chương cũng tự trích thuật ngữ mới từ bộ dòng Hán/Hán-Việt/thuần Việt (cần cột HV trong editor) và **append** vào `web/data/glossary/{series}.yaml` — append-only, `status: draft`, không sửa mục đã có.
+
 ## Giai đoạn 5 — Duyệt
 
 1. Chạy subagent **reviewer** (chỉ đọc)

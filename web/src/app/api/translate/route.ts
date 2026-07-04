@@ -10,7 +10,10 @@ import {
 } from "@/lib/ai/prompt-context";
 import { parseJsonArrayFromAgent, runCursorAgent } from "@/lib/ai/translate";
 import { getSessionUser, type AuthUser } from "@/lib/auth";
-import { updateGlossaryFromHanViet } from "@/lib/glossary-update";
+import {
+  updateGlossaryFromHanViet,
+  updateGlossaryFromVietnamese,
+} from "@/lib/glossary-update";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -155,6 +158,7 @@ export async function POST(req: NextRequest) {
         );
 
         const hvResults: string[] = new Array(total).fill("");
+        const viResults: string[] = new Array(total).fill("");
 
         send("status", { phase: "applying" });
 
@@ -162,6 +166,8 @@ export async function POST(req: NextRequest) {
           const trimmed = (lines[i] ?? "").trim();
           if (body.layer === "hv") {
             hvResults[i] = trimmed;
+          } else {
+            viResults[i] = trimmed;
           }
           send("paragraph", {
             paragraphIndex: i,
@@ -171,15 +177,24 @@ export async function POST(req: NextRequest) {
         }
 
         let glossaryAdded = 0;
-        if (body.layer === "hv") {
+        if (body.layer === "hv" || body.layer === "vi") {
           send("status", { phase: "glossary" });
 
-          const glossaryResult = await updateGlossaryFromHanViet({
-            zhParagraphs: data.zhParagraphs,
-            hvParagraphs: hvResults,
-            existingTerms: glossaryTerms,
-            series: manifest.series,
-          });
+          const glossaryResult =
+            body.layer === "hv"
+              ? await updateGlossaryFromHanViet({
+                  zhParagraphs: data.zhParagraphs,
+                  hvParagraphs: hvResults,
+                  existingTerms: glossaryTerms,
+                  series: manifest.series,
+                })
+              : await updateGlossaryFromVietnamese({
+                  zhParagraphs: data.zhParagraphs,
+                  hvParagraphs,
+                  viParagraphs: viResults,
+                  existingTerms: glossaryTerms,
+                  series: manifest.series,
+                });
           glossaryAdded = glossaryResult.added.length;
           send("glossary", {
             added: glossaryResult.added,

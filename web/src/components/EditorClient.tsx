@@ -405,7 +405,6 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
     setTranslateStatus("connecting");
     setTranslateProgress(null);
     const tokenBuffers = new Map<number, string>();
-    let glossaryAdded = 0;
 
     try {
       const res = await fetch("/api/translate", {
@@ -445,8 +444,6 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
             total?: number;
             message?: string;
             added?: GlossaryTerm[];
-            count?: number;
-            glossaryAdded?: number;
             warning?: string;
             alignmentWarning?: string;
             phase?: TranslatePhase;
@@ -508,12 +505,6 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
             if (data.added && data.added.length > 0) {
               setTerms((prev) => dedupeByZh([...prev, ...data.added!]));
             }
-            if (data.count !== undefined) {
-              glossaryAdded = data.count;
-            }
-          }
-          if (event === "done" && data.glossaryAdded !== undefined) {
-            glossaryAdded = data.glossaryAdded;
           }
           if (event === "done" && data.alignmentWarning) {
             setAlignmentWarning(data.alignmentWarning);
@@ -522,9 +513,6 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
         }
       }
       setDirty(true);
-      if (layer === "hv" && glossaryAdded > 0) {
-        alert(`Added ${glossaryAdded} term${glossaryAdded === 1 ? "" : "s"} to glossary.`);
-      }
     } catch (e) {
       alert(e instanceof Error ? e.message : "Translation failed");
     } finally {

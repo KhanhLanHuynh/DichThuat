@@ -3,7 +3,9 @@ import path from "path";
 import { resolveContentPath } from "./content-root";
 import type { GlossaryTerm } from "./glossary";
 import { normalizeGlossaryTerm, parseGlossaryYaml } from "./glossary";
-import { callGlossaryExtract } from "./ai/glossary-extract";
+import { callGlossaryExtract, callGlossaryExtractFromVi } from "./ai/glossary-extract";
+
+export type GlossaryAppendSource = "hv" | "vi";
 
 export function resolveSeriesGlossaryPath(series: string): string {
   return `glossary/${series}.yaml`;
@@ -41,7 +43,8 @@ function formatTermYaml(term: GlossaryTerm): string {
 
 export async function appendSeriesGlossaryTerms(
   series: string,
-  newTerms: GlossaryTerm[]
+  newTerms: GlossaryTerm[],
+  source: GlossaryAppendSource = "hv"
 ): Promise<GlossaryTerm[]> {
   if (newTerms.length === 0) return [];
 
@@ -58,9 +61,10 @@ export async function appendSeriesGlossaryTerms(
   if (toAdd.length === 0) return [];
 
   const date = new Date().toISOString().slice(0, 10);
+  const sourceLabel = source === "vi" ? "VI" : "HV";
   const block = [
     "",
-    `  # Auto-added from HV translation ${date}`,
+    `  # Auto-added from ${sourceLabel} translation ${date}`,
     ...toAdd.map((t) => formatTermYaml(t)),
     "",
   ].join("\n");
@@ -111,6 +115,41 @@ export async function extractNewGlossaryTerms(
   if (linePairs.length === 0) return [];
 
   return callGlossaryExtract({
+    linePairs,
+    existingTerms: input.existingTerms,
+    series: input.series,
+  });
+}
+
+export interface ExtractNewGlossaryTermsFromViInput {
+  zhParagraphs: string[];
+  hvParagraphs: string[];
+  viParagraphs: string[];
+  existingTerms: GlossaryTerm[];
+  series: string;
+}
+
+export async function extractNewGlossaryTermsFromVi(
+  input: ExtractNewGlossaryTermsFromViInput
+): Promise<GlossaryTerm[]> {
+  const linePairs: { zh: string; hv: string; vi: string }[] = [];
+  const len = Math.max(
+    input.zhParagraphs.length,
+    input.hvParagraphs.length,
+    input.viParagraphs.length
+  );
+
+  for (let i = 0; i < len; i++) {
+    const zh = input.zhParagraphs[i] ?? "";
+    const hv = input.hvParagraphs[i] ?? "";
+    const vi = input.viParagraphs[i] ?? "";
+    if (!zh.trim() || !hv.trim() || !vi.trim()) continue;
+    linePairs.push({ zh, hv, vi });
+  }
+
+  if (linePairs.length === 0) return [];
+
+  return callGlossaryExtractFromVi({
     linePairs,
     existingTerms: input.existingTerms,
     series: input.series,
@@ -298,7 +337,45 @@ export async function updateGlossaryFromHanViet(
       return { added: [] };
     }
 
-    const added = await appendSeriesGlossaryTerms(input.series, extracted);
+    const added = await appendSeriesGlossaryTerms(input.series, extracted, "hv");
+    return { added };
+  } catch (e) {
+    const message = e instanceof Error ? e.message : "Glossary update failed";
+    console.error("[glossary-update]", message);
+    return { added: [], warning: message };
+  }
+}
+
+export interface UpdateGlossaryFromVietnameseInput {
+  zhParagraphs: string[];
+  hvParagraphs: string[];
+  viParagraphs: string[];
+  existingTerms: GlossaryTerm[];
+  series: string;
+}
+
+export interface UpdateGlossaryFromVietnameseResult {
+  added: GlossaryTerm[];
+  warning?: string;
+}
+
+export async function updateGlossaryFromVietnamese(
+  input: UpdateGlossaryFromVietnameseInput
+): Promise<UpdateGlossaryFromVietnameseResult> {
+  try {
+    const extracted = await extractNewGlossaryTermsFromVi({
+      zhParagraphs: input.zhParagraphs,
+      hvParagraphs: input.hvParagraphs,
+      viParagraphs: input.viParagraphs,
+      existingTerms: input.existingTerms,
+      series: input.series,
+    });
+
+    if (extracted.length === 0) {
+      return { added: [] };
+    }
+
+    const added = await appendSeriesGlossaryTerms(input.series, extracted, "vi");
     return { added };
   } catch (e) {
     const message = e instanceof Error ? e.message : "Glossary update failed";
