@@ -21,7 +21,7 @@ alwaysApply: false
 
 **Word-by-word (逐字逐詞):** each source character or glossary-bound compound → one Hán-Việt unit, in strict source order. Âm dịch, not nghĩa dịch.
 
-- Use glossary `vi` entries as mandatory Hán-Việt forms
+- Use glossary `hv` column only for bound terms in `.hv.md` — never substitute `vi` when they differ
 - Do not skip, merge, reorder, or paraphrase (e.g. 第一 → **đệ nhất**, not *phần thứ nhất*)
 - Do not add classifiers or connectives absent from the source
 - Numbers / ordinals: Hán-Việt per character in order (七萬二千 → thất vạn nhị thiên; 第一 → đệ nhất)

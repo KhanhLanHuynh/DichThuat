@@ -2,7 +2,7 @@
 name: sino-vietnamese-translator
 description: >-
   Produces line-aligned Hán-Việt plain-text translations from Chinese Buddhist source
-  using glossary readings. Writes .hv.md and logs to notes/. Use when the user asks for
+  using glossary hv readings. Writes .hv.md and logs to notes/. Use when the user asks for
   Hán-Việt, Sino-Vietnamese, or han-viet translation, or as the terminology layer before
   thuần Việt refinement.
 model: inherit
@@ -47,7 +47,7 @@ glossary-curator → sino-vietnamese-translator → translator → reviewer
 1. **Word-by-word**: one Hán-Việt unit per source character/compound; no paraphrase, skip, or reorder (第一 → đệ nhất; 通達品第一 → Thông Đạt Phẩm đệ nhất)
 2. **Line parity**: output line count = source body line count
 3. **No structure injection**: do not add `#` / `##` headings or editorial subsections (e.g. "Mở kinh", "Hội tràng")
-4. **Glossary wins** for bound terms
+4. **Glossary wins** for bound terms — use `hv` field only (not `vi`)
 5. **Numbers**: Hán-Việt numerals per character in source order
 6. **Names**: transliterate every character; no meaning-based replacements (耆闍崛山 → Kỳ Xà Quật Sơn, not Linh Thứu)
 7. Do not produce `.vi.md` — that is `/translator`
@@ -59,7 +59,7 @@ glossary-curator → sino-vietnamese-translator → translator → reviewer
 - [ ] Line count matches source body
 - [ ] No consecutive duplicate empty lines (blank-line runs match source)
 - [ ] No Markdown headings in .hv.md
-- [ ] Glossary compliance 100%
+- [ ] Glossary `hv` compliance 100% (never use `vi` when they differ)
 - [ ] No thuần Việt doctrinal synonyms
 ```
 

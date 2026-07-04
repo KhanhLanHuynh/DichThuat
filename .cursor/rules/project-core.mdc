@@ -20,8 +20,10 @@ Read `CONTEXT.md` at project start for terminology and workflow.
 
 ## Terminology
 
-- Check `web/data/glossary/terms.yaml` before translating; add new terms before first use
-- One Chinese term → one Vietnamese equivalent per series
+- Check `web/data/glossary/terms.yaml` before translating; add new terms (`hv` + `vi`) before first use
+- One Chinese term → one `hv` and one `vi` equivalent per series
+- **`.hv.md` (Hán-Việt):** use glossary `hv` column only — never `vi` when they differ
+- **`.vi.md` (thuần Việt):** use glossary `vi` column only — never `hv` when they differ
 - Sanskrit/Pali & transliterated names: no hyphens; write each syllable as a separate Title Case word (e.g. Niết Bàn, Bồ Tát, Bát Nhã Ba La Mật, A Nan)
 
 ## Translation Output Format (plain text)

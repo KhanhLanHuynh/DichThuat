@@ -39,9 +39,11 @@ Read-only auditor. Report in `notes/`; do not edit translation files unless user
 
 | Check | Severity |
 |-------|----------|
-| Wrong glossary `vi` form | **Critical** |
+| Wrong glossary `hv` in `.hv.md` | **Critical** |
+| Wrong glossary `vi` in `.vi.md` | **Critical** |
+| Used `vi` reading in `.hv.md` where `hv` differs | **Critical** |
+| Used `hv` reading in `.vi.md` where `vi` differs | **Critical** |
 | Unauthorized synonym | **Critical** |
-| `.vi.md` changed `.hv.md` doctrinal term without reason | **Critical** |
 
 ### Fidelity — Critical
 

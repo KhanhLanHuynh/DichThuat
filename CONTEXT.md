@@ -13,7 +13,7 @@ DichThuat là không gian làm việc để dịch kinh điển Phật giáo t�
 
 1. **Trung thành hơn trôi chảy** — Giữ nguyên nghĩa giáo lý; không diễn giải làm mất các phân biệt kỹ thuật.
 2. **Từ vựng Phật giáo Việt Nam đã có** — Ưu tiên thuật ngữ trong kinh tạng Việt Nam (thường là Hán-Việt hoặc Sanskrit/Pali qua tiếng Việt).
-3. **Nhất quán** — Một thuật ngữ Hán → một bản tiếng Việt tương đương cho mỗi bộ kinh (xem `web/data/glossary/`).
+3. **Nhất quán** — Một thuật ngữ Hán → một `hv` (Hán-Việt) và một `vi` (thuần Việt) cho mỗi bộ kinh (xem `web/data/glossary/`).
 4. **Minh bạch** — Ghi chú đọc bản mơ hồ, dị thể (異體字) và lựa chọn dịch giả trong chú thích cuối trang hoặc `notes/`.
 5. **Giữ cấu trúc** — Giữ số chương, ngắt câu kệ và dấu hiệu đối thoại khớp với bản gốc.
 
@@ -44,7 +44,7 @@ DichThuat là không gian làm việc để dịch kinh điển Phật giáo t�
 | Chân như | chân như | — |
 | Duyên khởi | duyên khởi | — |
 
-Glossary đầy đủ: `web/data/glossary/terms.yaml`. Cập nhật trước khi dịch bộ kinh mới.
+Glossary đầy đủ: `web/data/glossary/terms.yaml` (`hv` cho `.hv.md`, `vi` cho `.vi.md`). Cập nhật trước khi dịch bộ kinh mới.
 
 ## Đặt tên file
 

@@ -23,7 +23,8 @@ description: >-
 - [ ] No consecutive duplicate empty lines (blank-line runs match source)
 
 ### Terminology
-- [ ] All glossary terms used correctly
+- [ ] `.hv.md`: all glossary `hv` forms correct; no `vi` where `hv` differs
+- [ ] `.vi.md`: all glossary `vi` forms correct; no `hv` where `vi` differs
 - [ ] No unauthorized synonyms for registered terms
 - [ ] Proper names transliterated consistently
 
@@ -50,7 +51,7 @@ Write to `notes/{series}-review-ch{NN}.md`. Log `status: reviewed` there; transl
 - ...
 
 ### Glossary gaps
-- zh: "..." → propose vi: "..."
+- zh: "..." → propose hv: "..." / vi: "..."
 ```
 
 ## After review

@@ -6,7 +6,7 @@ hv_base: translations/sheng-tianwang/vol01/ch01.hv.md
 output: translations/sheng-tianwang/vol01/ch01.vi.md
 agent: translator
 date: 2026-07-01
-revision: 2
+revision: 3
 status: draft
 ---
 
@@ -14,7 +14,7 @@ status: draft
 
 ## Tóm tắt
 
-Tái sinh bản **thuần Việt** (`.vi.md`) theo quy tắc plain-text, line-aligned: 53 dòng đối chiếu 53 dòng nguồn; không YAML, không heading Markdown. Giữ thuật ngữ Hán-Việt giáo lý từ `.hv.md` và glossary; tinh chỉnh liên kết câu thuần Việt.
+Tái sinh bản **thuần Việt** (`.vi.md`) sau khi glossary có cột `vi` riêng: áp dụng `Thế Tôn`, `giới bổn`, `luật Tăng`, `kinh`, `người và phi người`, v.v. File chính thức: `translations/sheng-tianwang/vol01/ch01.vi.md` (không còn `- Copy`).
 
 ## Chỉ số
 

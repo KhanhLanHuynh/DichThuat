@@ -2,7 +2,7 @@
 name: translate-sino-vietnamese
 description: >-
   Produces Hán-Việt (Sino-Vietnamese) plain-text translations from Chinese source
-  using glossary readings, line-aligned with source. Use after glossary-curator,
+  using glossary hv readings, line-aligned with source. Use after glossary-curator,
   before thuần Việt translation, or when the user asks for Hán-Việt or han-viet output.
 ---
 
@@ -44,7 +44,7 @@ If prerequisites fail: stop and run **build-glossary** / glossary-curator first.
 | One-to-one mapping | Every source character (or glossary-bound compound) → one Hán-Việt unit; do not skip, merge, or reorder |
 | No paraphrase | Do not replace with thuần Việt meaning (e.g. 第一 → *phần thứ nhất* is wrong; use **đệ nhất**) |
 | No added words | No classifiers, connectives, or filler absent from the source |
-| Glossary term | Exact `vi` from YAML |
+| Glossary term | Exact `hv` from YAML — never substitute `vi` |
 | Number / ordinal | Hán-Việt per character in order (一 → nhất, 七萬二千 → thất vạn nhị thiên) — no Arabic, no thuần Việt numbers |
 | Proper name | Full transliteration, source order (耆闍崛山 → Kỳ Xà Quật Sơn) |
 | Function word | Standard Hán-Việt (之 chi, 而 nhi, 以 dĩ, 故 cố, …) |
@@ -65,7 +65,7 @@ Agents sometimes insert an extra empty line between paragraphs. Before writing `
 ```
 - [ ] Load glossary + source
 - [ ] Translate line by line, **word-by-word** (one Hán-Việt unit per source character/compound)
-- [ ] Self-check: glossary compliance + line count parity + no paraphrase
+- [ ] Self-check: glossary `hv` compliance + line count parity + no paraphrase
 - [ ] Dedupe blank lines: collapse any run of 2+ consecutive empty lines to match source at that position
 - [ ] Write plain-text .hv.md
 - [ ] Write log to notes/

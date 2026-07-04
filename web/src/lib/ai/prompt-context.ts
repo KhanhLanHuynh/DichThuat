@@ -1,12 +1,13 @@
 ﻿import { readRepoFile } from "@/lib/files";
 import type { GlossaryTerm } from "@/lib/glossary";
-import { findTermsInText } from "@/lib/glossary";
+import { findTermsInText, formatGlossarySnippet } from "@/lib/glossary";
 
 const HV_FILES = [
   ".cursor/skills/translate-sino-vietnamese/SKILL.md",
   ".cursor/agents/sino-vietnamese-translator.md",
   ".cursor/rules/project-core.mdc",
   ".cursor/rules/sino-vietnamese-style.mdc",
+  ".cursor/rules/glossary.mdc",
 ] as const;
 
 const VI_FILES = [
@@ -15,16 +16,25 @@ const VI_FILES = [
   ".cursor/agents/translator.md",
   ".cursor/rules/project-core.mdc",
   ".cursor/rules/translation-style.mdc",
+  ".cursor/rules/glossary.mdc",
   "CONTEXT.md",
   "docs/style-guide.md",
 ] as const;
 
-const OUTPUT_CONTRACT = `
+const HV_OUTPUT_CONTRACT = `
 OUTPUT CONTRACT (mandatory):
 - Plain text only — no Markdown headings, no YAML, no commentary
 - Translate exactly ONE source line; output ONE line only
 - Mark uncertain readings inline as [?]
-- Use glossary terms exactly as given
+- Use glossary \`hv\` (Hán-Việt) forms exactly — never substitute \`vi\` when they differ
+`.trim();
+
+const VI_OUTPUT_CONTRACT = `
+OUTPUT CONTRACT (mandatory):
+- Plain text only — no Markdown headings, no YAML, no commentary
+- Translate exactly ONE source line; output ONE line only
+- Mark uncertain readings inline as [?]
+- Use glossary \`vi\` (thuần Việt) forms exactly — never substitute \`hv\` when they differ
 `.trim();
 
 const HV_MODE = `MODE: Hán-Việt (âm dịch) — WORD-BY-WORD (逐字逐詞).
@@ -32,7 +42,8 @@ const HV_MODE = `MODE: Hán-Việt (âm dịch) — WORD-BY-WORD (逐字逐詞).
 - Do NOT reorder, skip, merge, or paraphrase. Do NOT use thuần Việt meaning words.
 - Ordinals/numbers stay Hán-Việt per character: 第 → đệ, 一 → nhất, 二 → nhị (never "thứ nhất", "thứ hai", "phần một").
 - Example: 通達品第一 → "Thông Đạt Phẩm đệ nhất" (NOT "Phẩm Thông Đạt thứ nhất", NOT "Phẩm Thông Đạt phần một").
-- Example: 色不異空 → "Sắc bất dị không". Example: 爾時 → "Nhĩ thì".`;
+- Example: 色不異空 → "Sắc bất dị không". Example: 爾時 → "Nhĩ thì".
+- Glossary-bound terms: use `hv` column only.`;
 
 const contextCache = new Map<string, string>();
 
@@ -59,11 +70,6 @@ export async function loadPromptContext(layer: "hv" | "vi"): Promise<string> {
   return context;
 }
 
-export function formatGlossarySnippet(terms: GlossaryTerm[]): string {
-  if (terms.length === 0) return "(no matching glossary terms)";
-  return terms.map((t) => `${t.zh} → ${t.vi}`).join("\n");
-}
-
 export function filterGlossaryForText(
   allTerms: GlossaryTerm[],
   text: string
@@ -83,14 +89,14 @@ export async function buildHanVietPrompt(
   input: PromptInput
 ): Promise<{ system: string; user: string }> {
   const context = await loadPromptContext("hv");
-  const glossarySnippet = formatGlossarySnippet(input.glossary);
+  const glossarySnippet = formatGlossarySnippet(input.glossary, "hv");
 
   return {
-    system: `${context}\n\n${OUTPUT_CONTRACT}\n\n${HV_MODE}`,
+    system: `${context}\n\n${HV_OUTPUT_CONTRACT}\n\n${HV_MODE}`,
     user: `Series: ${input.series}
 Source: ${input.sourcePath}
 
-Glossary (mandatory for bound terms):
+Glossary — use hv column only (mandatory for bound terms):
 ${glossarySnippet}
 
 Translate this Classical Chinese line to Sino-Vietnamese (one line out):
@@ -98,14 +104,25 @@ ${input.zhLine}`,
   };
 }
 
-const CHAPTER_OUTPUT_CONTRACT = `
+const HV_CHAPTER_OUTPUT_CONTRACT = `
 CHAPTER OUTPUT CONTRACT (mandatory):
 - Return ONLY a valid JSON array of strings — no markdown fences, no commentary, no file writes
 - Array length MUST equal the source line count N exactly
 - lines[i] translates source line i (0-based); use "" for blank source lines
-- Each element is one plain-text translation line (no headings, no YAML)
+- Each element is one plain-text Hán-Việt line (no headings, no YAML)
 - Mark uncertain readings inline as [?]
-- Use glossary terms exactly as given
+- Use glossary \`hv\` (Hán-Việt) forms exactly — never substitute \`vi\` when they differ
+- Do NOT use tools to edit files; respond in the message only
+`.trim();
+
+const VI_CHAPTER_OUTPUT_CONTRACT = `
+CHAPTER OUTPUT CONTRACT (mandatory):
+- Return ONLY a valid JSON array of strings — no markdown fences, no commentary, no file writes
+- Array length MUST equal the source line count N exactly
+- lines[i] translates source line i (0-based); use "" for blank source lines
+- Each element is one plain-text thuần Việt line (no headings, no YAML)
+- Mark uncertain readings inline as [?]
+- Use glossary \`vi\` (thuần Việt) forms exactly — never substitute \`hv\` when they differ
 - Do NOT use tools to edit files; respond in the message only
 `.trim();
 
@@ -127,16 +144,16 @@ export async function buildHanVietChapterPrompt(
   input: ChapterPromptInput
 ): Promise<{ system: string; user: string }> {
   const context = await loadPromptContext("hv");
-  const glossarySnippet = formatGlossarySnippet(input.glossary);
+  const glossarySnippet = formatGlossarySnippet(input.glossary, "hv");
   const n = input.zhParagraphs.length;
 
   return {
-    system: `${context}\n\n${CHAPTER_OUTPUT_CONTRACT}\n\n${HV_MODE}`,
+    system: `${context}\n\n${HV_CHAPTER_OUTPUT_CONTRACT}\n\n${HV_MODE}`,
     user: `Series: ${input.series}
 Source: ${input.sourcePath}
 Line count N: ${n}
 
-Glossary (mandatory for bound terms):
+Glossary — use hv column only (mandatory for bound terms):
 ${glossarySnippet}
 
 Source lines (translate each to one Hán-Việt line, same order):
@@ -150,7 +167,7 @@ export async function buildVietnameseChapterPrompt(
   input: ChapterPromptInput
 ): Promise<{ system: string; user: string }> {
   const context = await loadPromptContext("vi");
-  const glossarySnippet = formatGlossarySnippet(input.glossary);
+  const glossarySnippet = formatGlossarySnippet(input.glossary, "vi");
   const hvParagraphs = input.hvParagraphs ?? [];
   const n = input.zhParagraphs.length;
 
@@ -162,12 +179,12 @@ export async function buildVietnameseChapterPrompt(
     .join("\n\n");
 
   return {
-    system: `${context}\n\n${CHAPTER_OUTPUT_CONTRACT}\n\nMODE: Thuần Việt — readable Vietnamese faithful to source and glossary.`,
+    system: `${context}\n\n${VI_CHAPTER_OUTPUT_CONTRACT}\n\nMODE: Thuần Việt — readable Vietnamese faithful to source and glossary.`,
     user: `Series: ${input.series}
 Source: ${input.sourcePath}
 Line count N: ${n}
 
-Glossary (mandatory for bound terms):
+Glossary — use vi column only (mandatory for bound terms; do not substitute hv readings):
 ${glossarySnippet}
 
 Aligned source / Hán-Việt lines:
@@ -181,23 +198,23 @@ export async function buildVietnamesePrompt(
   input: PromptInput
 ): Promise<{ system: string; user: string }> {
   const context = await loadPromptContext("vi");
-  const glossarySnippet = formatGlossarySnippet(input.glossary);
+  const glossarySnippet = formatGlossarySnippet(input.glossary, "vi");
   const hvRef = input.hvLine?.trim()
     ? input.hvLine
     : "(no Hán-Việt reference for this line)";
 
   return {
-    system: `${context}\n\n${OUTPUT_CONTRACT}\n\nMODE: Thuần Việt — readable Vietnamese faithful to source and glossary.`,
+    system: `${context}\n\n${VI_OUTPUT_CONTRACT}\n\nMODE: Thuần Việt — readable Vietnamese faithful to source and glossary.`,
     user: `Series: ${input.series}
 Source: ${input.sourcePath}
 
-Glossary (mandatory for bound terms):
+Glossary — use vi column only (mandatory for bound terms; do not substitute hv readings):
 ${glossarySnippet}
 
 Chinese:
 ${input.zhLine}
 
-Hán-Việt reference (terminology anchor):
+Hán-Việt reference (syntax anchor only — use glossary vi for terminology):
 ${hvRef}
 
 Translate to Modern Vietnamese (one line out):`,

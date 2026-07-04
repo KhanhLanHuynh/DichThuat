@@ -2,13 +2,20 @@
 
 ## 1. Các lớp thuật ngữ
 
-| Lớp | Khi dùng | Ví dụ |
-|-----|----------|-------|
-| Hán-Việt | Thuật ngữ giáo lý chuẩn | 菩提 → Bồ-đề, 涅槃 → Niết-bàn |
-| Thuần Việt | Từ thông dụng, liên kết câu | 說 → nói / giảng / khai (tùy ngữ cảnh) |
-| Âm dịch | Danh từ riêng, chú | 阿彌陀 → A-di-đà |
+Glossary đăng ký **hai cột** cho mỗi thuật ngữ Hán:
 
-Khi Hán-Việt và thuần Việt tranh nhau, theo `web/data/glossary/terms.yaml`.
+| Cột | Lớp dịch | Khi dùng | Ví dụ |
+|-----|----------|----------|-------|
+| `hv` | Hán-Việt (âm dịch) | `.hv.md` | 菩提 → Bồ Đề; 修多羅 → Tu Đa La |
+| `vi` | Thuần Việt | `.vi.md` | 菩提 → Bồ Đề; 修多羅 → kinh |
+
+| Loại | `hv` | `vi` |
+|------|------|------|
+| Thuật ngữ giáo lý / danh hiệu | Hán-Việt chuẩn | Thường giữ nguyên hoặc thuần Việt đọc được |
+| Từ thông dụng, liên kết câu | Âm dịch từng chữ | Nói / giảng / khai (tùy ngữ cảnh) |
+| Âm dịch tên riêng | A Di Đà | A Di Đà |
+
+Khi `hv` và `vi` tranh nhau, theo `web/data/glossary/terms.yaml` — **không** dùng `hv` trong `.vi.md` trừ khi `vi` trùng `hv`.
 
 ## 2. Kính xưng và danh hiệu
 

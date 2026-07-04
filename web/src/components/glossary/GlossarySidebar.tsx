@@ -1,17 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { Pencil } from "lucide-react";
 import type { GlossaryTerm } from "@/lib/glossary";
-import { filterTerms } from "@/lib/glossary";
+import {
+  filterTerms,
+  getTermRendering,
+  normalizeGlossaryTerm,
+} from "@/lib/glossary";
 
 interface GlossarySidebarProps {
   terms: GlossaryTerm[];
   activeTerms: GlossaryTerm[];
+  onEditTerm?: (term: GlossaryTerm) => void;
 }
 
 export function GlossarySidebar({
   terms,
   activeTerms,
+  onEditTerm,
 }: GlossarySidebarProps) {
   const [search, setSearch] = useState("");
 
@@ -40,18 +47,41 @@ export function GlossarySidebar({
       </div>
 
       <div className="flex-1 overflow-y-auto p-2">
-        {sorted.slice(0, 50).map((term) => (
+        {sorted.slice(0, 50).map((term) => {
+          const normalized = normalizeGlossaryTerm(term);
+          const vi = getTermRendering(normalized, "vi");
+          const hv = getTermRendering(normalized, "hv");
+          const showHv = hv !== vi;
+
+          return (
           <div
             key={term.zh}
-            className={`mb-2 rounded-lg border p-2 ${
+            className={`group mb-2 rounded-lg border p-2 ${
               activeZh.has(term.zh)
                 ? "border-accent bg-accent-light"
                 : "border-border"
             }`}
           >
             <div>
-              <div className="font-han text-sm font-semibold">{term.zh}</div>
-              <div className="font-vi text-xs text-accent">{term.vi}</div>
+              <div className="flex items-start justify-between gap-1">
+                <div className="font-han text-sm font-semibold">{term.zh}</div>
+                {onEditTerm && (
+                  <button
+                    type="button"
+                    onClick={() => onEditTerm(term)}
+                    title="Edit term"
+                    className="shrink-0 rounded p-0.5 text-muted opacity-0 transition-opacity hover:bg-gray-100 hover:text-accent group-hover:opacity-100"
+                  >
+                    <Pencil className="h-3.5 w-3.5" />
+                  </button>
+                )}
+              </div>
+              <div className="font-vi text-xs text-accent">{vi}</div>
+              {showHv && (
+                <div className="font-vi text-[11px] text-muted">
+                  Hán-Việt: {hv}
+                </div>
+              )}
               {term.sanskrit && (
                 <div className="text-[10px] italic text-muted">{term.sanskrit}</div>
               )}
@@ -60,7 +90,8 @@ export function GlossarySidebar({
               )}
             </div>
           </div>
-        ))}
+          );
+        })}
         {sorted.length === 0 && (
           <p className="p-2 text-xs text-muted">No terms match.</p>
         )}

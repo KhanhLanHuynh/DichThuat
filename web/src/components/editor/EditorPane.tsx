@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { Annotation, EditorState } from "@codemirror/state";
 import { EditorView, keymap, lineNumbers, highlightActiveLine } from "@codemirror/view";
 import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
@@ -9,6 +10,8 @@ import {
   useScrollSyncRegister,
   type ScrollPaneId,
 } from "./ScrollSyncContext";
+
+const DEFAULT_FONT_SIZE_OPTIONS = [12, 13, 14, 15, 16, 18, 20, 22, 24];
 
 interface EditorPaneProps {
   label: string;
@@ -20,6 +23,9 @@ interface EditorPaneProps {
   fontClass?: string;
   footerStats?: string;
   paneId?: ScrollPaneId;
+  fontSize: number;
+  onFontSizeChange: (size: number) => void;
+  fontSizeOptions?: number[];
 }
 
 const badgeStyles = {
@@ -47,6 +53,9 @@ export function EditorPane({
   fontClass = "",
   footerStats,
   paneId,
+  fontSize,
+  onFontSizeChange,
+  fontSizeOptions = DEFAULT_FONT_SIZE_OPTIONS,
 }: EditorPaneProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<EditorView | null>(null);
@@ -111,17 +120,40 @@ export function EditorPane({
   }, [value]);
 
   return (
-    <div className={`flex h-full min-h-0 flex-col rounded-lg border border-border bg-panel ${fontClass}`}>
+    <div
+      className={`flex h-full min-h-0 flex-col rounded-lg border border-border bg-panel ${fontClass}`}
+      style={{ fontSize: `${fontSize}px` }}
+    >
       <div className="flex shrink-0 items-center justify-between border-b border-border px-3 py-2">
         <div>
           <div className="text-xs font-semibold">{label}</div>
           <div className="text-[10px] text-muted">{sublabel}</div>
         </div>
-        <span
-          className={`rounded px-2 py-0.5 text-[10px] font-semibold uppercase ${badgeStyles[badge]}`}
-        >
-          {badgeLabels[badge]}
-        </span>
+        <div className="flex items-center gap-2">
+          <div className="relative">
+            <select
+              value={fontSize}
+              onChange={(e) => onFontSizeChange(Number(e.target.value))}
+              aria-label={`${label} font size`}
+              className="h-6 appearance-none rounded border border-border bg-white py-0 pl-1.5 pr-5 text-[10px] font-medium text-foreground hover:bg-gray-50"
+            >
+              {fontSizeOptions.map((size) => (
+                <option key={size} value={size}>
+                  {size}px
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              className="pointer-events-none absolute right-1 top-1/2 h-3 w-3 -translate-y-1/2 text-muted"
+              aria-hidden
+            />
+          </div>
+          <span
+            className={`rounded px-2 py-0.5 text-[10px] font-semibold uppercase ${badgeStyles[badge]}`}
+          >
+            {badgeLabels[badge]}
+          </span>
+        </div>
       </div>
       <div ref={containerRef} className="min-h-0 flex-1 overflow-hidden" />
       <div className="shrink-0 border-t border-border px-3 py-1.5 text-[10px] text-muted">

@@ -9,7 +9,7 @@
 ## Giai đoạn 2 — Glossary
 
 1. Chạy **build-glossary** trên chương mới
-2. Gộp vào `web/data/glossary/terms.yaml` hoặc `web/data/glossary/{series}.yaml`
+2. Gộp vào `web/data/glossary/terms.yaml` hoặc `web/data/glossary/{series}.yaml` — mỗi mục có `hv` (Hán-Việt) và `vi` (thuần Việt)
 3. Giải quyết xung đột thuật ngữ trước khi dịch
 
 ## Giai đoạn 3 — Hán-Việt
@@ -19,7 +19,7 @@
 3. Đầu ra: `web/data/translations/{series}/{volume}/ch{NN}.hv.md` — **plain text, cùng số dòng với thân nguồn**
 4. Nhật ký: `notes/{series}-hanviet-ch{NN}.md`
 
-**Web editor:** Nút **Hán-Việt** (machine translate) sau khi dịch xong chương sẽ tự trích thuật ngữ mới từ cặp dòng Hán/Hán-Việt và **append** vào `web/data/glossary/{series}.yaml` (không sửa `terms.yaml`). Thuật ngữ auto thêm có `status: draft` — nên duyệt lại trước khi coi là chính thức. Vẫn nên chạy **build-glossary** / `/glossary-curator` trước lần dịch đầu để có nền thuật ngữ chất lượng.
+**Web editor:** Nút **Hán-Việt** (machine translate) sau khi dịch xong chương sẽ tự trích thuật ngữ mới từ cặp dòng Hán/Hán-Việt và **append** vào `web/data/glossary/{series}.yaml` (không sửa `terms.yaml`). Thuật ngữ auto thêm có `hv` + `vi` (mặc định `vi` = `hv`) và `status: draft` — curator nên chỉnh `vi` khi khác `hv`, rồi duyệt trước khi coi là chính thức.
 
 ## Giai đoạn 4 — Dịch thuần Việt
 

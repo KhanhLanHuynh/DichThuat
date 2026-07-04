@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { resolveContentPath } from "./content-root";
 import type { GlossaryTerm } from "./glossary";
-import { parseGlossaryYaml } from "./glossary";
+import { normalizeGlossaryTerm, parseGlossaryYaml } from "./glossary";
 import { callGlossaryExtract } from "./ai/glossary-extract";
 
 export function resolveSeriesGlossaryPath(series: string): string {
@@ -20,6 +20,9 @@ async function readSeriesGlossaryRaw(series: string): Promise<string> {
 
 function formatTermYaml(term: GlossaryTerm): string {
   const lines: string[] = [`  - zh: ${JSON.stringify(term.zh)}`];
+  if (term.hv) {
+    lines.push(`    hv: ${JSON.stringify(term.hv)}`);
+  }
   lines.push(`    vi: ${JSON.stringify(term.vi)}`);
   if (term.sanskrit) {
     lines.push(`    sanskrit: ${JSON.stringify(term.sanskrit)}`);
@@ -124,6 +127,160 @@ export interface UpdateGlossaryFromHanVietInput {
 export interface UpdateGlossaryFromHanVietResult {
   added: GlossaryTerm[];
   warning?: string;
+}
+
+async function readGlossaryRaw(relPath: string): Promise<string> {
+  try {
+    return await fs.readFile(resolveContentPath(relPath), "utf-8");
+  } catch {
+    return "";
+  }
+}
+
+function parseYamlScalar(raw: string): string {
+  const trimmed = raw.trim();
+  try {
+    return JSON.parse(trimmed) as string;
+  } catch {
+    if (
+      (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+      (trimmed.startsWith("'") && trimmed.endsWith("'"))
+    ) {
+      return trimmed.slice(1, -1);
+    }
+    return trimmed;
+  }
+}
+
+function zhFromTermLine(line: string): string | null {
+  const m = line.match(/^  - zh:\s*(.+)$/);
+  if (!m) return null;
+  return parseYamlScalar(m[1]);
+}
+
+function isTermStartLine(line: string): boolean {
+  return /^  - zh:/.test(line);
+}
+
+function isHvLine(line: string): boolean {
+  return /^    hv:/.test(line);
+}
+
+function isViLine(line: string): boolean {
+  return /^    vi:/.test(line);
+}
+
+function formatFieldLine(key: "hv" | "vi", value: string): string {
+  return `    ${key}: ${JSON.stringify(value)}`;
+}
+
+function glossaryFileContainsTerm(raw: string, zh: string): boolean {
+  if (!raw.trim()) return false;
+  const terms = parseGlossaryYaml(raw);
+  return terms.some((t) => t.zh === zh);
+}
+
+/** Find the glossary file that owns a term (series-specific wins over shared). */
+export async function findGlossaryFileForTerm(
+  glossaryPaths: string[],
+  zh: string
+): Promise<string | null> {
+  for (const relPath of [...glossaryPaths].reverse()) {
+    const raw = await readGlossaryRaw(relPath);
+    if (glossaryFileContainsTerm(raw, zh)) return relPath;
+  }
+  return null;
+}
+
+function updateTermBlockInRaw(
+  raw: string,
+  zh: string,
+  hv: string,
+  vi: string
+): string {
+  const lines = raw.split("\n");
+  const out: string[] = [];
+  let i = 0;
+  let found = false;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (!isTermStartLine(line)) {
+      out.push(line);
+      i++;
+      continue;
+    }
+
+    const blockZh = zhFromTermLine(line);
+    const block: string[] = [line];
+    i++;
+
+    while (i < lines.length && !isTermStartLine(lines[i])) {
+      block.push(lines[i]);
+      i++;
+    }
+
+    if (blockZh === zh) {
+      found = true;
+      let hvIdx = block.findIndex((l, idx) => idx > 0 && isHvLine(l));
+      let viIdx = block.findIndex((l, idx) => idx > 0 && isViLine(l));
+
+      const hvLine = formatFieldLine("hv", hv);
+      const viLine = formatFieldLine("vi", vi);
+
+      if (hvIdx >= 0) {
+        block[hvIdx] = hvLine;
+      } else if (viIdx >= 0) {
+        block.splice(viIdx, 0, hvLine);
+        viIdx++;
+      } else {
+        block.splice(1, 0, hvLine);
+      }
+
+      viIdx = block.findIndex((l, idx) => idx > 0 && isViLine(l));
+      if (viIdx >= 0) {
+        block[viIdx] = viLine;
+      } else {
+        const newHvIdx = block.findIndex((l, idx) => idx > 0 && isHvLine(l));
+        block.splice(newHvIdx + 1, 0, viLine);
+      }
+    }
+
+    out.push(...block);
+  }
+
+  if (!found) {
+    throw new Error(`Glossary term not found: ${zh}`);
+  }
+
+  let result = out.join("\n");
+  if (!result.endsWith("\n")) result += "\n";
+  return result;
+}
+
+/** Update hv/vi for an existing term in the glossary file that owns it. */
+export async function updateGlossaryTerm(
+  glossaryPaths: string[],
+  zh: string,
+  hv: string,
+  vi: string
+): Promise<GlossaryTerm> {
+  const relPath = await findGlossaryFileForTerm(glossaryPaths, zh);
+  if (!relPath) {
+    throw new Error(`Glossary term not found: ${zh}`);
+  }
+
+  const fullPath = resolveContentPath(relPath);
+  const raw = await readGlossaryRaw(relPath);
+  const updated = updateTermBlockInRaw(raw, zh, hv.trim(), vi.trim());
+  await fs.writeFile(fullPath, updated, "utf-8");
+
+  const terms = parseGlossaryYaml(updated);
+  const term = terms.find((t) => t.zh === zh);
+  if (!term) {
+    throw new Error(`Failed to read updated term: ${zh}`);
+  }
+  return normalizeGlossaryTerm(term);
 }
 
 export async function updateGlossaryFromHanViet(

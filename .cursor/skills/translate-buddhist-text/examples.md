@@ -1,6 +1,8 @@
-# Translation Examples
+# Translation Examples (Thuần Việt / `.vi.md`)
 
 Plain-text output: one source line → one translation line. No Markdown headings.
+
+**Glossary:** use the `vi` column from YAML for every bound term. Use `hv` only when `vi` equals `hv` in the glossary.
 
 ## Example 1 — Single line
 
@@ -28,19 +30,27 @@ Bồ Tát Quán Tự Tại, khi hành sâu Bát Nhã Ba La Mật, chiếu kiến
 **Output (line 1):**
 
 ```
-Xá Lợi Phất vấn: «Vân hà thị Niết Bàn?»
+Xá Lợi Phất hỏi: «Niết Bàn là gì?»
 ```
 
 **Output (line 2):**
 
 ```
-Phật đáp: «Tịch diệt vi Niết Bàn.»
+Phật đáp: «Tịch diệt tức là Niết Bàn.»
 ```
 
-## Example 3 — Uncertainty
+## Example 3 — hv ≠ vi (glossary split)
+
+**Source:** 爾時，婆伽婆在…
+
+**Wrong (copied `hv`):** Nhĩ thì, Bà Già Bà ở…
+
+**Correct (`vi`):** Thời ấy, Thế Tôn ở…
+
+## Example 4 — Uncertainty
 
 **Source line:** 知見障
 
-**Output line:** tri kiến chướng [?]
+**Output line:** chướng tri kiến [?]
 
 **Note in `notes/`:** Bản khác作「知障」.

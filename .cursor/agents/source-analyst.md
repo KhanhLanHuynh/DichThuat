@@ -226,7 +226,7 @@ agent: source-analyst
 ## Terminology analytics
 
 ### High-frequency doctrinal terms
-| zh | freq | in_glossary | proposed_vi | notes |
+| zh | freq | in_glossary | proposed_hv | proposed_vi | notes |
 |----|------|-------------|-------------|-------|
 | ... | ... | yes/no | ... | ... |
 

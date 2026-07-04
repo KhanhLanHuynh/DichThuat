@@ -40,7 +40,7 @@ body {
 
 .cm-editor {
   height: 100%;
-  font-size: 15px;
+  font-size: inherit;
 }
 
 .cm-editor.cm-focused {

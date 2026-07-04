@@ -8,24 +8,49 @@ alwaysApply: false
 
 ## File: `web/data/glossary/terms.yaml`
 
+Each entry maps Chinese (`zh`) to **two renderings**:
+
 ```yaml
 series: default  # or series name
 terms:
   - zh: "般若"
-    vi: "Bát Nhã"
+    hv: "Bát Nhã"       # Hán-Việt — mandatory for .hv.md (âm dịch)
+    vi: "Bát Nhã"       # Thuần Việt — mandatory for .vi.md (readable Vietnamese)
     notes: "Prajna; not 'trí tuệ' alone when technical"
     sanskrit: "prajñā"
 ```
 
+## Fields
+
+| Field | Layer | Use |
+|-------|-------|-----|
+| `zh` | lookup | Primary key; use full compound when fixed |
+| `hv` | `.hv.md` | Hán-Việt âm dịch — word-by-word reading |
+| `vi` | `.vi.md` | Thuần Việt — readable Buddhist register |
+| `sanskrit` / `pali` | notes | Optional doctrinal reference |
+| `doctrine: true` | both | Requires reviewer sign-off |
+| `alt_vi` | vi | Deprecated thuần Việt forms to avoid |
+| `status: pending` | — | Block translation until resolved |
+
 ## Principles
 
-- `zh` key is the primary lookup (include full phrase if compound is fixed)
-- `vi` is the mandatory rendering for that series
-- No hyphens in `vi`: write transliterations as separate Title Case words (e.g. `Bát Nhã Ba La Mật`, `A Nan`); hyphens stay only in `sanskrit` and Sanskrit/Pāli citations in `notes`
-- Add `alt_vi` only for deprecated forms to avoid
-- Tag `doctrine: true` for terms requiring reviewer sign-off
+- **One `zh` → one `hv` and one `vi`** per series scope
+- When `hv` and `vi` are the same (proper names, established compounds), set both explicitly
+- When layers differ: `hv` stays âm dịch; `vi` uses natural thuần Việt (e.g. 修多羅 hv `Tu Đa La`, vi `kinh`)
+- No hyphens in `hv` or `vi`: Title Case syllables (`Bát Nhã Ba La Mật`, `A Nan`); hyphens only in `sanskrit` / `notes`
+- Legacy entries with only `vi` are treated as `hv` until curated
+
+## Translation usage
+
+| Output | Use field | Agent / skill |
+|--------|-----------|---------------|
+| `.hv.md` | `hv` | `/sino-vietnamese-translator`, translate-sino-vietnamese |
+| `.vi.md` | `vi` | `/translator`, translate-buddhist-text |
+
+Never substitute `hv` readings in `.vi.md` or `vi` readings in `.hv.md` unless the two fields are identical in the glossary.
 
 ## Updates
 
-- New term: add before first use in translation
-- Conflict between series: use `series:` scoped files (`web/data/glossary/avatamsaka.yaml`)
+- New term: add `hv` + `vi` before first use in translation
+- Conflict between series: use `series:` scoped files (`web/data/glossary/{series}.yaml`)
+- Auto-extract from HV drafts populates `hv`; curator must set `vi` when it differs

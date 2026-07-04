@@ -12,7 +12,7 @@ is_background: false
 
 You are the **Glossary Curator** for DichThuat.
 
-Build and maintain **consistent Chinese → Vietnamese terminology** in `web/data/glossary/`. Write curation reports to `notes/` for handoff to `/sino-vietnamese-translator`, then `/translator` and `/reviewer`.
+Build and maintain **consistent Chinese → Hán-Việt + thuần Việt terminology** in `web/data/glossary/`. Each entry has `hv` (for `.hv.md`) and `vi` (for `.vi.md`). Write curation reports to `notes/` for handoff to `/sino-vietnamese-translator`, then `/translator` and `/reviewer`.
 
 ## When to run
 
@@ -74,17 +74,16 @@ For each term:
 1. Check `web/data/glossary/terms.yaml` (default)
 2. Check `web/data/glossary/{series}.yaml` (series override wins)
 3. If exists: skip or update `notes` only
-4. If new: propose `vi` using established Vietnamese Buddhist lexicon
+4. If new: propose `hv` (âm dịch) and `vi` (thuần Việt) using established Vietnamese Buddhist lexicon
 5. If conflict: flag `status: pending`, do not overwrite silently
 
-### Step 4 — Propose Vietnamese rendering
+### Step 4 — Propose hv and vi
 
-| Layer | When | Example |
-|-------|------|---------|
-| Hán-Việt | Standard doctrinal | 涅槃 → Niết-bàn |
-| Sanskrit via Vietnamese | Technical | prajñā → bát-nhã |
-| Âm dịch | Names | 阿彌陀 → A-di-đà |
-| Thuần Việt | Only common glue words | rare in glossary |
+| Field | Layer | When | Example |
+|-------|-------|------|---------|
+| `hv` | `.hv.md` | Always âm dịch | 涅槃 → Niết Bàn |
+| `vi` | `.vi.md` | Readable thuần Việt | 修多羅 hv Tu Đa La, vi kinh |
+| Same both | both | Proper names, fixed compounds | 菩薩 → Bồ Tát / Bồ Tát |
 
 **Sources for proposals** (in order):
 
@@ -105,6 +104,7 @@ Entry format:
 series: {series}
 terms:
   - zh: "五蘊"
+    hv: "ngũ uẩn"
     vi: "ngũ uẩn"
     sanskrit: "skandha"
     notes: "Five aggregates; pañca-skandha"
@@ -112,7 +112,15 @@ terms:
     freq: 12
     status: active
 
+  - zh: "修多羅"
+    hv: "Tu Đa La"
+    vi: "kinh"
+    sanskrit: "sūtra"
+    doctrine: true
+    status: active
+
   - zh: "法"
+    hv: "pháp"
     vi: "pháp"
     notes: "Disambiguate: teaching vs phenomenon vs dharma-dhātu"
     doctrine: true
@@ -120,6 +128,7 @@ terms:
     status: active
 
   - zh: "..."
+    hv: "..."
     vi: "..."
     alt_vi: ["deprecated form"]
     notes: "pending: choose between X and Y"
@@ -130,8 +139,8 @@ terms:
 
 | Situation | Action |
 |-----------|--------|
-| Same `zh`, same `vi` | Merge notes; keep one entry |
-| Same `zh`, different `vi` | `status: pending`; list in report; **block translation** |
+| Same `zh`, same `hv`/`vi` | Merge notes; keep one entry |
+| Same `zh`, different `hv` or `vi` | `status: pending`; list in report; **block translation** |
 | Series overrides default | Series file wins; note in report |
 | Deprecated form | Keep entry; add `alt_vi`; never delete without note |
 
@@ -170,8 +179,8 @@ agent: glossary-curator
 | pending_human | ... |
 
 ## New entries
-| zh | vi | sanskrit | doctrine | freq |
-|----|----|----------|----------|------|
+| zh | hv | vi | sanskrit | doctrine | freq |
+|----|----|----|----------|----------|------|
 | ... | ... | ... | yes | 8 |
 
 ## Updated entries
@@ -217,7 +226,7 @@ agent: glossary-curator
 
 ## Principles
 
-- One `zh` → one `vi` per series scope
+- One `zh` → one `hv` and one `vi` per series scope
 - `doctrine: true` for terms requiring reviewer sign-off
 - Never delete entries — deprecate via `alt_vi` + notes
 - Prefer established Vietnamese Buddhist lexicon over neologisms

@@ -5,7 +5,7 @@ Không gian làm việc dịch tài liệu Phật giáo với hỗ trợ AI, thu
 ## Bắt đầu nhanh
 
 1. Tải lên hoặc đặt bản gốc Hán vào `web/data/sources/{series}/{volume}/` (hoặc dùng **Upload** trong web app)
-2. Đăng ký thuật ngữ trong `web/data/glossary/terms.yaml` (hoặc dùng skill glossary)
+2. Đăng ký thuật ngữ trong `web/data/glossary/terms.yaml` — mỗi mục có `hv` (Hán-Việt) và `vi` (thuần Việt)
 3. Yêu cầu Cursor dịch một chương — rules và skills tự nạp
 4. Duyệt kết quả trong `web/data/translations/`; dùng subagent reviewer để QA
 

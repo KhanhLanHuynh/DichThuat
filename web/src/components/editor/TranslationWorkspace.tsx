@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { EditorPane } from "./EditorPane";
-import { ScrollSyncProvider } from "./ScrollSyncContext";
+import { ScrollSyncProvider, type ScrollPaneId } from "./ScrollSyncContext";
 import { ParagraphNav, type ParagraphViewMode } from "../paragraphs/ParagraphNav";
 import { countChineseChars, countVietnameseWords } from "@/lib/paragraphs";
 import { Group, Panel, Separator } from "react-resizable-panels";
@@ -44,6 +45,16 @@ export function TranslationWorkspace({
   onNext,
   onContext,
 }: TranslationWorkspaceProps) {
+  const [fontSizes, setFontSizes] = useState<Record<ScrollPaneId, number>>({
+    zh: 15,
+    hv: 15,
+    vi: 15,
+  });
+
+  const setFontSize = (paneId: ScrollPaneId, size: number) => {
+    setFontSizes((s) => ({ ...s, [paneId]: size }));
+  };
+
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <ParagraphNav
@@ -80,6 +91,8 @@ export function TranslationWorkspace({
                   value={zhParagraph}
                   readOnly
                   fontClass="font-han"
+                  fontSize={fontSizes.zh}
+                  onFontSizeChange={(size) => setFontSize("zh", size)}
                   footerStats={`${countChineseChars(zhParagraph)} chars · UTF-8`}
                 />
               </Panel>
@@ -94,6 +107,8 @@ export function TranslationWorkspace({
                   value={hvParagraph}
                   onChange={onHvChange}
                   fontClass="font-vi"
+                  fontSize={fontSizes.hv}
+                  onFontSizeChange={(size) => setFontSize("hv", size)}
                   footerStats={`${countVietnameseWords(hvParagraph)} words · UTF-8`}
                 />
               </Panel>
@@ -110,6 +125,8 @@ export function TranslationWorkspace({
               value={viParagraph}
               onChange={onViChange}
               fontClass="font-vi"
+              fontSize={fontSizes.vi}
+              onFontSizeChange={(size) => setFontSize("vi", size)}
               footerStats={`${countVietnameseWords(viParagraph)} words · UTF-8`}
             />
           </Panel>

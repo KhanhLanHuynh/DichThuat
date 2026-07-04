@@ -2,7 +2,7 @@
 name: translate-buddhist-text
 description: >-
   Translates Buddhist Chinese source to readable Vietnamese plain text following
-  glossary and style guide, line-aligned with source. Use when translating chapters,
+  glossary vi entries and style guide, line-aligned with source. Use when translating chapters,
   refining .hv.md to .vi.md, or when the user asks for Chinese-to-Vietnamese translation.
 ---
 
@@ -36,8 +36,8 @@ description: >-
 
 ## Translation rules
 
-- Apply glossary terms strictly; never substitute synonyms for registered terms
-- When `.hv.md` exists: keep all glossary-bound Hán-Việt doctrinal forms; refine syntax only
+- Apply glossary `vi` forms strictly for `.vi.md`; never substitute `hv` unless `vi` equals `hv` in YAML
+- When `.hv.md` exists: use it for syntax reference; terminology must come from glossary `vi`
 - Preserve enumerations (一者…二者…) in count and order
 - Scripture formulas: see `docs/style-guide.md` §4
 - Uncertain readings: inline `[?]`; explain in `notes/`
@@ -55,7 +55,7 @@ Agents sometimes insert an extra empty line between paragraphs. Before writing `
 ```
 - [ ] Load source + glossary (+ optional .hv.md)
 - [ ] Translate line by line from source
-- [ ] Self-check terminology and line count parity
+- [ ] Self-check: glossary `vi` compliance + line count parity
 - [ ] Dedupe blank lines: collapse any run of 2+ consecutive empty lines to match source at that position
 - [ ] Write plain-text .vi.md
 - [ ] Write log to notes/

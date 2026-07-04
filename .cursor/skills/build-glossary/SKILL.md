@@ -17,29 +17,44 @@ description: Extracts Chinese Buddhist terms from source files and updates gloss
    - Proper names (菩薩名, 地名)
    - Repeated phrases with fixed translation
 2. For each term, check existing glossary — do not duplicate
-3. Propose entries with `zh`, `vi`, `notes`, optional `sanskrit`
+3. Propose entries with `zh`, `hv`, `vi`, `notes`, optional `sanskrit`
 4. Write to appropriate YAML file
 
 ## Entry Format
 
 ```yaml
 - zh: "五蘊"
-  vi: "ngũ uẩn"
+  hv: "ngũ uẩn"          # Hán-Việt — for .hv.md
+  vi: "ngũ uẩn"          # Thuần Việt — for .vi.md (same when established compound)
   notes: "Five aggregates; pañca-skandha"
   sanskrit: "skandha"
   doctrine: true
+
+- zh: "修多羅"
+  hv: "Tu Đa La"
+  vi: "kinh"
+  sanskrit: "sūtra"
+  doctrine: true
+  notes: "hv = transliteration; vi = readable gloss"
 ```
 
-## Vietnamese Transliteration Style
+## hv vs vi
 
-- Do NOT use hyphens (`-`) to join syllables in `vi` values.
+| Field | Layer | Guidance |
+|-------|-------|----------|
+| `hv` | `.hv.md` | Âm dịch; character-mapped Hán-Việt; mandatory exact form |
+| `vi` | `.vi.md` | Readable thuần Việt; keep doctrinal proper nouns; gloss descriptive terms |
+
+When unsure, set `vi` equal to `hv` and add `status: pending` for curator review.
+
+## Transliteration Style
+
+- Do NOT use hyphens (`-`) to join syllables in `hv` or `vi` values.
 - Write multi-syllable transliterations as separate words, capitalizing each syllable (Title Case):
   - `A-nan` → `A Nan`
   - `bát-nhã-ba-la-mật` → `Bát Nhã Ba La Mật`
-  - `Bồ-tát Văn-thù-sư-lợi` → `Bồ Tát Văn Thù Sư Lợi`
-- Applies to every `vi` value — proper names and doctrinal compounds alike.
-- Plain Hán-Việt words that were never hyphenated keep their existing casing (e.g. `bố thí`, `trì giới`, `long vương`).
-- Hyphens in `sanskrit` and Sanskrit/Pāli citations inside `notes` are unaffected — leave them as-is.
+- Plain Hán-Việt words keep natural casing (e.g. `bố thí`, `trì giới`, `long vương`).
+- Hyphens in `sanskrit` and `notes` are unaffected.
 
 ## Priority
 
@@ -53,8 +68,8 @@ description: Extracts Chinese Buddhist terms from source files and updates gloss
 
 - Update `web/data/glossary/{series}.yaml` for series-specific terms
 - Update `web/data/glossary/terms.yaml` for cross-series defaults
-- Report: new terms added, conflicts needing human decision
+- Report: new terms added, `hv`/`vi` pairs needing review, conflicts
 
 ## Conflicts
 
-If two valid Vietnamese renderings exist, list both in notes and set `status: pending` — do not translate until resolved.
+If two valid renderings exist for the same layer, list both in notes and set `status: pending` — do not translate until resolved.

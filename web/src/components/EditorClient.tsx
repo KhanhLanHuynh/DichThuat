@@ -10,6 +10,7 @@ import {
   type TranslatePhase,
 } from "@/components/editor/TranslateOverlay";
 import { GlossarySidebar } from "@/components/glossary/GlossarySidebar";
+import { GlossaryEditModal } from "@/components/glossary/GlossaryEditModal";
 import { ContextModal } from "@/components/editor/ContextModal";
 import type { GlossaryTerm } from "@/lib/glossary";
 import { dedupeByZh, findTermsInText } from "@/lib/glossary";
@@ -70,6 +71,9 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
   const [alignmentWarning, setAlignmentWarning] = useState(
     initial.alignment.message
   );
+  const [editingTerm, setEditingTerm] = useState<GlossaryTerm | null>(null);
+  const [glossarySaving, setGlossarySaving] = useState(false);
+  const [glossaryError, setGlossaryError] = useState<string | undefined>();
 
   const zhFull = useMemo(() => joinParagraphs(zhParagraphs), [zhParagraphs]);
   const hvFull = useMemo(() => joinParagraphs(hvParagraphs), [hvParagraphs]);
@@ -327,6 +331,38 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
       alert(e instanceof Error ? e.message : "Remove failed.");
     } finally {
       setRemoving(false);
+    }
+  };
+
+  const handleGlossarySave = async (hv: string, vi: string) => {
+    if (!editingTerm) return;
+    setGlossarySaving(true);
+    setGlossaryError(undefined);
+    try {
+      const res = await fetch(`/api/projects/${projectId}/glossary`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ zh: editingTerm.zh, hv, vi }),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        term?: GlossaryTerm;
+        error?: string;
+      };
+      if (!res.ok) {
+        throw new Error(data.error ?? "Glossary save failed");
+      }
+      if (data.term) {
+        setTerms((prev) =>
+          prev.map((t) => (t.zh === data.term!.zh ? data.term! : t))
+        );
+      }
+      setEditingTerm(null);
+    } catch (e) {
+      setGlossaryError(
+        e instanceof Error ? e.message : "Glossary save failed"
+      );
+    } finally {
+      setGlossarySaving(false);
     }
   };
 
@@ -610,7 +646,14 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
             }
           />
         </main>
-        <GlossarySidebar terms={terms} activeTerms={activeTerms} />
+        <GlossarySidebar
+          terms={terms}
+          activeTerms={activeTerms}
+          onEditTerm={(t) => {
+            setGlossaryError(undefined);
+            setEditingTerm(t);
+          }}
+        />
       </div>
       <StatusBar
         projectName={initial.manifest.series}
@@ -628,6 +671,17 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
           viParagraphs={viParagraphs}
           totalParagraphs={totalParagraphs}
           onClose={() => setShowContext(false)}
+        />
+      )}
+      {editingTerm && (
+        <GlossaryEditModal
+          term={editingTerm}
+          saving={glossarySaving}
+          error={glossaryError}
+          onSave={handleGlossarySave}
+          onClose={() => {
+            if (!glossarySaving) setEditingTerm(null);
+          }}
         />
       )}
     </div>

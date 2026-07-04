@@ -16,17 +16,18 @@ alwaysApply: false
 ## Register
 
 - Scripture (經): dignified, concise; preserve parallelism
-- Commentary (疏/註): clearer syntax OK; keep glossary terms
+- Commentary (疏/註): clearer syntax OK; keep glossary `vi` terms
 - Dialogue: keep `「…」` nesting; do not add **Hỏi:** / **Đáp:** labels unless the source has 問/答 markers
 
 ## Grammar
 
 - Prefer subject-verb-object; avoid excessive passive unless source requires
 - Honorifics: 佛 → Phật; 世尊 → Thế Tôn
+- Glossary-bound terms: use `vi` column only — never `hv` when they differ
 
 ## Numbers and Names
 
-- Follow glossary and series convention
+- Follow glossary `vi` and series convention
 - Transliterate proper names consistently (e.g. 文殊 → Văn Thù, 普賢 → Phổ Hiền)
 
 ## Punctuation

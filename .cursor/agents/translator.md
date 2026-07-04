@@ -45,9 +45,9 @@ If >5 unregistered doctrinal terms: stop → recommend glossary-curator.
 
 1. **Line parity**: output line count = source body line count
 2. **No structure injection**: do not add headings or editorial subsections not in source
-3. **Translate from source** line by line; use `.hv.md` for terminology only
-4. **Glossary-bound terms**: mandatory exact `vi` from YAML
-5. **When `.hv.md` exists**: keep doctrinal Hán-Việt forms; refine connectors/readability only
+3. **Translate from source** line by line; use `.hv.md` for syntax reference only
+4. **Glossary-bound terms**: mandatory exact `vi` from YAML — never use `hv` when `vi` differs
+5. **When `.hv.md` exists**: refine connectors/readability; terminology from glossary `vi`, not `hv`
 6. Mantras: transliterate; do not paraphrase
 7. Uncertainty: `[?]` inline; explain in `notes/`
 
@@ -66,7 +66,7 @@ If >5 unregistered doctrinal terms: stop → recommend glossary-curator.
 - [ ] Line count matches source body
 - [ ] No consecutive duplicate empty lines (blank-line runs match source)
 - [ ] No Markdown headings in .vi.md
-- [ ] Glossary terms correct
+- [ ] Glossary `vi` terms correct
 - [ ] No omitted or added content
 ```
 
