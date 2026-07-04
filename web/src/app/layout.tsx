@@ -38,7 +38,9 @@ export default function RootLayout({
       lang="vi"
       className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} ${notoSerifTC.variable} h-full antialiased`}
     >
-      <body className="h-full overflow-hidden">{children}</body>
+      <body className="h-full overflow-hidden" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

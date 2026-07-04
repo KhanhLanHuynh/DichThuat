@@ -87,7 +87,6 @@ export function TranslationWorkspace({
                   paneId="zh"
                   label="ZH-HANS"
                   sublabel="Classical Chinese"
-                  badge="read-only"
                   value={zhParagraph}
                   readOnly
                   fontClass="font-han"
@@ -103,7 +102,6 @@ export function TranslationWorkspace({
                   paneId="hv"
                   label="VI-HÁN"
                   sublabel="Sino-Vietnamese Translit"
-                  badge="draft"
                   value={hvParagraph}
                   onChange={onHvChange}
                   fontClass="font-vi"
@@ -121,7 +119,6 @@ export function TranslationWorkspace({
               paneId="vi"
               label="VI-LATN"
               sublabel="Modern Vietnamese"
-              badge="final"
               value={viParagraph}
               onChange={onViChange}
               fontClass="font-vi"

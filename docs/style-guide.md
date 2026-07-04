@@ -90,3 +90,16 @@ Trong `parallel/*.parallel.md`:
 **Nguồn:** 文殊師利問曰：...
 
 **Dịch:** Văn-thù Sư-lợi hỏi: ...
+
+### Phật xưng hô trực tiếp (`.vi.md`)
+
+Khi **Phật / Như Lai / Thế Tôn / 婆伽婆 / 世尊** nói **trực tiếp** với đối thoại và câu mở đầu bằng xưng hô (呼), thêm **`Này`** trước danh hiệu hoặc tên:
+
+| Nguồn | Dịch (trong lời dẫn) |
+|-------|----------------------|
+| 佛告勝天王言：「大王！…」 | Phật bảo Thắng Thiên Vương rằng: 「**Này** Đại vương!…」 |
+| 「善男子！…」 | 「**Này** thiện nam tử!…」 |
+
+- Chỉ áp dụng lời Phật (không áp dụng Bồ Tát, đệ tử, v.v.).
+- Chỉ khi nguồn có xưng hô mở đầu; không thêm nếu đã có `Này`.
+- **Không** áp dụng cho `.hv.md` (Hán-Việt giữ sát nguồn).

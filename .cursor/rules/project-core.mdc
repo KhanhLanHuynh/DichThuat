@@ -16,6 +16,7 @@ Read `CONTEXT.md` at project start for terminology and workflow.
 
 - Write translations only under `web/data/translations/`, mirroring `web/data/sources/` paths (logical paths: `translations/...`, `sources/...`)
 - Sources may be added via web **Upload** or agent segmentation into `web/data/sources/`
+- Source bodies (`.zh.md`): ASCII punctuation only — normalize Chinese marks on import/edit (full table in `chinese-source` rule / `segment-source` skill)
 - Never overwrite sources except when fixing OCR or segmentation errors (note in commit/message)
 
 ## Terminology

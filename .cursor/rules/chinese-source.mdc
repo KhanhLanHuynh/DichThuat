@@ -12,6 +12,32 @@ alwaysApply: false
 - If source uses Simplified, add YAML frontmatter: `script: simplified`
 - Note variant characters: `（異體：X）` in translator notes, not inline in source unless correcting
 
+## Punctuation
+
+Source bodies use **ASCII punctuation only** — normalize when creating or editing (see `docs/2. So tay bien tap.md` §1.2.2).
+
+**Order:** multi-char marks first (`──`, `——`, `......`, `……`) → strip `《》` → single-character swaps.
+
+| From | To |
+|------|-----|
+| `……` / `......` | `[...]` |
+| `──` / `——` | `–` |
+| `《` / `》` | *(remove; keep inner text)* |
+| `，` / `、` | `,` |
+| `。` / `．` | `.` |
+| `？` | `?` |
+| `！` | `!` |
+| `；` | `;` |
+| `：` | `:` |
+| `（` / `）` | `(` / `)` |
+| `「` / `」` | `"` |
+| `『` / `』` | `'` |
+| `“` / `”` | `"` |
+| `‘` / `’` | `'` |
+| `·` | `–` |
+
+**Keep:** `□`, `[ ]`, `< >`, `~`. No spaces between Chinese characters.
+
 ## Structure
 
 - One file per chapter or logical section

@@ -48,8 +48,9 @@ If >5 unregistered doctrinal terms: stop → recommend glossary-curator.
 3. **Translate from source** line by line; use `.hv.md` for syntax reference only
 4. **Glossary-bound terms**: mandatory exact `vi` from YAML — never use `hv` when `vi` differs
 5. **When `.hv.md` exists**: refine connectors/readability; terminology from glossary `vi`, not `hv`
-6. Mantras: transliterate; do not paraphrase
-7. Uncertainty: `[?]` inline; explain in `notes/`
+6. **Buddha direct address**: in quoted speech, when the Buddha opens by naming the interlocutor (大王, 善男子, …), prefix **`Này`** — e.g. 「大王！…」→ 「Này Đại vương!…」; other speakers unchanged
+7. Mantras: transliterate; do not paraphrase
+8. Uncertainty: `[?]` inline; explain in `notes/`
 
 ## Genre register
 

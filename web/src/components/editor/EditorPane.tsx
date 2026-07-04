@@ -16,7 +16,6 @@ const DEFAULT_FONT_SIZE_OPTIONS = [12, 13, 14, 15, 16, 18, 20, 22, 24];
 interface EditorPaneProps {
   label: string;
   sublabel: string;
-  badge: "read-only" | "draft" | "final";
   value: string;
   onChange?: (value: string) => void;
   readOnly?: boolean;
@@ -28,25 +27,12 @@ interface EditorPaneProps {
   fontSizeOptions?: number[];
 }
 
-const badgeStyles = {
-  "read-only": "bg-gray-100 text-gray-600",
-  draft: "bg-amber-50 text-amber-700",
-  final: "bg-blue-50 text-blue-700",
-};
-
-const badgeLabels = {
-  "read-only": "Read Only",
-  draft: "Draft",
-  final: "Final",
-};
-
 /** Marks programmatic doc replacements so they do not fire onChange. */
 const externalSync = Annotation.define<boolean>();
 
 export function EditorPane({
   label,
   sublabel,
-  badge,
   value,
   onChange,
   readOnly,
@@ -129,30 +115,23 @@ export function EditorPane({
           <div className="text-xs font-semibold">{label}</div>
           <div className="text-[10px] text-muted">{sublabel}</div>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="relative">
-            <select
-              value={fontSize}
-              onChange={(e) => onFontSizeChange(Number(e.target.value))}
-              aria-label={`${label} font size`}
-              className="h-6 appearance-none rounded border border-border bg-white py-0 pl-1.5 pr-5 text-[10px] font-medium text-foreground hover:bg-gray-50"
-            >
-              {fontSizeOptions.map((size) => (
-                <option key={size} value={size}>
-                  {size}px
-                </option>
-              ))}
-            </select>
-            <ChevronDown
-              className="pointer-events-none absolute right-1 top-1/2 h-3 w-3 -translate-y-1/2 text-muted"
-              aria-hidden
-            />
-          </div>
-          <span
-            className={`rounded px-2 py-0.5 text-[10px] font-semibold uppercase ${badgeStyles[badge]}`}
+        <div className="relative">
+          <select
+            value={fontSize}
+            onChange={(e) => onFontSizeChange(Number(e.target.value))}
+            aria-label={`${label} font size`}
+            className="h-6 appearance-none rounded border border-border bg-white py-0 pl-1.5 pr-5 text-[10px] font-medium text-foreground hover:bg-gray-50"
           >
-            {badgeLabels[badge]}
-          </span>
+            {fontSizeOptions.map((size) => (
+              <option key={size} value={size}>
+                {size}px
+              </option>
+            ))}
+          </select>
+          <ChevronDown
+            className="pointer-events-none absolute right-1 top-1/2 h-3 w-3 -translate-y-1/2 text-muted"
+            aria-hidden
+          />
         </div>
       </div>
       <div ref={containerRef} className="min-h-0 flex-1 overflow-hidden" />

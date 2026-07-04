@@ -35,6 +35,7 @@ OUTPUT CONTRACT (mandatory):
 - Translate exactly ONE source line; output ONE line only
 - Mark uncertain readings inline as [?]
 - Use glossary \`vi\` (thuần Việt) forms exactly — never substitute \`hv\` when they differ
+- When Buddha (Phật/Như Lai/Thế Tôn/世尊/婆伽婆) speaks directly to someone and opens with a vocative (大王, 善男子, …), prefix Này before the addressee — e.g. 「大王！…」→ 「Này Đại vương!…」
 `.trim();
 
 const HV_MODE = `MODE: Hán-Việt (âm dịch) — WORD-BY-WORD (逐字逐詞).
@@ -123,6 +124,7 @@ CHAPTER OUTPUT CONTRACT (mandatory):
 - Each element is one plain-text thuần Việt line (no headings, no YAML)
 - Mark uncertain readings inline as [?]
 - Use glossary \`vi\` (thuần Việt) forms exactly — never substitute \`hv\` when they differ
+- When Buddha speaks directly to an interlocutor with a leading vocative (大王, 善男子, …), prefix Này before the addressee in quoted speech
 - Do NOT use tools to edit files; respond in the message only
 `.trim();
 

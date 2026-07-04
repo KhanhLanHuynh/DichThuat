@@ -36,6 +36,7 @@ description: >-
 ### Style
 - [ ] Correct register (scripture vs commentary)
 - [ ] Vietnamese punctuation (not Chinese)
+- [ ] Buddha direct address: vocatives in Buddha's speech prefixed with `Này` (e.g. Này Đại vương)
 
 ## Report
 

@@ -17,7 +17,12 @@ alwaysApply: false
 
 - Scripture (經): dignified, concise; preserve parallelism
 - Commentary (疏/註): clearer syntax OK; keep glossary `vi` terms
-- Dialogue: keep `「…」` nesting; do not add **Hỏi:** / **Đáp:** labels unless the source has 問/答 markers
+## Dialogue
+
+- Keep `「…」` nesting; do not add **Hỏi:** / **Đáp:** labels unless the source has 問/答 markers
+- **Buddha → addressee:** when Phật / Như Lai / Thế Tôn / 婆伽婆 / 世尊 speaks **directly to** someone and the utterance opens with a vocative (大王, 善男子, …), prefix **`Này`** before the title or name — e.g. 「大王！…」→ 「Này Đại vương!…」
+- Apply inside quoted speech only; not when a bodhisattva, disciple, or narrator speaks; not when there is no vocative in source
+- Do not add a second `Này` if one is already present
 
 ## Grammar
 

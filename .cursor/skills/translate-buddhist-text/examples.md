@@ -39,6 +39,18 @@ Xá Lợi Phất hỏi: «Niết Bàn là gì?»
 Phật đáp: «Tịch diệt tức là Niết Bàn.»
 ```
 
+## Example 5 — Buddha direct address (`.vi.md`)
+
+**Source:**
+
+```
+佛告勝天王言：「大王！善哉，善哉！」
+```
+
+**Wrong:** Phật bảo Thắng Thiên Vương rằng: 「Đại vương! Thiện thay, thiện thay!」
+
+**Correct:** Phật bảo Thắng Thiên Vương rằng: 「Này Đại vương! Thiện thay, thiện thay!」
+
 ## Example 3 — hv ≠ vi (glossary split)
 
 **Source:** 爾時，婆伽婆在…
