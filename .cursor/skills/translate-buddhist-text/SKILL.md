@@ -42,6 +42,7 @@ description: >-
 - Scripture formulas: see `docs/style-guide.md` §4
 - **Buddha direct address (`.vi.md` only):** when Phật / Như Lai / Thế Tôn / 婆伽婆 / 世尊 speaks **directly to** an interlocutor and the source opens with a vocative (e.g. 大王, 善男子), prefix **`Này`** before the addressee title or name — e.g. 「大王！…」→ 「Này Đại vương!…」; not for other speakers; do not duplicate if `Này` is already present
 - Uncertain readings: inline `[?]`; explain in `notes/`
+- **Footnotes:** do **not** add in agent drafts — user adds via web **Insert footnote** after translation (`docs/style-guide.md` §5). If user explicitly requests 註解 in `.vi.md`, use `[^n]` inline only (same line); definitions go after `<!-- footnotes -->` at file end; never break body line count
 
 ## Blank-line dedupe (before save)
 

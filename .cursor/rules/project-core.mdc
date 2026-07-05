@@ -39,13 +39,14 @@ Translation files (`.hv.md`, `.vi.md`) are **plain text bodies** — not structu
 - Preserve blank lines exactly where the source has them
 - **No duplicate blank lines**: collapse consecutive empty lines to match the source (agents sometimes insert an extra blank line — remove it before save)
 - Preserve verse line breaks and enumeration order (一、二、三…)
-- Uncertain readings: inline `[?]`; full notes go in `notes/`, not in the translation file
+- Uncertain readings: inline `[?]`; full agent/OCR notes go in `notes/`
+- **Footnotes in `.vi.md`:** reader-facing 註解 only — GFM `[^n]` inline + definitions after `<!-- footnotes -->`; body line count must still match source; add via web **Insert footnote**, not by agents unless user requests
 - Metadata (`status`, `revision`, glossary refs): log in `notes/`, not in translation files
 
 ## Quality Bar
 
 - Mark uncertain readings: `[?]`; explain in `notes/`
-- Do not add commentary in translation files unless user requests 註解
+- Do not add commentary in translation files unless user requests 註解 (use `.vi.md` footnotes via web editor when requested)
 - Flag doctrinal ambiguity rather than guessing
 
 ## Session Start

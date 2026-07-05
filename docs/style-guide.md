@@ -55,15 +55,27 @@ Khi `hv` và `vi` tranh nhau, theo `web/data/glossary/terms.yaml` — **không**
 所謂：一者...二者... → gọi là: một là... hai là...
 ```
 
-## 5. Chú thích cuối trang
+## 5. Chú thích cuối trang (`.vi.md` only)
 
 Dùng cho:
 
 - Dị bản (校勘)
 - Thuật ngữ kỹ thuật chưa dịch lần đầu
-- Chỗ dịch giả không chắc
+- Chú thích độc giả (註解) khi người dùng yêu cầu
+
+**Quy tắc:**
+
+- Marker inline trên **cùng dòng** dịch: `…từ ngữ[^1]…` (không thêm dòng body).
+- Định nghĩa nằm sau delimiter `<!-- footnotes -->` ở cuối file (web editor chèn tự động khi lưu).
+- **Một chương = một dãy số** (`[^1]`, `[^2]`, …); mỗi `.vi.md` bắt đầu lại từ `[^1]`.
+- Thêm chú thích trong web workbench: chọn cụm trong VI → **Insert footnote** (`Ctrl+Shift+F`).
+- **Không** dùng footnote trong `.hv.md` — OCR/校勘 ghi trong `notes/`.
+- Máy dịch / agent **không** tự thêm footnote; thêm sau khi dịch xong.
 
 ```markdown
+Thời ấy, Thế Tôn…[^1]
+
+<!-- footnotes -->
 [^1]: Bản khác作「空」.
 ```
 

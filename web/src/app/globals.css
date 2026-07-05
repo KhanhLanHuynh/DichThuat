@@ -50,3 +50,43 @@ body {
 .cm-scroller {
   font-family: inherit;
 }
+
+.footnote-preview {
+  font-family: var(--font-vi);
+  line-height: 1.65;
+  font-size: 0.9375rem;
+}
+
+.footnote-preview p {
+  margin: 0 0 0.75em;
+}
+
+.footnote-preview sup {
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+.footnote-preview a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footnote-preview a:hover {
+  text-decoration: underline;
+}
+
+.footnote-preview section.footnotes {
+  margin-top: 1.5em;
+  padding-top: 0.75em;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.footnote-preview section.footnotes ol {
+  padding-left: 1.25em;
+}
+
+.footnote-preview section.footnotes li {
+  margin-bottom: 0.35em;
+}

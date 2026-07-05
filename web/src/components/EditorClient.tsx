@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { TopBar } from "@/components/layout/TopBar";
 import { StatusBar } from "@/components/layout/StatusBar";
 import { ParagraphSidebar } from "@/components/paragraphs/ParagraphSidebar";
@@ -24,6 +24,12 @@ import {
   splitParagraphs,
   paragraphsFromFullText,
 } from "@/lib/paragraphs";
+import {
+  validateFootnoteRefs,
+  footnoteCount,
+  removeFootnoteDefinition,
+  removeFootnoteRefsFromParagraphs,
+} from "@/lib/footnotes";
 import type { ParagraphViewMode } from "@/components/paragraphs/ParagraphNav";
 import type { ProjectData } from "@/lib/files";
 
@@ -36,6 +42,8 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
   const [zhParagraphs, setZhParagraphs] = useState(initial.zhParagraphs);
   const [hvParagraphs, setHvParagraphs] = useState(initial.hvParagraphs);
   const [viParagraphs, setViParagraphs] = useState(initial.viParagraphs);
+  const [viFootnotes, setViFootnotes] = useState(initial.viFootnotes ?? "");
+  const insertFootnoteRef = useRef<(() => void) | null>(null);
   const [sourceFiles, setSourceFiles] = useState(initial.sourceFiles);
   const [currentSource, setCurrentSource] = useState(initial.currentSource);
   const [terms, setTerms] = useState(initial.terms);
@@ -98,11 +106,37 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
     (s, p) => s + countVietnameseWords(p),
     0
   );
+  const footnoteValidation = useMemo(
+    () => validateFootnoteRefs(viFull, viFootnotes),
+    [viFull, viFootnotes]
+  );
+
+  const footnoteWarning = useMemo(() => {
+    if (footnoteValidation.orphans.length > 0) {
+      return `Missing footnote: ${footnoteValidation.orphans.map((id) => `[^${id}]`).join(", ")}`;
+    }
+    if (footnoteValidation.empty.length > 0) {
+      return `Empty footnote: ${footnoteValidation.empty.map((id) => `[^${id}]`).join(", ")}`;
+    }
+    return undefined;
+  }, [footnoteValidation]);
+
   const totalParagraphs = Math.max(
     zhParagraphs.length,
     hvParagraphs.length,
     viParagraphs.length
   );
+
+  const updateViFootnotes = useCallback((block: string) => {
+    setViFootnotes(block);
+    setDirty(true);
+  }, []);
+
+  const deleteViFootnote = useCallback((id: string) => {
+    setViParagraphs((prev) => removeFootnoteRefsFromParagraphs(prev, id));
+    setViFootnotes((prev) => removeFootnoteDefinition(prev, id));
+    setDirty(true);
+  }, []);
 
   useEffect(() => {
     fetch(`/api/projects/${projectId}/lock`, { method: "POST" }).catch(() => {});
@@ -200,6 +234,7 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
       zhParagraphs: string[];
       hvParagraphs: string[];
       viParagraphs: string[];
+      viFootnotes?: string;
       currentSource: string;
       sourceFiles?: string[];
       alignment?: { message?: string };
@@ -208,6 +243,7 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
       setZhParagraphs(data.zhParagraphs);
       setHvParagraphs(data.hvParagraphs);
       setViParagraphs(data.viParagraphs);
+      setViFootnotes(data.viFootnotes ?? "");
       setCurrentSource(data.currentSource);
       if (data.sourceFiles) setSourceFiles(data.sourceFiles);
       setAlignmentWarning(data.alignment?.message);
@@ -376,6 +412,7 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
           sourcePath: currentSource,
           hvParagraphs,
           viParagraphs,
+          viFootnotes,
         }),
       });
       if (!res.ok) throw new Error("Save failed");
@@ -388,6 +425,28 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
       alert("Failed to save. Check you are logged in.");
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleExportHtml = async () => {
+    try {
+      const res = await fetch(
+        `/api/projects/${projectId}/export?format=html&source=${encodeURIComponent(currentSource)}`
+      );
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { error?: string };
+        throw new Error(data.error ?? "Export failed");
+      }
+      const blob = await res.blob();
+      const base = sourceLabel(currentSource).replace(/\.zh\.md$/i, "");
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${base}.vi.html`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Export failed.");
     }
   };
 
@@ -564,6 +623,15 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
         e.preventDefault();
         handleSave();
       }
+      if (
+        e.key.toLowerCase() === "f" &&
+        e.ctrlKey &&
+        e.shiftKey &&
+        !e.altKey
+      ) {
+        e.preventDefault();
+        insertFootnoteRef.current?.();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -589,6 +657,7 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
         onSave={handleSave}
         onTranslateHv={() => streamChapterTranslate("hv")}
         onTranslateVi={() => streamChapterTranslate("vi")}
+        onExportHtml={handleExportHtml}
         translatingLayer={translatingLayer}
         translateProgress={translateProgress}
         translateStatus={translateStatus}
@@ -619,6 +688,8 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
             zhParagraph={displayZh}
             hvParagraph={displayHv}
             viParagraph={displayVi}
+            viParagraphs={viParagraphs}
+            viFootnotes={viFootnotes}
             paragraphIndex={paragraphIndex}
             totalParagraphs={totalParagraphs}
             atFirstContent={atFirstContent}
@@ -626,9 +697,12 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
             syncScroll={syncScroll}
             onHvChange={updateHv}
             onViChange={updateVi}
+            onViFootnotesChange={updateViFootnotes}
+            onFootnoteDelete={deleteViFootnote}
             onSyncScrollChange={setSyncScroll}
             onPrev={goPrev}
             onNext={goNext}
+            onInsertFootnoteRef={insertFootnoteRef}
             onContext={
               viewMode === "single" ? () => setShowContext(true) : undefined
             }
@@ -648,8 +722,10 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
         sourceEdition={initial.manifest.source_edition}
         zhChars={totalZhChars}
         viWords={totalViWords}
+        footnoteCount={footnoteCount(viFootnotes)}
         synced={!dirty && !saving}
         alignmentWarning={alignmentWarning}
+        footnoteWarning={footnoteWarning}
       />
       {showContext && (
         <ContextModal

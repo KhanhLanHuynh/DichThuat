@@ -11,8 +11,9 @@ Thư mục đầu ra các lớp dịch. Đường dẫn mirror `sources/` (vật
 
 ## Định dạng file dịch
 
-- **Plain text** — không YAML frontmatter, không `#` / `##` heading
+- **Plain text body** — không YAML frontmatter, không `#` / `##` heading trong thân dịch
 - **Một dòng nguồn = một dòng dịch** (cùng số dòng với thân `sources/.../*.zh.md`)
+- **Footnotes (`.vi.md` only):** marker `[^n]` inline trên dòng dịch; định nghĩa sau `<!-- footnotes -->` ở cuối file; thêm qua web **Insert footnote** (`Ctrl+Shift+F`); đánh số lại từ `[^1]` mỗi chương
 - Metadata và `status`: trong `notes/`, không trong file dịch
 
 ## Nhật ký

@@ -3,6 +3,7 @@ import { joinParagraphs, splitParagraphs } from "./paragraphs";
 
 export interface ParsedMd {
   frontmatter: Record<string, unknown>;
+  bodyContent: string;
   bodyParagraphs: string[];
   hadFrontmatter: boolean;
 }
@@ -11,9 +12,11 @@ export interface ParsedMd {
 export function parseMdBody(raw: string): ParsedMd {
   const hadFrontmatter = raw.trimStart().startsWith("---");
   const { data, content } = matter(raw, { excerpt: false });
+  const bodyContent = content.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
   return {
     frontmatter: data as Record<string, unknown>,
-    bodyParagraphs: splitParagraphs(content),
+    bodyContent,
+    bodyParagraphs: splitParagraphs(bodyContent),
     hadFrontmatter,
   };
 }

@@ -5,8 +5,10 @@ interface StatusBarProps {
   sourceEdition?: string;
   zhChars: number;
   viWords: number;
+  footnoteCount?: number;
   synced: boolean;
   alignmentWarning?: string;
+  footnoteWarning?: string;
 }
 
 export function StatusBar({
@@ -14,8 +16,10 @@ export function StatusBar({
   sourceEdition,
   zhChars,
   viWords,
+  footnoteCount = 0,
   synced,
   alignmentWarning,
+  footnoteWarning,
 }: StatusBarProps) {
   return (
     <footer className="flex h-9 shrink-0 items-center justify-between border-t border-border bg-panel px-4 text-xs text-muted">
@@ -26,8 +30,14 @@ export function StatusBar({
         {sourceEdition && <span>Ref: {sourceEdition}</span>}
         <span>ZH {zhChars.toLocaleString()} chars</span>
         <span>VI {viWords.toLocaleString()} words</span>
+        {footnoteCount > 0 && (
+          <span>{footnoteCount} footnote{footnoteCount === 1 ? "" : "s"}</span>
+        )}
         {alignmentWarning && (
           <span className="text-amber-600">⚠ {alignmentWarning}</span>
+        )}
+        {footnoteWarning && (
+          <span className="text-amber-600">⚠ {footnoteWarning}</span>
         )}
       </div>
       <div className="flex items-center gap-2">

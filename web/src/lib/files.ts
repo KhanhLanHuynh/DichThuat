@@ -15,6 +15,10 @@ import {
   parseMdBody,
   serializeMdBody,
 } from "./markdown-body";
+import {
+  joinViBodyAndFootnotes,
+  splitViBodyAndFootnotes,
+} from "./footnotes";
 
 export interface ProjectManifest {
   id: string;
@@ -44,6 +48,7 @@ export interface ChapterData {
   zhParagraphs: string[];
   hvParagraphs: string[];
   viParagraphs: string[];
+  viFootnotes: string;
   alignment: ReturnType<typeof checkAlignment>;
   lastSaved?: { zh?: string; hv?: string; vi?: string };
 }
@@ -201,6 +206,15 @@ async function contentFileMtime(relPath: string): Promise<string | undefined> {
   }
 }
 
+function loadViFromRaw(raw: string): {
+  paragraphs: string[];
+  footnoteBlock: string;
+} {
+  const parsed = parseMdBody(raw);
+  const split = splitViBodyAndFootnotes(parsed.bodyContent);
+  return { paragraphs: split.bodyParagraphs, footnoteBlock: split.footnoteBlock };
+}
+
 function loadParagraphsFromRaw(
   relPath: string,
   raw: string,
@@ -215,10 +229,18 @@ function loadParagraphsFromRaw(
       frontmatter: parsed.frontmatter,
       hadFrontmatter: parsed.hadFrontmatter,
     });
+    if (layer === "vi") {
+      return loadViFromRaw(raw).paragraphs;
+    }
     return parsed.bodyParagraphs;
   }
   mdCache.delete(mdCacheKey(projectId, sourcePath, layer));
   return splitParagraphs(raw);
+}
+
+function loadViFootnotesFromRaw(relPath: string, raw: string): string {
+  if (!isMdPath(relPath)) return "";
+  return loadViFromRaw(raw).footnoteBlock;
 }
 
 function loadZhParagraphsFromRaw(relPath: string, raw: string): string[] {
@@ -233,13 +255,18 @@ async function writeTranslationFile(
   sourcePath: string,
   layer: "hv" | "vi",
   relPath: string,
-  paragraphs: string[]
+  paragraphs: string[],
+  viFootnotes?: string
 ): Promise<void> {
   if (isMdPath(relPath)) {
     const cached = mdCache.get(mdCacheKey(projectId, sourcePath, layer));
+    const bodyContent =
+      layer === "vi"
+        ? joinViBodyAndFootnotes(paragraphs, viFootnotes ?? "")
+        : joinParagraphs(paragraphs);
     const content = serializeMdBody(
       cached?.frontmatter ?? {},
-      paragraphs,
+      splitParagraphs(bodyContent),
       cached?.hadFrontmatter ?? false
     );
     await writeContentFile(relPath, content);
@@ -300,6 +327,7 @@ export async function loadChapter(
   const viParagraphsRaw = viExists
     ? loadParagraphsFromRaw(resolvedViPath, viRaw, id, sourcePath, "vi")
     : zhParagraphsRaw.map(() => "");
+  const viFootnotes = viExists ? loadViFootnotesFromRaw(resolvedViPath, viRaw) : "";
 
   const alignment = checkAlignment(
     zhParagraphsRaw,
@@ -319,6 +347,7 @@ export async function loadChapter(
     zhParagraphs: aligned.zh,
     hvParagraphs: aligned.hv,
     viParagraphs: aligned.vi,
+    viFootnotes,
     alignment,
     lastSaved: {
       zh: await contentFileMtime(sourcePath),
@@ -352,7 +381,8 @@ export async function saveProjectTranslations(
   id: string,
   sourcePath: string,
   hvParagraphs: string[],
-  viParagraphs: string[]
+  viParagraphs: string[],
+  viFootnotes = ""
 ): Promise<ProjectData> {
   const derived = deriveTranslationPaths(sourcePath);
   const resolvedHvPath = await resolveTranslationPath(derived.hv);
@@ -388,7 +418,8 @@ export async function saveProjectTranslations(
     sourcePath,
     "vi",
     resolvedViPath,
-    aligned.vi
+    aligned.vi,
+    viFootnotes
   );
 
   return buildProjectData(id, sourcePath);

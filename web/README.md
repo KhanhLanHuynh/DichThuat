@@ -57,6 +57,16 @@ Paths in manifests are **logical** (resolved against `CONTENT_ROOT` for `source`
 
 **One line = one paragraph.** ZH body, HV, and VI must have the same line count. Translation files are plain text bodies in `.md` files (no Markdown headings in the body).
 
+## VI footnotes
+
+Reader-facing notes in `.vi.md` use GFM footnote syntax:
+
+- Inline marker on a body line: `…phrase[^1]…`
+- Definitions after `<!-- footnotes -->` at file end (inserted on save)
+- Per-chapter numbering (`[^1]`, `[^2]`, … resets each chapter)
+
+In the editor: select text in the VI pane → **Insert footnote** (or `Ctrl+Shift+F`) → type the note in the popover. Click `[^n]` in the editor or a superscript in **Preview** to edit later. Export via TopBar **.html**.
+
 ## Upload source files
 
 In the editor TopBar, use **Upload** (before the source file selector) to add `.zh.md` files under `sources/{series}/`. If the project manifest has a `volume`, uploads are placed under that volume by default.

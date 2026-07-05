@@ -28,6 +28,12 @@ description: >-
 - [ ] No unauthorized synonyms for registered terms
 - [ ] Proper names transliterated consistently
 
+### Footnotes (`.vi.md`, when present)
+- [ ] Inline `[^n]` on body lines only (no extra body lines)
+- [ ] Each `[^n]` has a matching `[^n]:` definition after `<!-- footnotes -->`
+- [ ] No orphan refs or empty definitions
+- [ ] Footnote numbering restarts per chapter file
+
 ### Fidelity
 - [ ] No omitted sentences or list items
 - [ ] No added interpretation

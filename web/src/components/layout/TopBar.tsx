@@ -8,6 +8,7 @@ import {
   ChevronDown,
   Upload,
   Trash2,
+  Download,
   Loader2,
 } from "lucide-react";
 import {
@@ -31,6 +32,7 @@ interface TopBarProps {
   onSourceUpload: (file: File) => Promise<void>;
   onSourceRemove: () => Promise<void>;
   onSave: () => void;
+  onExportHtml?: () => void;
   onTranslateHv: () => void;
   onTranslateVi: () => void;
   translatingLayer?: "hv" | "vi" | null;
@@ -55,6 +57,7 @@ export function TopBar({
   onSourceUpload,
   onSourceRemove,
   onSave,
+  onExportHtml,
   onTranslateHv,
   onTranslateVi,
   translatingLayer,
@@ -155,6 +158,18 @@ export function TopBar({
           {removing ? "Removing…" : "Remove"}
         </button>
         <div className="hidden items-center gap-1 sm:flex">
+          {onExportHtml && (
+            <button
+              type="button"
+              onClick={onExportHtml}
+              disabled={saving}
+              title="Export VI as HTML preview"
+              className="flex h-8 items-center gap-1 rounded-md border border-border px-2.5 text-xs font-medium hover:bg-gray-50 disabled:opacity-50"
+            >
+              <Download className="h-3.5 w-3.5" />
+              .html
+            </button>
+          )}
           <button
             type="button"
             onClick={onSave}

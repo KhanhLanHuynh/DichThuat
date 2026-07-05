@@ -63,13 +63,15 @@ export async function PUT(
     sourcePath: string;
     hvParagraphs: string[];
     viParagraphs: string[];
+    viFootnotes?: string;
   };
   try {
     const data = await saveProjectTranslations(
       id,
       body.sourcePath,
       body.hvParagraphs,
-      body.viParagraphs
+      body.viParagraphs,
+      body.viFootnotes ?? ""
     );
     return NextResponse.json(data);
   } catch (e) {
