@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Pencil } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pencil, Plus } from "lucide-react";
 import type { GlossaryTerm } from "@/lib/glossary";
 import {
   filterTerms,
@@ -15,12 +15,14 @@ interface GlossarySidebarProps {
   terms: GlossaryTerm[];
   activeTerms: GlossaryTerm[];
   onEditTerm?: (term: GlossaryTerm) => void;
+  onAddTerm?: () => void;
 }
 
 export function GlossarySidebar({
   terms,
   activeTerms,
   onEditTerm,
+  onAddTerm,
 }: GlossarySidebarProps) {
   const [search, setSearch] = useState("");
   const [expanded, setExpanded] = useState(true);
@@ -62,16 +64,29 @@ export function GlossarySidebar({
               <h2 className="text-xs font-semibold uppercase tracking-wide text-muted">
                 Glossary
               </h2>
-              <button
-                type="button"
-                onClick={toggleExpanded}
-                aria-expanded={expanded}
-                aria-label="Collapse glossary"
-                title="Collapse glossary"
-                className="shrink-0 rounded p-0.5 text-muted hover:bg-gray-100 hover:text-foreground"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
+              <div className="flex shrink-0 items-center gap-0.5">
+                {onAddTerm && (
+                  <button
+                    type="button"
+                    onClick={onAddTerm}
+                    title="Add term"
+                    aria-label="Add term"
+                    className="rounded p-0.5 text-muted hover:bg-gray-100 hover:text-accent"
+                  >
+                    <Plus className="h-4 w-4" />
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={toggleExpanded}
+                  aria-expanded={expanded}
+                  aria-label="Collapse glossary"
+                  title="Collapse glossary"
+                  className="shrink-0 rounded p-0.5 text-muted hover:bg-gray-100 hover:text-foreground"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
             </div>
             <input
               type="search"

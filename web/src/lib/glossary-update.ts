@@ -322,6 +322,85 @@ export async function updateGlossaryTerm(
   return normalizeGlossaryTerm(term);
 }
 
+export class GlossaryTermExistsError extends Error {
+  existingTerm: GlossaryTerm;
+
+  constructor(zh: string, existingTerm: GlossaryTerm) {
+    super(`Term already exists: ${zh}`);
+    this.name = "GlossaryTermExistsError";
+    this.existingTerm = normalizeGlossaryTerm(existingTerm);
+  }
+}
+
+function resolveGlossaryPathForAdd(
+  glossaryPaths: string[],
+  series: string
+): string {
+  const seriesPath = resolveSeriesGlossaryPath(series);
+  if (glossaryPaths.includes(seriesPath)) return seriesPath;
+  return glossaryPaths[glossaryPaths.length - 1] ?? seriesPath;
+}
+
+/** Append a new term; throws GlossaryTermExistsError if zh is already registered. */
+export async function addGlossaryTerm(
+  glossaryPaths: string[],
+  series: string,
+  zh: string,
+  hv: string,
+  vi: string
+): Promise<GlossaryTerm> {
+  const trimmedZh = zh.trim();
+  const trimmedHv = hv.trim();
+  const trimmedVi = vi.trim();
+
+  const existingPath = await findGlossaryFileForTerm(glossaryPaths, trimmedZh);
+  if (existingPath) {
+    const raw = await readGlossaryRaw(existingPath);
+    const terms = parseGlossaryYaml(raw);
+    const existing = terms.find((t) => t.zh === trimmedZh);
+    if (existing) {
+      throw new GlossaryTermExistsError(trimmedZh, existing);
+    }
+  }
+
+  const relPath = resolveGlossaryPathForAdd(glossaryPaths, series);
+  const fullPath = resolveContentPath(relPath);
+  const existingRaw = await readGlossaryRaw(relPath);
+
+  const newTerm: GlossaryTerm = {
+    zh: trimmedZh,
+    hv: trimmedHv,
+    vi: trimmedVi,
+  };
+
+  const date = new Date().toISOString().slice(0, 10);
+  const block = [
+    "",
+    `  # Manual add ${date}`,
+    formatTermYaml(newTerm),
+    "",
+  ].join("\n");
+
+  if (!existingRaw.trim()) {
+    const header = [
+      `# Glossary — ${series}`,
+      `# Scope: series-specific terms`,
+      "",
+      `series: ${series}`,
+      "",
+      "terms:",
+      block.trimEnd(),
+      "",
+    ].join("\n");
+    await fs.mkdir(path.dirname(fullPath), { recursive: true });
+    await fs.writeFile(fullPath, header, "utf-8");
+  } else {
+    await fs.appendFile(fullPath, block, "utf-8");
+  }
+
+  return normalizeGlossaryTerm(newTerm);
+}
+
 export async function updateGlossaryFromHanViet(
   input: UpdateGlossaryFromHanVietInput
 ): Promise<UpdateGlossaryFromHanVietResult> {

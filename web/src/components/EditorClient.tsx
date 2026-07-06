@@ -13,7 +13,17 @@ import { GlossarySidebar } from "@/components/glossary/GlossarySidebar";
 import { GlossaryEditModal } from "@/components/glossary/GlossaryEditModal";
 import { ContextModal } from "@/components/editor/ContextModal";
 import type { GlossaryTerm } from "@/lib/glossary";
-import { dedupeByZh, findTermsInText } from "@/lib/glossary";
+import {
+  dedupeByZh,
+  findTermsInText,
+  getTermRendering,
+  normalizeGlossaryTerm,
+} from "@/lib/glossary";
+
+type GlossaryModalState =
+  | { mode: "edit"; term: GlossaryTerm }
+  | { mode: "add" }
+  | null;
 import {
   countChineseChars,
   countVietnameseWords,
@@ -79,7 +89,7 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
   const [alignmentWarning, setAlignmentWarning] = useState(
     initial.alignment.message
   );
-  const [editingTerm, setEditingTerm] = useState<GlossaryTerm | null>(null);
+  const [glossaryModal, setGlossaryModal] = useState<GlossaryModalState>(null);
   const [glossarySaving, setGlossarySaving] = useState(false);
   const [glossaryError, setGlossaryError] = useState<string | undefined>();
 
@@ -370,29 +380,60 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
     }
   };
 
-  const handleGlossarySave = async (hv: string, vi: string) => {
-    if (!editingTerm) return;
+  const handleGlossarySave = async (zh: string, hv: string, vi: string) => {
+    if (!glossaryModal) return;
     setGlossarySaving(true);
     setGlossaryError(undefined);
     try {
-      const res = await fetch(`/api/projects/${projectId}/glossary`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ zh: editingTerm.zh, hv, vi }),
-      });
-      const data = (await res.json().catch(() => ({}))) as {
-        term?: GlossaryTerm;
-        error?: string;
-      };
-      if (!res.ok) {
-        throw new Error(data.error ?? "Glossary save failed");
+      if (glossaryModal.mode === "edit") {
+        const res = await fetch(`/api/projects/${projectId}/glossary`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ zh, hv, vi }),
+        });
+        const data = (await res.json().catch(() => ({}))) as {
+          term?: GlossaryTerm;
+          error?: string;
+        };
+        if (!res.ok) {
+          throw new Error(data.error ?? "Glossary save failed");
+        }
+        if (data.term) {
+          setTerms((prev) =>
+            prev.map((t) => (t.zh === data.term!.zh ? data.term! : t))
+          );
+        }
+        setGlossaryModal(null);
+      } else {
+        const res = await fetch(`/api/projects/${projectId}/glossary`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ zh, hv, vi }),
+        });
+        const data = (await res.json().catch(() => ({}))) as {
+          term?: GlossaryTerm;
+          error?: string;
+          existingTerm?: GlossaryTerm;
+        };
+        if (res.status === 409) {
+          let message = data.error ?? "Term already exists";
+          if (data.existingTerm) {
+            const existing = normalizeGlossaryTerm(data.existingTerm);
+            const existingHv = getTermRendering(existing, "hv");
+            const existingVi = getTermRendering(existing, "vi");
+            message = `${message} (Hán-Việt: ${existingHv}; Thuần Việt: ${existingVi})`;
+          }
+          setGlossaryError(message);
+          return;
+        }
+        if (!res.ok) {
+          throw new Error(data.error ?? "Glossary add failed");
+        }
+        if (data.term) {
+          setTerms((prev) => dedupeByZh([...prev, data.term!]));
+        }
+        setGlossaryModal(null);
       }
-      if (data.term) {
-        setTerms((prev) =>
-          prev.map((t) => (t.zh === data.term!.zh ? data.term! : t))
-        );
-      }
-      setEditingTerm(null);
     } catch (e) {
       setGlossaryError(
         e instanceof Error ? e.message : "Glossary save failed"
@@ -713,7 +754,11 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
           activeTerms={activeTerms}
           onEditTerm={(t) => {
             setGlossaryError(undefined);
-            setEditingTerm(t);
+            setGlossaryModal({ mode: "edit", term: t });
+          }}
+          onAddTerm={() => {
+            setGlossaryError(undefined);
+            setGlossaryModal({ mode: "add" });
           }}
         />
       </div>
@@ -737,14 +782,26 @@ export function EditorClient({ projectId, initial }: EditorClientProps) {
           onClose={() => setShowContext(false)}
         />
       )}
-      {editingTerm && (
+      {glossaryModal?.mode === "edit" && (
         <GlossaryEditModal
-          term={editingTerm}
+          mode="edit"
+          term={glossaryModal.term}
           saving={glossarySaving}
           error={glossaryError}
           onSave={handleGlossarySave}
           onClose={() => {
-            if (!glossarySaving) setEditingTerm(null);
+            if (!glossarySaving) setGlossaryModal(null);
+          }}
+        />
+      )}
+      {glossaryModal?.mode === "add" && (
+        <GlossaryEditModal
+          mode="add"
+          saving={glossarySaving}
+          error={glossaryError}
+          onSave={handleGlossarySave}
+          onClose={() => {
+            if (!glossarySaving) setGlossaryModal(null);
           }}
         />
       )}

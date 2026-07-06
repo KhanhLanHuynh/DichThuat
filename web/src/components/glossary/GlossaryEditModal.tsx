@@ -4,32 +4,48 @@ import { useEffect, useState } from "react";
 import type { GlossaryTerm } from "@/lib/glossary";
 import { getTermRendering, normalizeGlossaryTerm } from "@/lib/glossary";
 
-interface GlossaryEditModalProps {
-  term: GlossaryTerm;
-  saving?: boolean;
-  error?: string;
-  onSave: (hv: string, vi: string) => void;
-  onClose: () => void;
-}
+type GlossaryEditModalProps =
+  | {
+      mode: "edit";
+      term: GlossaryTerm;
+      saving?: boolean;
+      error?: string;
+      onSave: (zh: string, hv: string, vi: string) => void;
+      onClose: () => void;
+    }
+  | {
+      mode: "add";
+      saving?: boolean;
+      error?: string;
+      onSave: (zh: string, hv: string, vi: string) => void;
+      onClose: () => void;
+    };
 
-export function GlossaryEditModal({
-  term,
-  saving = false,
-  error,
-  onSave,
-  onClose,
-}: GlossaryEditModalProps) {
-  const normalized = normalizeGlossaryTerm(term);
-  const initialHv = getTermRendering(normalized, "hv");
-  const initialVi = getTermRendering(normalized, "vi");
+export function GlossaryEditModal(props: GlossaryEditModalProps) {
+  const { mode, saving = false, error, onSave, onClose } = props;
+  const term = mode === "edit" ? props.term : undefined;
 
+  const normalized = term ? normalizeGlossaryTerm(term) : null;
+  const initialZh = term?.zh ?? "";
+  const initialHv = normalized ? getTermRendering(normalized, "hv") : "";
+  const initialVi = normalized ? getTermRendering(normalized, "vi") : "";
+
+  const [zh, setZh] = useState(initialZh);
   const [hv, setHv] = useState(initialHv);
   const [vi, setVi] = useState(initialVi);
 
   useEffect(() => {
-    setHv(initialHv);
-    setVi(initialVi);
-  }, [term.zh, initialHv, initialVi]);
+    if (mode === "edit" && term) {
+      const n = normalizeGlossaryTerm(term);
+      setZh(term.zh);
+      setHv(getTermRendering(n, "hv"));
+      setVi(getTermRendering(n, "vi"));
+    } else if (mode === "add") {
+      setZh("");
+      setHv("");
+      setVi("");
+    }
+  }, [mode, term?.zh, initialHv, initialVi, term]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -39,11 +55,23 @@ export function GlossaryEditModal({
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose, saving]);
 
+  const trimmedZh = zh.trim();
   const trimmedHv = hv.trim();
   const trimmedVi = vi.trim();
-  const unchanged = trimmedHv === initialHv && trimmedVi === initialVi;
+  const unchanged =
+    mode === "edit" &&
+    trimmedHv === initialHv &&
+    trimmedVi === initialVi;
   const canSave =
-    !saving && trimmedHv.length > 0 && trimmedVi.length > 0 && !unchanged;
+    mode === "add"
+      ? !saving &&
+        trimmedZh.length > 0 &&
+        trimmedHv.length > 0 &&
+        trimmedVi.length > 0
+      : !saving &&
+        trimmedHv.length > 0 &&
+        trimmedVi.length > 0 &&
+        !unchanged;
 
   return (
     <div
@@ -54,17 +82,33 @@ export function GlossaryEditModal({
     >
       <div className="flex w-full max-w-md flex-col overflow-hidden rounded-xl bg-panel shadow-xl">
         <div className="shrink-0 border-b border-border px-4 py-3">
-          <h3 className="text-sm font-semibold">Edit glossary term</h3>
+          <h3 className="text-sm font-semibold">
+            {mode === "add" ? "Add glossary term" : "Edit glossary term"}
+          </h3>
         </div>
 
         <div className="space-y-4 p-4">
           <div>
-            <label className="mb-1 block text-[10px] font-semibold uppercase tracking-wide text-muted">
+            <label
+              htmlFor="glossary-zh"
+              className="mb-1 block text-[10px] font-semibold uppercase tracking-wide text-muted"
+            >
               Chinese
             </label>
-            <div className="font-han rounded-md border border-border bg-gray-50 px-3 py-2 text-sm font-semibold">
-              {term.zh}
-            </div>
+            {mode === "add" ? (
+              <input
+                id="glossary-zh"
+                type="text"
+                value={zh}
+                onChange={(e) => setZh(e.target.value)}
+                disabled={saving}
+                className="font-han w-full rounded-md border border-border px-3 py-2 text-sm font-semibold disabled:opacity-50"
+              />
+            ) : (
+              <div className="font-han rounded-md border border-border bg-gray-50 px-3 py-2 text-sm font-semibold">
+                {term?.zh}
+              </div>
+            )}
           </div>
 
           <div>
@@ -119,7 +163,7 @@ export function GlossaryEditModal({
           </button>
           <button
             type="button"
-            onClick={() => onSave(trimmedHv, trimmedVi)}
+            onClick={() => onSave(trimmedZh, trimmedHv, trimmedVi)}
             disabled={!canSave}
             className="rounded-md bg-accent px-3 py-1.5 text-sm text-white disabled:opacity-50"
           >
