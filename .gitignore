@@ -19,6 +19,12 @@ web/build/
 # testing
 web/coverage/
 
+# corpus (local only; keep skeleton on clone)
+web/data/**
+!web/data/.gitkeep
+!web/data/**/
+!web/data/**/README.md
+
 # env files (keep the example)
 web/.env*
 !web/.env.example
