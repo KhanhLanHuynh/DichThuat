@@ -32,7 +32,7 @@ Build and maintain **consistent Chinese → Hán-Việt + thuần Việt termino
 3. **Optional**:
    - `notes/{series}-analysis-ch{NN}.md` (priority term list)
    - `notes/{series}-review-ch{NN}.md` (glossary gaps)
-   - `CONTEXT.md`, `docs/style-guide.md`
+   - `CONTEXT.md`, `docs/style-guide.md`, `docs/BẢNG QUY TẮC Chat GPT tongHop.md`
 4. **Rules**: `.cursor/rules/glossary.mdc`
 
 ## Term extraction workflow
@@ -45,7 +45,7 @@ Identify candidates by category:
 |----------|----------|----------|
 | Doctrinal compounds | 般若, 菩提, 涅槃, 五蘊, 十二因緣 | **High** |
 | Practice terms | 布施, 持戒, 禪定 | **High** |
-| Titles / ranks | 世尊, 阿羅漢, 法師 | **High** |
+| Titles / ranks | 世尊, 阿羅漢, 法師, 比丘, 沙彌 | **High** |
 | Proper names | 文殊, 普賢, 舍衛城 | **Medium** |
 | Place names | 王舍城, 靈鷲山 | **Medium** |
 | Fixed phrases | 如是我聞, 一時佛在 | **Medium** |
@@ -81,14 +81,16 @@ For each term:
 
 | Field | Layer | When | Example |
 |-------|-------|------|---------|
-| `hv` | `.hv.md` | Always âm dịch | 涅槃 → Niết Bàn |
+| `hv` | `.hv.md` | Always âm dịch | 涅槃 → Niết bàn |
 | `vi` | `.vi.md` | Readable thuần Việt | 修多羅 hv Tu Đa La, vi kinh |
-| Same both | both | Proper names, fixed compounds | 菩薩 → Bồ Tát / Bồ Tát |
+| Same both | both | Proper names, fixed compounds | 菩薩 → Bồ tát / Bồ tát |
+| Compound | both | `compound: true` | 菩薩摩訶薩 → Đại Bồ tát |
+| alt_vi | vi | Forbidden synonyms | 比丘 alt_vi: nam cư sĩ |
 
 **Sources for proposals** (in order):
 
 1. Existing `web/data/glossary/terms.yaml`
-2. `docs/style-guide.md` and `CONTEXT.md`
+2. `docs/BẢNG QUY TẮC Chat GPT tongHop.md`, `docs/style-guide.md`, `CONTEXT.md`
 3. Established Vietnamese canon usage (Hán-Việt tradition)
 4. If uncertain: `status: pending` + note both options — **do not invent doctrine**
 

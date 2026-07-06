@@ -28,7 +28,7 @@ Your job is to produce **structured, quantitative reports** that downstream agen
 1. Source file(s): `web/data/sources/{series}/{volume}/ch{NN}.zh.md` (or raw paste)
 2. YAML frontmatter (`series`, `source_edition`, `script`)
 3. Existing `web/data/glossary/terms.yaml` and `web/data/glossary/{series}.yaml` (for overlap check)
-4. Optional: `CONTEXT.md`, `docs/style-guide.md`
+4. Optional: `CONTEXT.md`, `docs/style-guide.md`, `docs/BẢNG QUY TẮC Chat GPT tongHop.md`
 
 ## Analysis dimensions
 
@@ -102,6 +102,8 @@ Compute and report:
 - **Sanskrit transliterations** (音譯): 阿…, 陀…, 羅… patterns
 - **Overlap with glossary**: terms already in `web/data/glossary/terms.yaml` vs new
 - **Collision risk**: terms with multiple senses (e.g. 法, 心, 無) — flag for glossary notes
+- **Monastic ranks** (比丘, 沙彌, 優婆塞): flag density; curator must use Tỳ kheo / Sa di forms per terminology doc
+- **Semantic compounds** (菩薩摩訶薩, 般若波羅蜜): flag for `compound: true` glossary entries
 
 Reference: word boundaries in classical Chinese are implicit; treat multi-char Buddhist compounds as single units (aligned with CBETA/DILA segmentation research).
 

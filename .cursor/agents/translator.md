@@ -29,7 +29,7 @@ Produce **plain-text thuần Việt** drafts faithful to source, glossary-consis
 
 1. Source body: `web/data/sources/{series}/{volume}/ch{NN}.zh.md`
 2. Glossary: `web/data/glossary/terms.yaml`, `web/data/glossary/{series}.yaml`
-3. Guides: `CONTEXT.md`, `docs/style-guide.md`
+3. Guides: `CONTEXT.md`, `docs/style-guide.md`, `docs/BẢNG QUY TẮC Chat GPT tongHop.md`
 4. Optional: `web/data/translations/.../ch{NN}.hv.md` (terminology anchor — preferred)
 
 If >5 unregistered doctrinal terms: stop → recommend glossary-curator.
@@ -47,10 +47,13 @@ If >5 unregistered doctrinal terms: stop → recommend glossary-curator.
 2. **No structure injection**: do not add headings or editorial subsections not in source
 3. **Translate from source** line by line; use `.hv.md` for syntax reference only
 4. **Glossary-bound terms**: mandatory exact `vi` from YAML — never use `hv` when `vi` differs
-5. **When `.hv.md` exists**: refine connectors/readability; terminology from glossary `vi`, not `hv`
-6. **Buddha direct address**: in quoted speech, when the Buddha opens by naming the interlocutor (大王, 善男子, …), prefix **`Này`** — e.g. 「大王！…」→ 「Này Đại vương!…」; other speakers unchanged
-7. Mantras: transliterate; do not paraphrase
-8. Uncertainty: `[?]` inline; explain in `notes/`
+5. **Hán Việt-first `vi`**: prefer established Hán Việt; gloss only when popularizing
+6. **Capitalization / forbidden forms**: per terminology doc — no Giác hữu tình, no nam/nữ cư sĩ for monastic ranks; `{Name} Kinh` for sutra titles
+7. **When `.hv.md` exists**: refine connectors/readability; terminology from glossary `vi`, not `hv`
+8. **Buddha direct address**: in quoted speech, when the Buddha opens by naming the interlocutor (大王, 善男子, …), prefix **`Này`** — e.g. 「大王！…」→ 「Này Đại vương!…」; other speakers unchanged
+9. **First occurrence**: optional `Bát nhã (般若)` inline when user requests; agents do not add by default
+10. Mantras: transliterate; do not paraphrase
+11. Uncertainty: `[?]` inline; explain in `notes/`
 
 ## Genre register
 

@@ -12,7 +12,7 @@ description: >-
 
 - Source: `web/data/sources/.../*.zh.md` (body only for line count)
 - Draft: `web/data/translations/.../*.vi.md` and/or `*.hv.md`
-- `web/data/glossary/terms.yaml`, `docs/style-guide.md`
+- `web/data/glossary/terms.yaml`, `docs/style-guide.md`, `docs/BẢNG QUY TẮC Chat GPT tongHop.md`
 
 ## Checklist
 
@@ -26,7 +26,11 @@ description: >-
 - [ ] `.hv.md`: all glossary `hv` forms correct; no `vi` where `hv` differs
 - [ ] `.vi.md`: all glossary `vi` forms correct; no `hv` where `vi` differs
 - [ ] No unauthorized synonyms for registered terms
+- [ ] No `alt_vi` forbidden forms (Giác hữu tình, nam cư sĩ, nữ cư sĩ)
+- [ ] Compound terms match glossary (`Đại Bồ tát`, `Bát nhã ba la mật`)
 - [ ] Proper names transliterated consistently
+- [ ] Capitalization: honorifics vs common nouns per terminology doc
+- [ ] Sutra titles: `{Name} Kinh` not `Kinh {Name}`
 
 ### Footnotes (`.vi.md`, when present)
 - [ ] Inline `[^n]` on body lines only (no extra body lines)
@@ -43,6 +47,7 @@ description: >-
 - [ ] Correct register (scripture vs commentary)
 - [ ] Vietnamese punctuation (not Chinese)
 - [ ] Buddha direct address: vocatives in Buddha's speech prefixed with `Này` (e.g. Này Đại vương)
+- [ ] Spelling consistency (no alternating variants within series)
 
 ## Report
 

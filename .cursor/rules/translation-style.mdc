@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Vietnamese Translation Style
 
+Canonical terminology: `docs/BẢNG QUY TẮC Chat GPT tongHop.md`
+
 ## Output shape
 
 - Plain text only; **mirror source line-for-line**
@@ -15,8 +17,25 @@ alwaysApply: false
 
 ## Register
 
+- Modern scholarly Vietnamese; neutral, objective; context-driven (not literal per character)
 - Scripture (經): dignified, concise; preserve parallelism
 - Commentary (疏/註): clearer syntax OK; keep glossary `vi` terms
+- Prefer established Hán Việt in `vi`; thuần Việt gloss only when popularizing
+
+## Capitalization (§14)
+
+**Capitalize:** Phật, Như Lai, Thế Tôn, Bồ tát, A la hán, Đại Bồ tát, Tam Bảo, Chính pháp
+
+**Lowercase (common nouns):** chúng sinh, phiền não, nghiệp, trí tuệ, công đức
+
+Follow glossary for compounds (e.g. `Bát nhã ba la mật`, `ba la mật`).
+
+## Forbidden synonyms
+
+- 菩薩: never `Giác hữu tình`
+- Monastic ranks: `Tỳ kheo`, `Sa di`, `Ưu bà tắc` — not `nam cư sĩ` / `nữ cư sĩ` (footnotes only)
+- Sutra titles: `Kim Cương Kinh` pattern, not `Kinh Kim Cương`
+
 ## Dialogue
 
 - Keep `「…」` nesting; do not add **Hỏi:** / **Đáp:** labels unless the source has 問/答 markers
@@ -30,14 +49,21 @@ alwaysApply: false
 - Honorifics: 佛 → Phật; 世尊 → Thế Tôn
 - Glossary-bound terms: use `vi` column only — never `hv` when they differ
 
+## First occurrence
+
+- Optional inline: `Bát nhã (般若)` for hard terms when user requests
+- Otherwise use footnotes via web editor (`docs/style-guide.md` §5)
+- Agents do not add annotations by default
+
 ## Numbers and Names
 
 - Follow glossary `vi` and series convention
-- Transliterate proper names consistently (e.g. 文殊 → Văn Thù, 普賢 → Phổ Hiền)
+- Place names: Title Case per syllable, no hyphens (e.g. 文殊 → Văn Thù)
 
 ## Punctuation
 
 - Vietnamese punctuation; no full-width Chinese punctuation
 - Quotation of Dharma phrases: use « » or " " consistently within a series
+- Spelling: one consistent variant per series (e.g. hy sinh, lý luận — no alternation)
 
 See `docs/style-guide.md` for extended examples.

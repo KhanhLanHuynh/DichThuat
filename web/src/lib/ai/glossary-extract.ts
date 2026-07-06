@@ -5,16 +5,19 @@ const MAX_TERMS = 30;
 
 const SYSTEM_PROMPT = `You extract Buddhist Chinese terminology pairs from aligned source/Hán-Việt translation lines.
 
-Return ONLY valid JSON: { "terms": [ { "zh", "hv", "vi?", "notes?", "sanskrit?", "doctrine?" } ] }
+Return ONLY valid JSON: { "terms": [ { "zh", "hv", "vi?", "notes?", "sanskrit?", "doctrine?", "compound?", "alt_vi?" } ] }
 
 Rules:
 - Include ONLY terms NOT already in the provided existing glossary (by zh key).
 - Priority: doctrinal compounds, proper names, titles, fixed phrases, Sanskrit transliterations.
 - Skip common function words (之, 而, 以, 故, 說, 見, 得) unless part of a fixed compound.
-- hv must be the exact Hán-Việt reading used in the translation (âm dịch).
+- hv must be the exact Hán-Việt reading used in the translation (âm dịch or compound unit).
 - vi (optional): thuần Việt gloss when it differs from hv; omit or equal hv when the same.
-- No hyphens in hv/vi: use separate Title Case words (e.g. "Bát Nhã Ba La Mật", "A Nan").
-- Plain Hán-Việt words keep natural casing (e.g. "bố thí", "trì giới").
+- Prefer established Hán Việt; capitalization per terminology doc (Bát nhã ba la mật, Đại Bồ tát, Tỳ kheo).
+- compound: true for semantic units (菩薩摩訶薩, 般若波羅蜜) that override word-by-word.
+- alt_vi for forbidden forms (e.g. Giác hữu tình, nam cư sĩ for 比丘).
+- Monastic ranks: Tỳ kheo, Sa di, Ưu bà tắc — not nam/nữ cư sĩ.
+- No hyphens in hv/vi.
 - doctrine: true for doctrinal technical terms.
 - Maximum ${MAX_TERMS} new terms per response.
 - If no new terms, return { "terms": [] }.
@@ -22,7 +25,7 @@ Rules:
 
 const VI_SYSTEM_PROMPT = `You extract Buddhist Chinese terminology from aligned source/Hán-Việt/thuần Việt translation lines.
 
-Return ONLY valid JSON: { "terms": [ { "zh", "hv", "vi", "notes?", "sanskrit?", "doctrine?" } ] }
+Return ONLY valid JSON: { "terms": [ { "zh", "hv", "vi", "notes?", "sanskrit?", "doctrine?", "compound?", "alt_vi?" } ] }
 
 Rules:
 - Include ONLY terms NOT already in the provided existing glossary (by zh key).
@@ -30,7 +33,9 @@ Rules:
 - Skip common function words (之, 而, 以, 故, 說, 見, 得) unless part of a fixed compound.
 - vi must be the exact thuần Việt reading used in the VI line.
 - hv must be the exact Hán-Việt reading from the HV reference line (same paragraph).
-- No hyphens in hv/vi: use separate Title Case words (e.g. "Bát Nhã Ba La Mật", "A Nan").
+- Capitalization per terminology doc (Bát nhã ba la mật, ba la mật, Bồ tát, Đại Bồ tát).
+- compound: true for semantic compounds; alt_vi for forbidden synonyms.
+- No hyphens in hv/vi.
 - doctrine: true for doctrinal technical terms.
 - Maximum ${MAX_TERMS} new terms per response.
 - If no new terms, return { "terms": [] }.

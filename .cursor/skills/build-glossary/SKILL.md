@@ -5,6 +5,8 @@ description: Extracts Chinese Buddhist terms from source files and updates gloss
 
 # Build Glossary
 
+Reference: `docs/BẢNG QUY TẮC Chat GPT tongHop.md`, `.cursor/rules/glossary.mdc`
+
 ## Input
 
 - Source file(s) under `web/data/sources/`
@@ -24,11 +26,22 @@ description: Extracts Chinese Buddhist terms from source files and updates gloss
 
 ```yaml
 - zh: "五蘊"
-  hv: "ngũ uẩn"          # Hán-Việt — for .hv.md
-  vi: "ngũ uẩn"          # Thuần Việt — for .vi.md (same when established compound)
+  hv: "ngũ uẩn"
+  vi: "ngũ uẩn"
   notes: "Five aggregates; pañca-skandha"
   sanskrit: "skandha"
   doctrine: true
+
+- zh: "菩薩摩訶薩"
+  hv: "Đại Bồ tát"
+  vi: "Đại Bồ tát"
+  compound: true
+  notes: "Semantic compound; not character-by-character"
+
+- zh: "比丘"
+  hv: "Tỳ kheo"
+  vi: "Tỳ kheo"
+  alt_vi: ["nam cư sĩ"]
 
 - zh: "修多羅"
   hv: "Tu Đa La"
@@ -38,22 +51,33 @@ description: Extracts Chinese Buddhist terms from source files and updates gloss
   notes: "hv = transliteration; vi = readable gloss"
 ```
 
+## Term categories
+
+| Category | Policy |
+|----------|--------|
+| Phật hiệu / Bồ tát / Thanh văn | Hán Việt; capitalize honorifics |
+| Tăng đoàn | Tỳ kheo, Sa di, Ưu bà tắc — `alt_vi` for nam/nữ cư sĩ |
+| Quả vị / pháp tu / giáo lý | Hán Việt per terminology doc |
+| Compounds | `compound: true` when semantic unit (般若波羅蜜, 菩薩摩訶薩) |
+
 ## hv vs vi
 
 | Field | Layer | Guidance |
 |-------|-------|----------|
-| `hv` | `.hv.md` | Âm dịch; character-mapped Hán-Việt; mandatory exact form |
-| `vi` | `.vi.md` | Readable thuần Việt; keep doctrinal proper nouns; gloss descriptive terms |
+| `hv` | `.hv.md` | Âm dịch or `compound` unit; mandatory exact form |
+| `vi` | `.vi.md` | Prefer established Hán Việt; gloss only when popularizing |
+| `alt_vi` | vi | Forbidden synonyms (Giác hữu tình, nam cư sĩ, …) |
+| `compound` | both | Overrides word-by-word in `.hv.md` |
 
 When unsure, set `vi` equal to `hv` and add `status: pending` for curator review.
 
 ## Transliteration Style
 
 - Do NOT use hyphens (`-`) to join syllables in `hv` or `vi` values.
-- Write multi-syllable transliterations as separate words, capitalizing each syllable (Title Case):
-  - `A-nan` → `A Nan`
-  - `bát-nhã-ba-la-mật` → `Bát Nhã Ba La Mật`
-- Plain Hán-Việt words keep natural casing (e.g. `bố thí`, `trì giới`, `long vương`).
+- Capitalization per terminology doc:
+  - Honorifics: `Như Lai`, `Đại Bồ tát`, `Tam Bảo`
+  - Compounds: `Bát nhã ba la mật`, `ba la mật`
+  - Common nouns lowercase: `chúng sinh`, `trí tuệ`, `bố thí`
 - Hyphens in `sanskrit` and `notes` are unaffected.
 
 ## Priority

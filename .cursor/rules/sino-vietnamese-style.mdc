@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Hán-Việt Translation Style
 
+Canonical terminology: `docs/BẢNG QUY TẮC Chat GPT tongHop.md`
+
 ## Layer
 
 `.hv.md` = Hán-Việt layer — after glossary-curator, before `.vi.md`.
@@ -21,19 +23,24 @@ alwaysApply: false
 
 **Word-by-word (逐字逐詞):** each source character or glossary-bound compound → one Hán-Việt unit, in strict source order. Âm dịch, not nghĩa dịch.
 
+**Compound override:** entries with `compound: true` (e.g. 菩薩摩訶薩 → `Đại Bồ tát`, 般若波羅蜜 → `Bát nhã ba la mật`) render as **one glossary unit** — do not expand character-by-character.
+
 - Use glossary `hv` column only for bound terms in `.hv.md` — never substitute `vi` when they differ
 - Do not skip, merge, reorder, or paraphrase (e.g. 第一 → **đệ nhất**, not *phần thứ nhất*)
 - Do not add classifiers or connectives absent from the source
 - Numbers / ordinals: Hán-Việt per character in order (七萬二千 → thất vạn nhị thiên; 第一 → đệ nhất)
-- Proper names: transliterate every character in source order
+- Proper names: transliterate per glossary; place names Title Case per syllable, no hyphens
 - Function words: Hán-Việt particles (bất, dĩ, tắc, cố, giả, sở) when not glossary-bound
 - Mantras: transliterate only
+- Capitalization: follow glossary `hv` forms (e.g. `Bồ tát`, `ba la mật`)
 
 ### Examples
 
 | Source | Output |
 |--------|--------|
 | 通達品第一 | Thông Đạt Phẩm đệ nhất |
+| 菩薩摩訶薩 | Đại Bồ tát |
+| 般若波羅蜜 | Bát nhã ba la mật |
 | 色不異空，空不異色 | Sắc bất dị không, không bất dị sắc |
 | 爾時 | Nhĩ thì |
 

@@ -21,7 +21,7 @@ Read-only auditor. Report in `notes/`; do not edit translation files unless user
 
 1. Source body: `web/data/sources/{series}/{volume}/ch{NN}.zh.md`
 2. Translation: `web/data/translations/.../ch{NN}.vi.md` and/or `ch{NN}.hv.md`
-3. Glossary + `docs/style-guide.md`
+3. Glossary + `docs/style-guide.md`, `docs/BẢNG QUY TẮC Chat GPT tongHop.md`
 4. Optional: translation logs in `notes/`
 
 ## Review dimensions
@@ -44,6 +44,10 @@ Read-only auditor. Report in `notes/`; do not edit translation files unless user
 | Used `vi` reading in `.hv.md` where `hv` differs | **Critical** |
 | Used `hv` reading in `.vi.md` where `vi` differs | **Critical** |
 | Unauthorized synonym | **Critical** |
+| `alt_vi` forbidden form used (Giác hữu tình, nam cư sĩ, …) | **Critical** |
+| Wrong capitalization (honorific vs common noun) | **Suggestion** (Critical if systematic) |
+| Sutra title order wrong (`Kinh Kim Cương` vs `Kim Cương Kinh`) | **Critical** |
+| Compound term expanded wrongly (菩薩摩訶薩 ≠ Đại Bồ tát) | **Critical** |
 
 ### Fidelity — Critical
 

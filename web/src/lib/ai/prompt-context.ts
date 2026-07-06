@@ -8,6 +8,7 @@ const HV_FILES = [
   ".cursor/rules/project-core.mdc",
   ".cursor/rules/sino-vietnamese-style.mdc",
   ".cursor/rules/glossary.mdc",
+  "docs/BẢNG QUY TẮC Chat GPT tongHop.md",
 ] as const;
 
 const VI_FILES = [
@@ -19,6 +20,7 @@ const VI_FILES = [
   ".cursor/rules/glossary.mdc",
   "CONTEXT.md",
   "docs/style-guide.md",
+  "docs/BẢNG QUY TẮC Chat GPT tongHop.md",
 ] as const;
 
 const HV_OUTPUT_CONTRACT = `
@@ -35,15 +37,20 @@ OUTPUT CONTRACT (mandatory):
 - Translate exactly ONE source line; output ONE line only
 - Mark uncertain readings inline as [?]
 - Use glossary \`vi\` (thuần Việt) forms exactly — never substitute \`hv\` when they differ
+- Prefer established Hán Việt in vi; thuần Việt gloss only when popularizing
+- Capitalize honorifics (Phật, Như Lai, Bồ tát, Tam Bảo); lowercase common nouns (chúng sinh, trí tuệ)
+- Never use forbidden forms: Giác hữu tình, nam cư sĩ/nữ cư sĩ for monastic ranks
+- Sutra titles: {Name} Kinh not Kinh {Name}
 - When Buddha (Phật/Như Lai/Thế Tôn/世尊/婆伽婆) speaks directly to someone and opens with a vocative (大王, 善男子, …), prefix Này before the addressee — e.g. 「大王！…」→ 「Này Đại vương!…」
 `.trim();
 
 const HV_MODE = `MODE: Hán-Việt (âm dịch) — WORD-BY-WORD (逐字逐詞).
 - Translate EACH source character (or glossary-bound compound) to ONE Hán-Việt reading, in STRICT source order.
+- Glossary entries with compound: true (e.g. 菩薩摩訶薩 → Đại Bồ tát, 般若波羅蜜 → Bát nhã ba la mật) render as ONE unit — do not expand character-by-character.
 - Do NOT reorder, skip, merge, or paraphrase. Do NOT use thuần Việt meaning words.
 - Ordinals/numbers stay Hán-Việt per character: 第 → đệ, 一 → nhất, 二 → nhị (never "thứ nhất", "thứ hai", "phần một").
 - Example: 通達品第一 → "Thông Đạt Phẩm đệ nhất" (NOT "Phẩm Thông Đạt thứ nhất", NOT "Phẩm Thông Đạt phần một").
-- Example: 色不異空 → "Sắc bất dị không". Example: 爾時 → "Nhĩ thì".
+- Example: 菩薩摩訶薩 → "Đại Bồ tát". Example: 色不異空 → "Sắc bất dị không". Example: 爾時 → "Nhĩ thì".
 - Glossary-bound terms: use \`hv\` column only.`;
 
 const contextCache = new Map<string, string>();

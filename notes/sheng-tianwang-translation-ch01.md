@@ -6,7 +6,7 @@ hv_base: translations/sheng-tianwang/vol01/ch01.hv.md
 output: translations/sheng-tianwang/vol01/ch01.vi.md
 agent: translator
 date: 2026-07-01
-revision: 3
+revision: 4
 status: draft
 ---
 
@@ -60,6 +60,15 @@ Tái sinh bản **thuần Việt** (`.vi.md`) sau khi glossary có cột `vi` ri
 - Mỗi đoạn nguồn = một dòng dịch (kể cả 9 tiểu loại đàn trong một đoạn 檀).
 - Khớp đúng vị trí dòng trống (sau đại Tỳ Kheo, sau 爾時世尊, sau 東方去此, v.v.).
 
+## Revision 4 (2026-07-06) — terminology pass per `notes/sheng-tianwang-review-ch01.md`
+
+- `Bồ Tát Ma Ha Tát` → `Đại Bồ tát`; `Bát Nhã Ba La Mật` → `Bát nhã ba la mật`; `Ba La Mật` → `ba la mật`
+- `Bồ Tát` → `Bồ tát`; `Tỳ Kheo` → `Tỳ kheo`; `A La Hán` → `A la hán`; `Tu Đà Hoàn` → `Tu đà hoàn`; `Tam bảo` → `Tam Bảo`
+- Title: `Thắng Thiên Vương Bát nhã ba la mật Kinh quyển thứ nhất` (removed placeholder footnote `hellodemo`)
+- `Ma Ha Bát Nhã Ba La Mật` → `Ma ha Bát nhã ba la mật` (line 15); `Thiền Na Ba La Mật` → `thiền na ba la mật`; `Tam Muội` → `Tam muội`
+- Body still 53 lines; `[?]` on lines 39, 49 unchanged
+
 ## Bước tiếp theo
 
-- Khuyến nghị `/reviewer`: thẩm 2 chỗ `[?]`, phân biệt 智 vs 般若, QA thuật ngữ hội tràng.
+- Khuyến nghị `/reviewer` re-run (`notes/sheng-tianwang-review-ch01-r2.md`)
+- `.hv.md` chưa cập nhật — cần pass riêng nếu HV/VI phải khớp

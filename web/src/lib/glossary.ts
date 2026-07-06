@@ -14,6 +14,7 @@ export interface GlossaryTerm {
   tags?: string[];
   status?: string;
   alt_vi?: string[];
+  compound?: boolean;
 }
 
 export interface GlossaryData {

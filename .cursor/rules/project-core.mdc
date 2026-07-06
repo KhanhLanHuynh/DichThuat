@@ -21,11 +21,15 @@ Read `CONTEXT.md` at project start for terminology and workflow.
 
 ## Terminology
 
+- Canonical reference: `docs/BẢNG QUY TẮC Chat GPT tongHop.md` (full categories and examples)
 - Check `web/data/glossary/terms.yaml` before translating; add new terms (`hv` + `vi`) before first use
 - One Chinese term → one `hv` and one `vi` equivalent per series
 - **`.hv.md` (Hán-Việt):** use glossary `hv` column only — never `vi` when they differ
 - **`.vi.md` (thuần Việt):** use glossary `vi` column only — never `hv` when they differ
-- Sanskrit/Pali & transliterated names: no hyphens; write each syllable as a separate Title Case word (e.g. Niết Bàn, Bồ Tát, Bát Nhã Ba La Mật, A Nan)
+- **Glossary compounds** (`compound: true` or fixed multi-char entries like 菩薩摩訶薩): render as single unit in **both** `.hv.md` and `.vi.md` — overrides word-by-word
+- Prefer established Hán Việt in `vi`; thuần Việt gloss only when popularizing (e.g. 修多羅 → kinh)
+- No hyphens in `hv`/`vi`; capitalization per terminology doc — honorifics/proper nouns capitalized (`Như Lai`, `Đại Bồ tát`); common nouns lowercase (`chúng sinh`, `trí tuệ`); compounds per glossary (`Bát nhã ba la mật`, `ba la mật`)
+- Sanskrit/Pali: international diacritic form in glossary `sanskrit` field; Hán-Việt in translation body
 
 ## Translation Output Format (plain text)
 
@@ -51,4 +55,4 @@ Translation files (`.hv.md`, `.vi.md`) are **plain text bodies** — not structu
 
 ## Session Start
 
-When user names a chapter, read: source file → relevant glossary entries → `docs/style-guide.md` if needed.
+When user names a chapter, read: source file → relevant glossary entries → `docs/style-guide.md` and `docs/BẢNG QUY TẮC Chat GPT tongHop.md` if needed.

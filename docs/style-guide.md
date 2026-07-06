@@ -1,5 +1,7 @@
 # Hướng dẫn phong cách — Dịch kinh Phật Hán → Việt
 
+**Thuật ngữ đầy đủ:** [`docs/BẢNG QUY TẮC Chat GPT tongHop.md`](BẢNG%20QUY%20TẮC%20Chat%20GPT%20tongHop.md) (Phật hiệu, Bồ tát, Tăng đoàn, viết hoa, tên kinh, v.v.)
+
 ## 1. Các lớp thuật ngữ
 
 Glossary đăng ký **hai cột** cho mỗi thuật ngữ Hán:
@@ -11,7 +13,7 @@ Glossary đăng ký **hai cột** cho mỗi thuật ngữ Hán:
 
 | Loại | `hv` | `vi` |
 |------|------|------|
-| Thuật ngữ giáo lý / danh hiệu | Hán-Việt chuẩn | Thường giữ nguyên hoặc thuần Việt đọc được |
+| Thuật ngữ giáo lý / danh hiệu | Hán-Việt chuẩn | Ưu tiên Hán Việt đã phổ biến; thuần Việt chỉ khi phổ thông hóa |
 | Từ thông dụng, liên kết câu | Âm dịch từng chữ | Nói / giảng / khai (tùy ngữ cảnh) |
 | Âm dịch tên riêng | A Di Đà | A Di Đà |
 
@@ -24,8 +26,10 @@ Khi `hv` và `vi` tranh nhau, theo `web/data/glossary/terms.yaml` — **không**
 | 佛 | Phật |
 | 世尊 | Thế Tôn |
 | 如來 | Như Lai |
-| 菩薩 | Bồ-tát |
-| 羅漢 | A-la-hán |
+| 菩薩 | Bồ tát |
+| 羅漢 | A la hán |
+| 菩薩摩訶薩 | Đại Bồ tát |
+| 比丘 | Tỳ kheo |
 | 法師 | pháp sư |
 
 ## 3. Lỗi thường gặp
@@ -35,7 +39,7 @@ Khi `hv` và `vi` tranh nhau, theo `web/data/glossary/terms.yaml` — **không**
 | 法 | đạo | pháp / Pháp | 法 = pháp/giáo lý, không phải "tôn giáo" |
 | 無 | không có | không | phủ định bản thể học |
 | 心 | lòng | tâm | trong ngữ cảnh A-tỳ-đạm |
-| 眾生 | người | chúng sanh | |
+| 眾生 | người | chúng sinh | |
 | 修行 | tu hành | tu tập / hành trì | tùy bộ kinh |
 
 ## 4. Mẫu câu kinh điển
@@ -60,7 +64,7 @@ Khi `hv` và `vi` tranh nhau, theo `web/data/glossary/terms.yaml` — **không**
 Dùng cho:
 
 - Dị bản (校勘)
-- Thuật ngữ kỹ thuật chưa dịch lần đầu
+- Thuật ngữ kỹ thuật chưa dịch lần đầu (hoặc inline `Bát nhã (般若)` khi người dùng yêu cầu)
 - Chú thích độc giả (註解) khi người dùng yêu cầu
 
 **Quy tắc:**
@@ -86,7 +90,7 @@ Trong `parallel/*.parallel.md`:
 ```markdown
 | Hán | Việt |
 |-----|------|
-| 觀自在菩薩 | Bồ-tát Quán Tự Tại |
+| 觀自在菩薩 | Bồ tát Quán Tự Tại |
 ```
 
 ## 7. Ví dụ
@@ -101,7 +105,7 @@ Trong `parallel/*.parallel.md`:
 
 **Nguồn:** 文殊師利問曰：...
 
-**Dịch:** Văn-thù Sư-lợi hỏi: ...
+**Dịch:** Văn Thù Sư Lợi hỏi: ...
 
 ### Phật xưng hô trực tiếp (`.vi.md`)
 
@@ -112,6 +116,6 @@ Khi **Phật / Như Lai / Thế Tôn / 婆伽婆 / 世尊** nói **trực tiếp
 | 佛告勝天王言：「大王！…」 | Phật bảo Thắng Thiên Vương rằng: 「**Này** Đại vương!…」 |
 | 「善男子！…」 | 「**Này** thiện nam tử!…」 |
 
-- Chỉ áp dụng lời Phật (không áp dụng Bồ Tát, đệ tử, v.v.).
+- Chỉ áp dụng lời Phật (không áp dụng Bồ tát, đệ tử, v.v.).
 - Chỉ khi nguồn có xưng hô mở đầu; không thêm nếu đã có `Này`.
 - **Không** áp dụng cho `.hv.md` (Hán-Việt giữ sát nguồn).

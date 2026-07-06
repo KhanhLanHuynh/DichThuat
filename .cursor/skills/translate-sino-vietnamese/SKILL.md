@@ -13,6 +13,7 @@ description: >-
 1. Glossary-curator has run — zero `pending` terms in relevant YAML
 2. Source: `web/data/sources/{series}/{volume}/ch{NN}.zh.md`
 3. Glossary: `web/data/glossary/terms.yaml`, `web/data/glossary/{series}.yaml`
+4. Reference: `docs/BẢNG QUY TẮC Chat GPT tongHop.md`
 
 If prerequisites fail: stop and run **build-glossary** / glossary-curator first.
 
@@ -39,8 +40,11 @@ If prerequisites fail: stop and run **build-glossary** / glossary-curator first.
 
 **Word-by-word (逐字逐詞)** — translate **each Chinese character or bound compound** to its Hán-Việt reading **in strict source order**. Âm dịch, not nghĩa dịch.
 
+**Compound override:** glossary entries with `compound: true` (e.g. 菩薩摩訶薩 → `Đại Bồ tát`, 般若波羅蜜 → `Bát nhã ba la mật`) render as one unit — do not expand character-by-character.
+
 | Principle | Rule |
 |-----------|------|
+| Compound | `compound: true` entries → single glossary `hv` unit |
 | One-to-one mapping | Every source character (or glossary-bound compound) → one Hán-Việt unit; do not skip, merge, or reorder |
 | No paraphrase | Do not replace with thuần Việt meaning (e.g. 第一 → *phần thứ nhất* is wrong; use **đệ nhất**) |
 | No added words | No classifiers, connectives, or filler absent from the source |
@@ -91,7 +95,9 @@ Do not render titles as thuần Việt paraphrases (e.g. *Phẩm Thông Đạt, 
 |--------|--------|-------|
 | 爾時 | Nhĩ thì | 爾→nhĩ, 時→thì — not *Thời ấy* |
 | 七萬二千 | thất vạn nhị thiên | one reading per character |
-| 觀自在菩薩 | Quán Tự Tại Bồ Tát | glossary order + word-by-word |
+| 觀自在菩薩 | Quán Tự Tại Bồ tát | glossary order + word-by-word |
+| 菩薩摩訶薩 | Đại Bồ tát | compound override |
+| 般若波羅蜜 | Bát nhã ba la mật | compound override |
 
 ## Next step
 

@@ -44,7 +44,7 @@ glossary-curator → sino-vietnamese-translator → translator → reviewer
 
 ## Core rules
 
-1. **Word-by-word**: one Hán-Việt unit per source character/compound; no paraphrase, skip, or reorder (第一 → đệ nhất; 通達品第一 → Thông Đạt Phẩm đệ nhất)
+1. **Word-by-word**: one Hán-Việt unit per source character/compound; **except** `compound: true` glossary entries (e.g. 菩薩摩訶薩 → Đại Bồ tát) render as single unit
 2. **Line parity**: output line count = source body line count
 3. **No structure injection**: do not add `#` / `##` headings or editorial subsections (e.g. "Mở kinh", "Hội tràng")
 4. **Glossary wins** for bound terms — use `hv` field only (not `vi`)

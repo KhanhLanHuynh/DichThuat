@@ -29,16 +29,21 @@ DichThuat là không gian làm việc để dịch kinh điển Phật giáo t�
 
 ## Quy ước thuật ngữ chính (tiếng Việt)
 
+Bảng đầy đủ: [`docs/BẢNG QUY TẮC Chat GPT tongHop.md`](docs/BẢNG%20QUY%20TẮC%20Chat%20GPT%20tongHop.md) (Phật hiệu, Bồ tát, Tăng đoàn, quả vị, pháp tu, địa danh, tên kinh, viết hoa, v.v.)
+
 | Khái niệm | Tiếng Việt ưu tiên | Tránh |
 |-----------|-------------------|-------|
 | Phật | Phật | Đức Phật (trừ khi ngữ cảnh cần kính xưng) |
-| Bồ-tát | Bồ-tát | — |
-| A-la-hán | A-la-hán | — |
+| Bồ tát | Bồ tát | Giác hữu tình |
+| A la hán | A la hán | — |
 | Pháp (giáo lý) | pháp / Pháp | đạo (mơ hồ) |
 | Pháp (các hiện tượng) | các pháp / chúng sinh | — |
 | Tăng-già | Tăng-già / chúng Tăng | — |
-| Niết-bàn | Niết-bàn | — |
-| Kinh | kinh | — |
+| Niết bàn | Niết bàn | — |
+| 比丘 / Tăng đoàn | Tỳ kheo, Sa di, Ưu bà tắc | nam cư sĩ, nữ cư sĩ |
+| 菩薩摩訶薩 | Đại Bồ tát | Bồ Tát Ma Ha Tát |
+| 般若波羅蜜 | Bát nhã ba la mật | — |
+| Kinh (tên tác phẩm) | Kim Cương Kinh | Kinh Kim Cương |
 | Tam-ma-đề | tam-ma-đề | — |
 | Không | không / tánh không | — |
 | Chân như | chân như | — |
@@ -91,5 +96,6 @@ Xem `docs/workflow.md` để biết từng bước chi tiết.
 | Subagents | `.cursor/agents/` | source-analyst, glossary-curator, sino-vietnamese-translator, translator, reviewer |
 | Web workbench | `web/` | Editor, upload, machine translate; corpus in `web/data/` |
 | Hướng dẫn phong cách | `docs/style-guide.md` | Ví dụ chi tiết và trường hợp đặc biệt |
+| Bảng thuật ngữ | `docs/BẢNG QUY TẮC Chat GPT tongHop.md` | Chuẩn thuật ngữ Phật học |
 
 Khi bắt đầu phiên, nêu **tên bộ kinh**, **chương** và chế độ **nháp** hay **duyệt**.

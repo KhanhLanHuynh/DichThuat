@@ -15,7 +15,7 @@ Plain-text output: one source line → one translation line. No Markdown heading
 **Output line 1:**
 
 ```
-Bồ Tát Quán Tự Tại, khi hành sâu Bát Nhã Ba La Mật, chiếu kiến ngũ uẩn giai không, độ nhất thiết khổ ách.
+Bồ tát Quán Tự Tại, khi hành sâu Bát nhã ba la mật, chiếu kiến ngũ uẩn giai không, độ nhất thiết khổ ách.
 ```
 
 ## Example 2 — Q&A (two source lines)
@@ -36,7 +36,7 @@ Xá Lợi Phất hỏi: «Niết Bàn là gì?»
 **Output (line 2):**
 
 ```
-Phật đáp: «Tịch diệt tức là Niết Bàn.»
+Phật đáp: «Tịch diệt tức là Niết bàn.»
 ```
 
 ## Example 5 — Buddha direct address (`.vi.md`)

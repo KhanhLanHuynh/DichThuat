@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Glossary Rules
 
+Canonical terminology reference: `docs/BẢNG QUY TẮC Chat GPT tongHop.md`
+
 ## File: `web/data/glossary/terms.yaml`
 
 Each entry maps Chinese (`zh`) to **two renderings**:
@@ -14,10 +16,19 @@ Each entry maps Chinese (`zh`) to **two renderings**:
 series: default  # or series name
 terms:
   - zh: "般若"
-    hv: "Bát Nhã"       # Hán-Việt — mandatory for .hv.md (âm dịch)
-    vi: "Bát Nhã"       # Thuần Việt — mandatory for .vi.md (readable Vietnamese)
+    hv: "Bát nhã"
+    vi: "Bát nhã"
     notes: "Prajna; not 'trí tuệ' alone when technical"
     sanskrit: "prajñā"
+  - zh: "菩薩摩訶薩"
+    hv: "Đại Bồ tát"
+    vi: "Đại Bồ tát"
+    compound: true
+    notes: "Semantic compound; overrides word-by-word in .hv.md"
+  - zh: "比丘"
+    hv: "Tỳ kheo"
+    vi: "Tỳ kheo"
+    alt_vi: ["nam cư sĩ"]
 ```
 
 ## Fields
@@ -25,20 +36,42 @@ terms:
 | Field | Layer | Use |
 |-------|-------|-----|
 | `zh` | lookup | Primary key; use full compound when fixed |
-| `hv` | `.hv.md` | Hán-Việt âm dịch — word-by-word reading |
-| `vi` | `.vi.md` | Thuần Việt — readable Buddhist register |
-| `sanskrit` / `pali` | notes | Optional doctrinal reference |
+| `hv` | `.hv.md` | Hán-Việt — word-by-word or compound per entry |
+| `vi` | `.vi.md` | Readable Vietnamese; prefer established Hán Việt |
+| `sanskrit` / `pali` | notes | International diacritic form (e.g. prajñā) |
 | `doctrine: true` | both | Requires reviewer sign-off |
-| `alt_vi` | vi | Deprecated thuần Việt forms to avoid |
+| `compound: true` | both | Single-unit render; overrides character-by-character in `.hv.md` |
+| `alt_vi` | vi | Forbidden synonyms — never use in translation |
 | `status: pending` | — | Block translation until resolved |
+
+## Term categories (curator / build-glossary)
+
+| Category | Policy | Examples |
+|----------|--------|----------|
+| Phật hiệu | Capitalize | Phật, Như Lai, Thế Tôn, Chánh Biến Tri |
+| Bồ tát | Hán Việt; never Giác hữu tình | Bồ tát, Đại Bồ tát, Quán Thế Âm |
+| Thanh văn | Hán Việt | Xá Lợi Phất, A Nan, Ca Diếp |
+| Tăng đoàn | Fixed forms; `alt_vi` for cư sĩ | Tỳ kheo, Sa di, Ưu bà tắc |
+| Quả vị | Hán Việt | Tu đà hoàn, A la hán |
+| Pháp tu / giáo lý | Hán Việt | Bát nhã ba la mật, duyên khởi, không |
+| Địa danh | Title Case per syllable; no hyphens | Xá Vệ, Kỳ Viên |
+| Chức danh | Lowercase generic + capitalize name | Tam tạng pháp sư Huyền Trang |
+| Tên kinh | `{Name} Kinh` not `Kinh {Name}` | Kim Cương Kinh |
 
 ## Principles
 
 - **One `zh` → one `hv` and one `vi`** per series scope
 - When `hv` and `vi` are the same (proper names, established compounds), set both explicitly
-- When layers differ: `hv` stays âm dịch; `vi` uses natural thuần Việt (e.g. 修多羅 hv `Tu Đa La`, vi `kinh`)
-- No hyphens in `hv` or `vi`: Title Case syllables (`Bát Nhã Ba La Mật`, `A Nan`); hyphens only in `sanskrit` / `notes`
+- When layers differ: `hv` stays âm dịch; `vi` uses natural thuần Việt only when needed (e.g. 修多羅 hv `Tu Đa La`, vi `kinh`)
+- No hyphens in `hv` or `vi`; capitalization per terminology doc
+- `alt_vi`: register forbidden forms (e.g. `nam cư sĩ` for 比丘, `Giác hữu tình` for 菩薩)
 - Legacy entries with only `vi` are treated as `hv` until curated
+
+## First occurrence (`.vi.md` only)
+
+- Optional inline parenthetical: `Bát nhã (般若)` on first use of hard terms
+- Agents do **not** add by default; user may request or add via web **Insert footnote**
+- Footnotes: `[^n]` inline + definitions after `<!-- footnotes -->`; body line count unchanged
 
 ## Translation usage
 

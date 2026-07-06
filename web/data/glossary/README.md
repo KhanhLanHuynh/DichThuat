@@ -2,6 +2,8 @@
 
 Sổ đăng ký thuật ngữ Hán → **Hán-Việt (`hv`)** + **thuần Việt (`vi`)**. Ghi đè theo bộ kinh nằm trong `{series}.yaml`.
 
+Chuẩn thuật ngữ: [`docs/BẢNG QUY TẮC Chat GPT tongHop.md`](../../../docs/BẢNG%20QUY%20TẮC%20Chat%20GPT%20tongHop.md)
+
 Corpus nằm trong `web/data/glossary/` (cùng `CONTENT_ROOT` với `sources/`, `translations/`, `projects/`).
 
 ## File
@@ -15,14 +17,26 @@ Corpus nằm trong `web/data/glossary/` (cùng `CONTENT_ROOT` với `sources/`, 
 
 ```yaml
 - zh: "般若"
-  hv: "Bát Nhã"    # bắt buộc cho .hv.md
-  vi: "Bát Nhã"    # bắt buộc cho .vi.md
+  hv: "Bát nhã"
+  vi: "Bát nhã"
   sanskrit: "prajñā"
   doctrine: true
+
+- zh: "菩薩摩訶薩"
+  hv: "Đại Bồ tát"
+  vi: "Đại Bồ tát"
+  compound: true
+
+- zh: "比丘"
+  hv: "Tỳ kheo"
+  vi: "Tỳ kheo"
+  alt_vi: ["nam cư sĩ"]
 ```
 
-- **`hv`**: âm dịch Hán-Việt — dùng khi dịch lớp `.hv.md`
-- **`vi`**: thuần Việt đọc được — dùng khi dịch lớp `.vi.md`
+- **`hv`**: Hán-Việt — dùng khi dịch lớp `.hv.md` (âm dịch hoặc `compound`)
+- **`vi`**: thuần Việt — ưu tiên Hán Việt đã phổ biến; gloss chỉ khi cần
+- **`compound: true`**: một đơn vị glossary; ghi đè dịch từng chữ trong `.hv.md`
+- **`alt_vi`**: dạng cấm — không dùng trong bản dịch (vd. Giác hữu tình, nam cư sĩ)
 - Khi hai lớp giống nhau (tên riêng, thuật ngữ cố định), ghi cả hai
 - Bản cũ chỉ có `vi` được coi là `hv` cho đến khi curator bổ sung `vi` riêng
 
