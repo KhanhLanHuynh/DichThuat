@@ -1,0 +1,8 @@
+# Local corpus — not committed to git (sources, translations, glossary, projects).
+# Only skeleton files (README.md, .gitkeep) are tracked.
+
+*
+!.gitignore
+!.gitkeep
+!*/
+!**/README.md

@@ -19,8 +19,9 @@ web/build/
 # testing
 web/coverage/
 
-# corpus (local only; keep skeleton on clone)
+# corpus (local only; content rules in web/data/.gitignore)
 web/data/**
+!web/data/.gitignore
 !web/data/.gitkeep
 !web/data/**/
 !web/data/**/README.md
