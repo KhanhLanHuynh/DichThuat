@@ -31,6 +31,9 @@ description: >-
 - [ ] Proper names transliterated consistently
 - [ ] Capitalization: honorifics vs common nouns per terminology doc
 - [ ] Sutra titles: `{Name} Kinh` not `Kinh {Name}`
+- [ ] **HV residue (`.vi.md`):** no bare particles (`nhi`, `ly`, …) or unregistered HV strings (e.g. `vô chư cấu uế`)
+- [ ] **DIFF compliance:** when glossary `hv` ≠ `vi`, draft must not mix forms (e.g. 自性 → `tự tánh` only in `.vi.md`)
+- [ ] **Series formulas:** 白佛言 / 佛告…言 match series glossary + prior chapters; quả vị Title Case consistent within file
 
 ### Footnotes (`.vi.md`, when present)
 - [ ] Inline `[^n]` on body lines only (no extra body lines)
@@ -42,6 +45,8 @@ description: >-
 - [ ] No omitted sentences or list items
 - [ ] No added interpretation
 - [ ] Ambiguities marked `[?]` with note in `notes/`
+- [ ] **Misread compounds:** 體性 ≠ “có thể tính”; registered compounds treated as units
+- [ ] **Complex locatives:** 於 A 安置 B 中 reads as one clear locative (not stacked “giữa … vào trong …”)
 
 ### Style
 - [ ] Correct register (scripture vs commentary)
@@ -65,6 +70,8 @@ Write to `notes/{series}-review-ch{NN}.md`. Log `status: reviewed` there; transl
 ### Glossary gaps
 - zh: "..." → propose hv: "..." / vi: "..."
 ```
+
+When failing on terminology, always cite whether the issue is **DIFF mix** (`hv` used in `.vi.md`), **HV residue** (bare particle / unregistered string), or **unauthorized synonym**.
 
 ## After review
 

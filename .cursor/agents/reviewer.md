@@ -48,6 +48,9 @@ Read-only auditor. Report in `notes/`; do not edit translation files unless user
 | Wrong capitalization (honorific vs common noun) | **Suggestion** (Critical if systematic) |
 | Sutra title order wrong (`Kinh Kim Cương` vs `Kim Cương Kinh`) | **Critical** |
 | Compound term expanded wrongly (菩薩摩訶薩 ≠ Đại Bồ tát) | **Critical** |
+| Bare HV particle / unregistered HV string in `.vi.md` (`nhi`, `ly`, `vô chư…`) | **Critical** |
+| DIFF mix: used glossary `hv` in `.vi.md` where `vi` differs (e.g. `tự tính` vs `tự tánh`) | **Critical** |
+| Series dialogue formula drift vs glossary / prior chapters (白佛言, 佛告) | **Suggestion** (Critical if systematic) |
 
 ### Fidelity — Critical
 
@@ -56,6 +59,8 @@ Read-only auditor. Report in `notes/`; do not edit translation files unless user
 | Missing sentences, clauses, list items | **Critical** |
 | Added interpretation | **Critical** |
 | Mantra paraphrased | **Critical** |
+| Misread compound (體性 → “có thể tính”) | **Critical** |
+| Garbled double locative (於 A 安置 B 中 stacked) | **Critical** if meaning distorted; else **Suggestion** |
 
 ### Style — Suggestion (Critical if severe)
 

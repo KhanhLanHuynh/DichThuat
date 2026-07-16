@@ -41,6 +41,10 @@ Khi `hv` và `vi` tranh nhau, theo `web/data/glossary/terms.yaml` — **không**
 | 心 | lòng | tâm | trong ngữ cảnh A-tỳ-đạm |
 | 眾生 | người | chúng sinh | |
 | 修行 | tu hành | tu tập / hành trì | tùy bộ kinh |
+| 體性 | có thể tính | thể tánh / thể tính | đừng tách 體 thành “có thể” |
+| 而白佛言 | nhi bạch Phật… | bạch Phật rằng | bỏ tiểu từ `nhi` trong `.vi.md` |
+| 自性離故 | tự tính ly | vì tự tánh vốn lìa | dùng `vi` DIFF; `lìa` không để `ly` |
+| 無諸垢穢 | vô chư cấu uế | không còn các cấu uế | không để nguyên chuỗi HV |
 
 ## 4. Mẫu câu kinh điển
 
@@ -119,3 +123,14 @@ Khi **Phật / Như Lai / Thế Tôn / 婆伽婆 / 世尊** nói **trực tiếp
 - Chỉ áp dụng lời Phật (không áp dụng Bồ tát, đệ tử, v.v.).
 - Chỉ khi nguồn có xưng hô mở đầu; không thêm nếu đã có `Này`.
 - **Không** áp dụng cho `.hv.md` (Hán-Việt giữ sát nguồn).
+
+### Công thức đối thoại trong bộ kinh (bổ sung)
+
+Trong cùng một series, thống nhất với glossary `vi` và chương đã duyệt:
+
+| Hán | `.vi.md` (ưu tiên) |
+|-----|-------------------|
+| 白佛言 | bạch Phật rằng |
+| 佛告 X 言 | Phật bảo X rằng |
+
+Không để tiểu từ HV (`nhi`, `ly`, …) hoặc chuỗi HV chưa đăng ký trong bản thuần Việt.

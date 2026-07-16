@@ -46,6 +46,10 @@ description: >-
 - **Buddha direct address (`.vi.md` only):** when Phật / Như Lai / Thế Tôn / 婆伽婆 / 世尊 speaks **directly to** an interlocutor and the source opens with a vocative (e.g. 大王, 善男子), prefix **`Này`** before the addressee title or name — e.g. 「大王！…」→ 「Này Đại vương!…」; not for other speakers; do not duplicate if `Này` is already present
 - Uncertain readings: inline `[?]`; explain in `notes/`
 - **Footnotes:** do **not** add in agent drafts — user adds via web **Insert footnote** after translation (`docs/style-guide.md` §5). If user explicitly requests 註解 or first-occurrence gloss, use inline `Bát nhã (般若)` or `[^n]` on same line; definitions after `<!-- footnotes -->`; never break body line count
+- **HV residue (`.vi.md`):** never leave bare particles (`nhi`, `ly`, `cố`, …) or unregistered HV strings; when glossary has DIFF (`hv` ≠ `vi`), use only `vi` (e.g. 自性 → `tự tánh` not `tự tính`)
+- **Misread compounds:** do not split 體性 as “có thể tính”; treat registered compounds as units
+- **Series formulas:** match prior chapters + glossary for 白佛言 / 佛告…言 (e.g. `bạch Phật rằng`, `Phật bảo … rằng`); one Title Case policy per series for quả vị
+- **Locatives:** 於 A 安置 B 中 → one clear reading (into B; amid/from A optional) — no double “giữa … vào trong …”
 
 ## Blank-line dedupe (before save)
 
@@ -61,6 +65,8 @@ Agents sometimes insert an extra empty line between paragraphs. Before writing `
 - [ ] Load source + glossary (+ optional .hv.md)
 - [ ] Translate line by line from source
 - [ ] Self-check: glossary `vi` compliance + line count parity
+- [ ] Self-check: no HV residue (`nhi`/`ly`/unregistered HV); DIFF terms use `vi` only
+- [ ] Self-check: complex 於…中 / 安置 clauses read clearly (single locative)
 - [ ] Dedupe blank lines: collapse any run of 2+ consecutive empty lines to match source at that position
 - [ ] Write plain-text .vi.md
 - [ ] Write log to notes/

@@ -71,6 +71,12 @@ Reference: `docs/BẢNG QUY TẮC Chat GPT tongHop.md`, `.cursor/rules/glossary.
 
 When unsure, set `vi` equal to `hv` and add `status: pending` for curator review.
 
+## Soften HV-identical `vi` (addendum)
+
+If a draft or review shows an entry with `vi` == `hv` that is only a connective / list closer / speech formula (白佛言, 如是等, 離垢, …), prefer a readable `vi` when Thuan Viet / prior chapters already use one — keep `hv` as âm dịch. Do **not** leave `vi` HV-identical solely because auto-extract copied `.hv.md`.
+
+Register frequent doctrinal singles early (聲聞, 辟支佛, 二乘, 體性, 自性, …) so `.vi.md` cannot invent forms.
+
 ## Transliteration Style
 
 - Do NOT use hyphens (`-`) to join syllables in `hv` or `vi` values.

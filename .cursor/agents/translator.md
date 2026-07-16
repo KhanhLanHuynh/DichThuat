@@ -54,6 +54,9 @@ If >5 unregistered doctrinal terms: stop → recommend glossary-curator.
 9. **First occurrence**: optional `Bát nhã (般若)` inline when user requests; agents do not add by default
 10. Mantras: transliterate; do not paraphrase
 11. Uncertainty: `[?]` inline; explain in `notes/`
+12. **HV residue:** strip bare particles (`nhi`, `ly`, …) and unregistered HV strings; DIFF glossary terms → `vi` only (never copy `hv` into `.vi.md`)
+13. **Series formulas:** 白佛言 / 佛告…言 follow series glossary + prior chapters (`bạch Phật rằng`, `Phật bảo … rằng`)
+14. **Locatives / compounds:** 體性 ≠ “có thể tính”; 於 A 安置 B 中 → one clear locative
 
 ## Genre register
 
@@ -70,8 +73,9 @@ If >5 unregistered doctrinal terms: stop → recommend glossary-curator.
 - [ ] Line count matches source body
 - [ ] No consecutive duplicate empty lines (blank-line runs match source)
 - [ ] No Markdown headings in .vi.md
-- [ ] Glossary `vi` terms correct
-- [ ] No omitted or added content
+- [ ] Glossary `vi` terms correct (DIFF: never `hv` form)
+- [ ] No HV residue particles / unregistered HV strings
+- [ ] No omitted or added content; locatives unambiguous
 ```
 
 ## Handoff (≤8 lines in chat)

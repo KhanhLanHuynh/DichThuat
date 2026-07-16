@@ -49,6 +49,31 @@ Follow glossary for compounds (e.g. `Bát nhã ba la mật`, `ba la mật`).
 - Honorifics: 佛 → Phật; 世尊 → Thế Tôn
 - Glossary-bound terms: use `vi` column only — never `hv` when they differ
 
+## HV residue in `.vi.md` (addendum)
+
+Do **not** leave bare Hán-Việt particles or unregistered HV strings in thuần Việt drafts:
+
+| Pattern | Wrong (`.vi.md`) | Prefer |
+|---------|------------------|--------|
+| Connective 而 | `nhi bạch Phật rằng` | drop `nhi` → `bạch Phật rằng` |
+| 離 as bare `ly` | `vì tự tánh ly` | `vì tự tánh vốn lìa` / glossary `vi` |
+| Full HV residue | `vô chư cấu uế` | glossary `vi` (e.g. `không còn các cấu uế`) |
+| Used `hv` where DIFF | `tự tính` when glossary `vi` is `tự tánh` | exact glossary `vi` |
+
+When refining from `.hv.md`, rewrite connectors and particles into readable Vietnamese; keep only glossary-authorized `vi` terms.
+
+## Series dialogue formulas (addendum)
+
+Within a series, align speech formulas with earlier approved chapters and glossary `vi`:
+
+- 白佛言 → prefer series `vi` (e.g. `bạch Phật rằng`), not a one-off HV copy
+- 佛告 X 言 → `Phật bảo X rằng`
+- Quả vị / Title Case: one casing per series (follow series glossary; do not mix `Tu đà hoàn` / `Tu Đà Hoàn` in the same file)
+
+## Complex locatives (addendum)
+
+For patterns like 於 A 皆悉安置 B 中, keep **one clear locative**: settle *into B* (optionally *amid / from A*). Avoid stacking two “giữa … vào trong …” phrases that obscure 中.
+
 ## First occurrence
 
 - Optional inline: `Bát nhã (般若)` for hard terms when user requests

@@ -87,6 +87,10 @@ For each term:
 | Compound | both | `compound: true` | 菩薩摩訶薩 → Đại Bồ tát |
 | alt_vi | vi | Forbidden synonyms | 比丘 alt_vi: nam cư sĩ |
 
+**Soften HV-identical `vi` (addendum):** for speech formulas, list closers, and 離* compounds, set readable `vi` when series Thuan / prior chapters already use one (白佛言 → `bạch Phật rằng`; 如是等 → `như vậy`; 離垢 → `lìa cấu`). Keep `hv` as âm dịch. After reviewer **Glossary gaps**, add missing singles before re-translation.
+
+**DIFF discipline:** when `hv` ≠ `vi` (自性 → `tự tính` / `tự tánh`), document series policy in `notes` and never let auto-extract overwrite `vi` with `hv`.
+
 **Sources for proposals** (in order):
 
 1. Existing `web/data/glossary/terms.yaml`

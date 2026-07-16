@@ -66,3 +66,22 @@ Phật đáp: «Tịch diệt tức là Niết bàn.»
 **Output line:** chướng tri kiến [?]
 
 **Note in `notes/`:** Bản khác作「知障」.
+
+## Example 6 — HV residue / DIFF (`.vi.md`)
+
+**Source:** 而白佛言：「…自性離故…體性清淨…」
+
+**Wrong:** … nhi bạch Phật ngôn: 「… vì tự tính ly … có thể tính Thanh Tịnh…」
+
+**Correct:** … bạch Phật rằng: 「… vì tự tánh vốn lìa … thể tánh Thanh Tịnh…」
+
+(Use glossary `vi`; drop 而/`nhi`; 離 → `lìa` not bare `ly`; 體性 ≠ “có thể tính”.)
+
+## Example 7 — Single locative (安置…中)
+
+**Source:** 於生死海皆悉安置般若波羅蜜中
+
+**Wrong:** đều an trí họ giữa biển sinh tử vào trong Bát nhã ba la mật
+
+**Correct:** giữa biển sinh tử, đều an trí họ vào trong Bát nhã ba la mật
+

@@ -82,6 +82,12 @@ terms:
 
 Never substitute `hv` readings in `.vi.md` or `vi` readings in `.hv.md` unless the two fields are identical in the glossary.
 
+## Soften & gap fill (addendum)
+
+- Prefer readable `vi` for connectives / formulas when Thuan or prior chapters already established one — do not freeze auto-extracted HV strings as `vi`
+- After review **Glossary gaps**, curator adds entries before `/translator` revision
+- When `hv` ≠ `vi`, note series policy explicitly (e.g. 自性: `.vi.md` = `tự tánh` only)
+
 ## Updates
 
 - New term: add `hv` + `vi` before first use in translation

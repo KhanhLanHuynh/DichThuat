@@ -52,6 +52,7 @@ Translation files (`.hv.md`, `.vi.md`) are **plain text bodies** — not structu
 - Mark uncertain readings: `[?]`; explain in `notes/`
 - Do not add commentary in translation files unless user requests 註解 (use `.vi.md` footnotes via web editor when requested)
 - Flag doctrinal ambiguity rather than guessing
+- **`.vi.md` addendum:** no bare HV particles (`nhi`, `ly`, …) or unregistered HV strings; when glossary `hv` ≠ `vi`, use only `vi`
 
 ## Session Start
 

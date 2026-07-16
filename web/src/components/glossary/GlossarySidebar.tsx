@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Pencil, Plus } from "lucide-react";
 import type { GlossaryTerm } from "@/lib/glossary";
 import {
@@ -10,6 +10,11 @@ import {
 } from "@/lib/glossary";
 
 const STORAGE_KEY = "dichthuat-glossary-expanded";
+const PAGE_SIZE = 50;
+
+function glossaryListResetKey(search: string, terms: GlossaryTerm[]): string {
+  return `${search}\0${terms.length}\0${terms[0]?.zh ?? ""}\0${terms[terms.length - 1]?.zh ?? ""}`;
+}
 
 interface GlossarySidebarProps {
   terms: GlossaryTerm[];
@@ -25,12 +30,22 @@ export function GlossarySidebar({
   onAddTerm,
 }: GlossarySidebarProps) {
   const [search, setSearch] = useState("");
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return localStorage.getItem(STORAGE_KEY) !== "false";
+  });
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [listResetKey, setListResetKey] = useState(() =>
+    glossaryListResetKey("", terms)
+  );
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === "false") setExpanded(false);
-  }, []);
+  const nextListResetKey = glossaryListResetKey(search, terms);
+  if (nextListResetKey !== listResetKey) {
+    setListResetKey(nextListResetKey);
+    setVisibleCount(PAGE_SIZE);
+  }
 
   const toggleExpanded = () => {
     setExpanded((prev) => {
@@ -40,14 +55,48 @@ export function GlossarySidebar({
     });
   };
 
-  const activeZh = new Set(activeTerms.map((t) => t.zh));
-  const filtered = filterTerms(terms, search);
+  const activeZh = useMemo(
+    () => new Set(activeTerms.map((t) => t.zh)),
+    [activeTerms]
+  );
+  const filtered = useMemo(() => filterTerms(terms, search), [terms, search]);
 
-  const sorted = [...filtered].sort((a, b) => {
-    const aActive = activeZh.has(a.zh) ? 0 : 1;
-    const bActive = activeZh.has(b.zh) ? 0 : 1;
-    return aActive - bActive;
-  });
+  const sorted = useMemo(
+    () =>
+      [...filtered].sort((a, b) => {
+        const aActive = activeZh.has(a.zh) ? 0 : 1;
+        const bActive = activeZh.has(b.zh) ? 0 : 1;
+        return aActive - bActive;
+      }),
+    [filtered, activeZh]
+  );
+
+  const effectiveVisibleCount =
+    nextListResetKey !== listResetKey ? PAGE_SIZE : visibleCount;
+  const hasMore = effectiveVisibleCount < sorted.length;
+  const visibleTerms = sorted.slice(0, effectiveVisibleCount);
+
+  useEffect(() => {
+    if (!expanded || !hasMore) return;
+
+    const root = scrollRef.current;
+    const sentinel = sentinelRef.current;
+    if (!root || !sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setVisibleCount((prev) =>
+            Math.min(prev + PAGE_SIZE, sorted.length)
+          );
+        }
+      },
+      { root, rootMargin: "80px", threshold: 0 }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [expanded, hasMore, sorted.length, effectiveVisibleCount]);
 
   const activeCount = activeTerms.length;
 
@@ -95,10 +144,15 @@ export function GlossarySidebar({
               placeholder="Search terms…"
               className="w-full rounded-md border border-border px-2 py-1.5 text-xs"
             />
+            {sorted.length > 0 && (
+              <p className="mt-1.5 text-[10px] text-muted">
+                Showing {visibleTerms.length} of {sorted.length}
+              </p>
+            )}
           </div>
 
-          <div className="flex-1 overflow-y-auto p-2">
-            {sorted.slice(0, 50).map((term) => {
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-2">
+            {visibleTerms.map((term) => {
               const normalized = normalizeGlossaryTerm(term);
               const vi = getTermRendering(normalized, "vi");
               const hv = getTermRendering(normalized, "hv");
@@ -151,6 +205,20 @@ export function GlossarySidebar({
             })}
             {sorted.length === 0 && (
               <p className="p-2 text-xs text-muted">No terms match.</p>
+            )}
+            {hasMore && (
+              <div
+                ref={sentinelRef}
+                className="py-2 text-center text-[10px] text-muted"
+                aria-hidden
+              >
+                Scroll for more…
+              </div>
+            )}
+            {!hasMore && sorted.length > PAGE_SIZE && (
+              <p className="py-2 text-center text-[10px] text-muted">
+                All {sorted.length} terms loaded
+              </p>
             )}
           </div>
         </>
